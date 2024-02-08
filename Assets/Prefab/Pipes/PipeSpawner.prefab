@@ -45,6 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22aa5e2ac40158045a24751aa91acfe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ballRef: {fileID: 2753629154491511024, guid: 2d5a1ad299f0ae34e9002dc973b5cca2, type: 3}
+  spawnDelay: 0.5
+  timer: 0
 --- !u!1 &755842185624688178
 GameObject:
   m_ObjectHideFlags: 0
