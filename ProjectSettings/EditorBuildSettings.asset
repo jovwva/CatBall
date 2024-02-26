@@ -6,6 +6,57 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/GameScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/Menu.unity
+    guid: f12e40af30e30a848afe86ca7208e213
+  - enabled: 1
+    path: Assets/Scenes/LevelsMap.unity
+    guid: 6255e0085d5d79a439bc3e7a8f38d244
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 1.unity
+    guid: 249ea18ffbb3d69448ec2d143955fd9e
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 2.unity
+    guid: 85bfaa43c09e9894f9333b3e3a387cb3
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 3.unity
+    guid: 1d33241343379334ba9b3e4b6a87dc23
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 4.unity
+    guid: 4fcbbbc95399f8d4f918502843a6a069
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 5.unity
+    guid: 11bca70d7b25e124cba1b2e9f0664e16
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 6.unity
+    guid: 08758cf4198f9814a80d6a4f268f5f83
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 7.unity
+    guid: ed9bfdb00dfdecb42baa02157004d019
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 8.unity
+    guid: 0e2bb206247726f438c4ad4d75e2bf3f
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 9.unity
+    guid: b4d51c4033125b947a1dd5e258f30896
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 10.unity
+    guid: 33d83fbd7ffab034aabb30dabeda5ece
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 11.unity
+    guid: 94986576c95ff0e479bc46834f15a1d6
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 12.unity
+    guid: b4381477b8753c245919d817a46e9b16
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 13.unity
+    guid: 13f9973b8f42e264fb2748d17d8c5442
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 14.unity
+    guid: 786769435299894469333eb9a79b0a90
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 15.unity
+    guid: 271240808053ad9419a25b151b7a7536
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 16.unity
+    guid: 4d193dc6241ac584a9f95a655a1727f6
   m_configObjects: {}

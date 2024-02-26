@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95e66c6366d904e98bc83428217d4fd7, type: 3}
+  m_Name: ObjectManager
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"graph":{"variables":{"Kind":"Flow","collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":-156.8594,"y":-22.4361},"zoom":1.0,"elements":[{"nest":{"source":"Macro","macro":0,"embed":null},"defaultValues":{"SpawnEvent":null,"ReturnEvent":null},"position":{"x":-103.0,"y":-140.0},"guid":"5209601c-73eb-4f1a-8beb-e79bd46d1504","$version":"A","$type":"Unity.VisualScripting.SubgraphUnit","$id":"9"},{"type":"System.String","value":{"$content":"SpawnBall","$type":"System.String"},"defaultValues":{},"position":{"x":-264.0,"y":-221.0},"guid":"41982013-a3e3-4687-b4eb-746d50bebd71","$version":"A","$type":"Unity.VisualScripting.Literal","$id":"12"},{"type":"System.String","value":{"$content":"ReturnBall","$type":"System.String"},"defaultValues":{},"position":{"x":-286.0,"y":2.0},"guid":"a6deeaa9-9687-4300-84ae-ac95079700d7","$version":"A","$type":"Unity.VisualScripting.Literal","$id":"14"},{"specifyFallback":false,"kind":"Object","defaultValues":{"name":{"$content":"PreSpawnNumber","$type":"System.String"},"object":null},"position":{"x":-321.0,"y":117.0},"guid":"c9168e6e-061b-4520-bc3b-869692ff474a","$version":"A","$type":"Unity.VisualScripting.GetVariable","$id":"16"},{"specifyFallback":false,"kind":"Object","defaultValues":{"name":{"$content":"PrefabeBall","$type":"System.String"},"object":null},"position":{"x":-379.0,"y":-126.0},"guid":"bae03c76-0082-4c56-82ed-9697e41f3d86","$version":"A","$type":"Unity.VisualScripting.GetVariable","$id":"18"},{"sourceUnit":{"$ref":"12"},"sourceKey":"output","destinationUnit":{"$ref":"9"},"destinationKey":"SpawnEvent","guid":"9e8227e5-c697-4793-97ae-838903057063","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"14"},"sourceKey":"output","destinationUnit":{"$ref":"9"},"destinationKey":"ReturnEvent","guid":"e684d6f5-a564-4221-8148-e73be14b54d9","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"16"},"sourceKey":"value","destinationUnit":{"$ref":"9"},"destinationKey":"PreSpawn","guid":"299764aa-45cf-4f1d-a053-8c7e7cfeadd2","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"18"},"sourceKey":"value","destinationUnit":{"$ref":"9"},"destinationKey":"Prefab","guid":"a6e58776-5dfb-4f41-b328-5341aaaff80d","$type":"Unity.VisualScripting.ValueConnection"}],"$version":"A"}}'
+    _objectReferences:
+    - {fileID: 11400000, guid: 92c56055e55eade48ba7eb01517f3cbf, type: 2}
