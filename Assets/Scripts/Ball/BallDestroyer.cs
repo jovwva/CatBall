@@ -7,7 +7,10 @@ public class BallDestroyer : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Сообщает, что синий мячик был уничтожен!
-        _busHolder.EventBus.Raise(new BallDestroyedEvent(BallType.BlueBall));
-        Destroy(other.gameObject);
+        if (other.TryGetComponent<Ball>( out Ball ball))
+        {
+            _busHolder.EventBus.Raise(new BallDestroyedEvent(BallType.BlueBall));
+            ball.Test();
+        }
     }
 }

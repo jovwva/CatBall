@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &55278094
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 55278095}
+  m_Layer: 0
+  m_Name: '[BallPool]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &55278095
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 55278094}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.7181846, y: -0.7839831, z: -0.07296792}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &108239091
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -293,6 +324,7 @@ GameObject:
   m_Component:
   - component: {fileID: 851876552}
   - component: {fileID: 851876553}
+  - component: {fileID: 851876554}
   m_Layer: 0
   m_Name: '[BallFactory]'
   m_TagString: Untagged
@@ -309,7 +341,7 @@ Transform:
   m_GameObject: {fileID: 851876551}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 4.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -328,10 +360,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _busHolder: {fileID: 1039233651}
-  ballPref: {fileID: 1395096662099878944, guid: f78f10426fc69a442be7895894151ffb, type: 3}
+  _ballPool: {fileID: 851876554}
   ballSpawned: 0
   ballLimit: 20
-  spawnDelay: 0.4
+  spawnDelay: 0.3
+--- !u!114 &851876554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851876551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 765a1db46d3d24a498ef6364f4507696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolType: 0
+  ballPref: {fileID: 1395096662099878944, guid: f78f10426fc69a442be7895894151ffb, type: 3}
+  collectionChecks: 1
+  maxPoolSize: 10
 --- !u!1 &1039233649
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,3 +759,4 @@ SceneRoots:
   - {fileID: 851876552}
   - {fileID: 1039233650}
   - {fileID: 1585495938}
+  - {fileID: 55278095}

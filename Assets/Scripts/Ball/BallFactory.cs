@@ -8,8 +8,8 @@ public enum BallType {
 public class BallFactory : MonoBehaviour
 {
     [SerializeField] private EventBusHolder _busHolder;
+    [SerializeField] private BallPool       _ballPool;
 
-    public GameObject   ballPref;
     public int          ballSpawned = 0;
     public int          ballLimit   = 20;
     public float        spawnDelay  = .4f;
@@ -37,7 +37,10 @@ public class BallFactory : MonoBehaviour
 
         if (timer >= spawnDelay) {
             timer = 0f;
-            Instantiate(ballPref, transform.position, Quaternion.identity);
+            
+            Ball ball = _ballPool.Pool.Get();
+            ball.SetPosition(transform.position);
+
             ballSpawned++;
         }
         if (ballSpawned >= ballLimit) {
