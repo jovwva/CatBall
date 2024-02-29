@@ -1,19 +1,36 @@
 using UnityEngine;
 
+public enum BallType {
+    BlueBall,
+    RedBall,
+}
+
 public class BallFactory : MonoBehaviour
 {
+    [SerializeField] private EventBusHolder _busHolder;
+
     public GameObject   ballPref;
     public int          ballSpawned = 0;
     public int          ballLimit   = 20;
     public float        spawnDelay  = .4f;
 
-    public bool         factoryState = true;
+    private bool         _factoryState = true;
+    public bool FactoryState {
+        get { return _factoryState; }
+        private set {
+            if (!value && _factoryState)
+            {
+                _busHolder.EventBus.Raise(new PipeEmptiedEvent(gameObject));
+            }
+            _factoryState = value;
+        }   
+    }
 
     private float timer = 0;
 
     private void Update()
     {
-        if (!factoryState) {
+        if (!FactoryState) {
             return;
         }
         timer += Time.deltaTime; 
@@ -24,7 +41,7 @@ public class BallFactory : MonoBehaviour
             ballSpawned++;
         }
         if (ballSpawned >= ballLimit) {
-            factoryState = false;
+            FactoryState = false;
         }
     }
 }
