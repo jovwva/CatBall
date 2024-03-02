@@ -532,13 +532,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _eventBusHolder: {fileID: 1039233651}
   levelPass: 0
-  ballsCount: 60
-  ballsWinCount: 20
+  ballsCount: 50
+  ballsWinCount: 12
   ballsDestroyed: 0
   ballApproved: 0
   starIndicator: {fileID: 2100003779}
   canvasGroup: {fileID: 2100003780}
-  resultPanel: {fileID: 13368980}
+  resultPanel: {fileID: 13368984}
 --- !u!1 &582946207
 GameObject:
   m_ObjectHideFlags: 0
@@ -2607,6 +2607,10 @@ PrefabInstance:
       propertyPath: _ballPool
       value: 
       objectReference: {fileID: 851876554}
+    - target: {fileID: 3255997154165579502, guid: e5f00a707a865334e917bb78132fc9c5, type: 3}
+      propertyPath: ballLimit
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3255997154165579502, guid: e5f00a707a865334e917bb78132fc9c5, type: 3}
       propertyPath: _busHolder
       value: 

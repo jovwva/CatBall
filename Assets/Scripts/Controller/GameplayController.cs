@@ -78,8 +78,22 @@ public class GameplayController : MonoBehaviour, IEventReceiver<BallDestroyedEve
 
     private IEnumerator ShowLevelResult()
     {
-        resultPanel.SetResult(0);
+        resultPanel.SetResult(GetStarCount());
         yield return new WaitForSeconds(.1f);
         resultPanel.ShowResult();
+    }
+
+    private int GetStarCount() {
+        float result = ballApproved / ballsWinCount;
+
+        if (result < .5f) {
+            return 0;
+        } else if (result < .65f){
+            return 1;
+        } else if (result < .85f) {
+            return 2;
+        } else {
+            return 3;
+        }
     }
 }
