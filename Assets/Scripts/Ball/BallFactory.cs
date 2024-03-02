@@ -1,6 +1,7 @@
 using UnityEngine;
 
 public enum BallType {
+    AnyBall,
     BlueBall,
     RedBall,
 }
@@ -13,6 +14,7 @@ public class BallFactory : MonoBehaviour
     public int          ballSpawned = 0;
     public int          ballLimit   = 20;
     public float        spawnDelay  = .4f;
+    public Transform    spawnPosition;
 
     private bool         _factoryState = true;
     public bool FactoryState {
@@ -39,7 +41,7 @@ public class BallFactory : MonoBehaviour
             timer = 0f;
             
             Ball ball = _ballPool.Pool.Get();
-            ball.SetPosition(transform.position);
+            ball.SetPosition(spawnPosition.position);
 
             ballSpawned++;
         }

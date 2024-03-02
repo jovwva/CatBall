@@ -10,6 +10,7 @@ public class BallPool : MonoBehaviour
     }
 
     public PoolType poolType;
+    public BallType ballType = BallType.BlueBall;
     public GameObject ballPref;
 
     // Collection checks will throw errors if we try to release an item that is already in the pool.
@@ -33,13 +34,13 @@ public class BallPool : MonoBehaviour
         }
     }
 
-    Ball CreatePooledItem()
+    protected Ball CreatePooledItem()
     {
         var go = Instantiate(ballPref, transform, true);
-        go.name = "BallFromPool";
+        go.name = $"{ballType}_FromPool";
 
-        var ball = go.AddComponent<Ball>();
-        ball.pool = Pool;
+        Ball ball = go.AddComponent<Ball>();
+        ball.Init(Pool, ballType);
 
         return ball;
     }
