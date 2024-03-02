@@ -7,8 +7,12 @@ public class GameplayController : MonoBehaviour, IEventReceiver<BallDestroyedEve
     [SerializeField] private EventBusHolder _eventBusHolder;
     [Header("Level data")]
     public int ballsCount;
+    public int ballsWinCount;
     public int ballsDestroyed = 0;
-    public int ballApproved = 0;
+    public float ballApproved = 0;
+
+    [Header("UI Link")]
+    public StarIndicator starIndicator;
 
     private void Start()
     {
@@ -48,7 +52,7 @@ public class GameplayController : MonoBehaviour, IEventReceiver<BallDestroyedEve
         ballsDestroyed++;
         ballApproved++;
 
-        Debug.Log("Мы на шаг ближе к победе!");
+        starIndicator.UpdateStarIndicator(ballApproved / ballsWinCount);
     }
 
     public void LevelPass() {
