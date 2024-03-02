@@ -1,10 +1,10 @@
-using System;
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class GameplayController : MonoBehaviour, IEventReceiver<BallDestroyedEvent>, IEventReceiver<PipeEmptiedEvent>, IEventReceiver<BallApprovedEvent>
 {
     [SerializeField] private EventBusHolder _eventBusHolder;
+    [SerializeField] private bool levelPass = false;
     [Header("Level data")]
     public int ballsCount;
     public int ballsWinCount;
@@ -12,7 +12,9 @@ public class GameplayController : MonoBehaviour, IEventReceiver<BallDestroyedEve
     public float ballApproved = 0;
 
     [Header("UI Link")]
-    public StarIndicator starIndicator;
+    public StarIndicator    starIndicator;
+    public CanvasGroup      canvasGroup;
+    public ResultPanel      resultPanel;
 
     private void Start()
     {
@@ -52,10 +54,32 @@ public class GameplayController : MonoBehaviour, IEventReceiver<BallDestroyedEve
         ballsDestroyed++;
         ballApproved++;
 
-        starIndicator.UpdateStarIndicator(ballApproved / ballsWinCount);
+        if (!levelPass)
+        {
+            float result = ballApproved / ballsWinCount;
+            starIndicator.UpdateStarIndicator(result);
+
+            if (result >= 1) {
+                LevelPass();
+            }
+        }
+        
     }
 
     public void LevelPass() {
-        Debug.Log("Все шарики были уничтожены");
+        
+        if (!levelPass) {
+            levelPass = true;
+            canvasGroup.alpha = 0.5f;
+            StartCoroutine(ShowLevelResult());
+        }
+        
+    }
+
+    private IEnumerator ShowLevelResult()
+    {
+        resultPanel.SetResult(0);
+        yield return new WaitForSeconds(.1f);
+        resultPanel.ShowResult();
     }
 }
