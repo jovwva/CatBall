@@ -6,6 +6,7 @@ public class GameplayController : MonoBehaviour, IEventReceiver<BallDestroyedEve
     [SerializeField] private EventBusHolder _eventBusHolder;
     [SerializeField] private bool levelPass = false;
     [Header("Level data")]
+    public int levelID = 1;
     public int ballsCount;
     public int ballsWinCount;
     public int ballsDestroyed = 0;
@@ -51,7 +52,6 @@ public class GameplayController : MonoBehaviour, IEventReceiver<BallDestroyedEve
     }
 
     private void BallApproved() {
-        ballsDestroyed++;
         ballApproved++;
 
         if (!levelPass)
@@ -63,7 +63,7 @@ public class GameplayController : MonoBehaviour, IEventReceiver<BallDestroyedEve
                 LevelPass();
             }
         }
-        
+        BallDestroyed();
     }
 
     public void LevelPass() {
@@ -78,7 +78,7 @@ public class GameplayController : MonoBehaviour, IEventReceiver<BallDestroyedEve
 
     private IEnumerator ShowLevelResult()
     {
-        resultPanel.SetResult(GetStarCount());
+        resultPanel.SetResult(levelID, GetStarCount());
         yield return new WaitForSeconds(.1f);
         resultPanel.ShowResult();
     }

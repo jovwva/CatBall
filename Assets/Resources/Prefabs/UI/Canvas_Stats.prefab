@@ -436,6 +436,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 634f984c5c4e9134bbac37ef9c0a4e74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainMenuButton: {fileID: 6994829598642587751}
+  restartButton: {fileID: 8804839505444889436}
+  nextLevelButton: {fileID: 4747677067212503069}
   panelHolder: {fileID: 7542262853933180756}
   starArray:
   - {fileID: 4435163891706735732}

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class LevelPanel : MonoBehaviour
@@ -32,7 +33,7 @@ public class LevelPanel : MonoBehaviour
 
     public void LoadLevel(int levelID)
     {
-        Debug.Log($"Загружаю урвоень номер {levelID}");
+        SceneManager.LoadSceneAsync($"Level_{levelID}");
     }
 
 

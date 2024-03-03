@@ -1,17 +1,32 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ResultPanel : MonoBehaviour
 {
+    public Button mainMenuButton;
+    public Button restartButton;
+    public Button nextLevelButton;
+
     public GameObject panelHolder;
     public StarInResult[] starArray = new StarInResult[3];
     public TextMeshProUGUI resultText;
+
+    private int levelID;
+
+    private void Awake() {
+        mainMenuButton.onClick.AddListener(LoadMainMenu);
+        restartButton.onClick.AddListener(RestartLevel);
+        nextLevelButton.onClick.AddListener(LoadNextLevel);
+    }
 
     private void Start() {
         panelHolder.SetActive(false);
     }
 
-    public void SetResult(int starCount) {
+    public void SetResult(int levelID, int starCount) {
+        this.levelID = levelID;
         if (starCount == 0) {
             resultText.text = "Вы проиграли!";
         } else {
@@ -26,4 +41,8 @@ public class ResultPanel : MonoBehaviour
     public void ShowResult() {
         panelHolder.SetActive(true);
     }
+
+    private void LoadMainMenu()    => SceneManager.LoadSceneAsync("MainMenu");
+    private void RestartLevel()    => SceneManager.LoadSceneAsync($"Level_{levelID}");
+    private void LoadNextLevel()    => SceneManager.LoadSceneAsync($"Level_{levelID + 1}");
 }

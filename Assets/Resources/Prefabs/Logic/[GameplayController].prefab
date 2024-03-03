@@ -46,7 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _eventBusHolder: {fileID: 0}
   levelPass: 0
-  ballsCount: 50
+  levelID: 0
+  ballsCount: 10
   ballsWinCount: 12
   ballsDestroyed: 0
   ballApproved: 0
