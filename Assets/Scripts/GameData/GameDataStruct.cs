@@ -32,10 +32,10 @@ public struct ItemData
 public struct PlayerData 
 {
     public List<LevelData> levelsDataList;
-    public List<ItemState> itemsStateList;
+    public List<ItemData> itemsStateList;
     public int moneyValue;
 
-    public PlayerData(List<LevelData> levelsDataList, List<ItemState> itemsStateList, int moneyValue)
+    public PlayerData(List<LevelData> levelsDataList, List<ItemData> itemsStateList, int moneyValue)
     {
         this.levelsDataList = levelsDataList;
         this.itemsStateList = itemsStateList;
