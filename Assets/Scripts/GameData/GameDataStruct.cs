@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 
+[System.Serializable]
 public struct LevelData
 {
     public int levelID;
@@ -17,6 +18,7 @@ public enum ItemState {
     Purchased,
     Selected,
 }
+[System.Serializable]
 public struct ItemData
 {
     public int          itemID;
@@ -28,7 +30,7 @@ public struct ItemData
         this.itemState  = itemState;
     }
 }
-
+[System.Serializable]
 public struct PlayerData 
 {
     public List<LevelData> levelsDataList;

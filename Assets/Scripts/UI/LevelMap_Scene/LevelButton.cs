@@ -21,15 +21,19 @@ public class LevelButton : MonoBehaviour
         buttonText.text = levelData.levelID.ToString();
         gameObject.name = $"LevelButton_{levelData.levelID}";
 
-        if (levelData.starCount == 0) {
+        if (levelData.starCount == -1) {
             button.onClick.AddListener(ShowBlockAnim);
             lockedRoot.SetActive(true);
         } else {
             button.onClick.AddListener(LoadLevel);
             unlockedRoot.SetActive(true);
-            for (int i = 0; i < levelData.starCount; i++) {
-                starObjectArray[i].SetActive(true);
+            
+            if (levelData.starCount > 0) {
+                for (int i = 0; i < levelData.starCount; i++) {
+                    starObjectArray[i].SetActive(true);
+                }
             }
+            
         }
 
         LevelPanel = loadLevel;

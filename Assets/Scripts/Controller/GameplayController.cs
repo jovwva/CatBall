@@ -4,6 +4,7 @@ using UnityEngine;
 public class GameplayController : MonoBehaviour, IEventReceiver<BallDestroyedEvent>, IEventReceiver<PipeEmptiedEvent>, IEventReceiver<BallApprovedEvent>
 {
     [SerializeField] private EventBusHolder _eventBusHolder;
+    [SerializeField] private SaveSystem     _saveSystem;
     [SerializeField] private bool levelPass = false;
     [Header("Level data")]
     public int levelID = 1;
@@ -78,8 +79,10 @@ public class GameplayController : MonoBehaviour, IEventReceiver<BallDestroyedEve
 
     private IEnumerator ShowLevelResult()
     {
-        resultPanel.SetResult(levelID, GetStarCount());
-        yield return new WaitForSeconds(.1f);
+        int newStarCount = GetStarCount();
+        resultPanel.SetResult(levelID, newStarCount);
+        _saveSystem.TrySaveLevelData(levelID, newStarCount);
+        yield return new WaitForSeconds(.5f);
         resultPanel.ShowResult();
     }
 
