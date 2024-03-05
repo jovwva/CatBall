@@ -81,15 +81,34 @@ public class GameplayController : MonoBehaviour, IEventReceiver<BallDestroyedEve
     {
         int newStarCount = GetStarCount();
 
-        Debug.Log($"TryToSave new data: {levelID}{newStarCount}");
-        // Заменить
-        resultPanel.SetResult(levelID, newStarCount);
-        _saveSystem.SetLevelData(new LevelData(levelID, newStarCount));
-
-        _saveSystem.SaveProgress();
+        LevelData levelData = new LevelData(levelID, newStarCount);
+        resultPanel.SetResult(levelData);
+        CheckLevelResult(levelData);
 
         yield return new WaitForSeconds(.5f);
         resultPanel.ShowResult();
+    }
+
+    private void CheckLevelResult(LevelData levelData) {
+        bool needSave = false;
+        LevelData oldData = _saveSystem.GetLevelData(levelData.levelID);
+
+        if (oldData == null)
+        {
+            Debug.Log("Игра пройдена");
+            return;
+        }
+        
+        if (oldData.starCount == 0 && levelData.starCount != 0) {
+            CheckLevelResult(new LevelData(oldData.levelID + 1, 0));
+            needSave = true;
+        }
+        if (oldData.starCount < levelData.starCount) {
+            _saveSystem.SetLevelData(levelData);
+            needSave = true;
+        }
+
+        if (needSave) _saveSystem.SaveProgress();
     }
 
     private int GetStarCount() {

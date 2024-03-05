@@ -25,14 +25,14 @@ public class ResultPanel : MonoBehaviour
         panelHolder.SetActive(false);
     }
 
-    public void SetResult(int levelID, int starCount) {
-        this.levelID = levelID;
-        if (starCount == 0) {
+    public void SetResult(LevelData levelData) {
+        this.levelID = levelData.levelID;
+        if (levelData.starCount == 0) {
             resultText.text = "Вы проиграли!";
         } else {
             resultText.text = "Вы победили!";
 
-            for(int i=0; i < starCount; i++) {
+            for(int i=0; i < levelData.starCount; i++) {
                 starArray[i].ShowStar();
             }
         }

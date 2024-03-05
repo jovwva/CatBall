@@ -20,7 +20,7 @@ public class LevelPanel : MonoBehaviour
     // }
 
     private void Start() {
-        List<LevelData> levelDataList = saveSystem.GetLevelData();
+        List<LevelData> levelDataList = saveSystem.GetLevelDataList();
         for (int i = 0; i < levelDataList.Count; i++) {
             if (i >= levelButtonList.Count) {
                 Debug.Log($"Непредусмотренный урвоень Level_{i}");

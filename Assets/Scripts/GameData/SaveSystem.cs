@@ -19,9 +19,12 @@ public class SaveSystem : MonoBehaviour
 #endregion
 
 #region GetData
-    public List<LevelData> GetLevelData()   => playerData.levelsDataList;
-    public List<ItemData>  GetItemData()    => playerData.itemsStateList;
-    public int              GetMoneyData()  => playerData.moneyValue;
+    public LevelData        GetLevelData(int levelID)   => playerData.levelsDataList.Find( d => d.levelID == levelID);
+    public ItemData         GetItemData(int itemID)     => playerData.itemsStateList.Find( d => d.itemID == itemID);
+    public int              GetMoneyData()              => playerData.moneyValue;
+
+    public List<LevelData>  GetLevelDataList()          => playerData.levelsDataList;
+    public List<ItemData>   GetItemDataList()           => playerData.itemsStateList;
 #endregion
 
 #region Save\Load
@@ -37,15 +40,14 @@ public class SaveSystem : MonoBehaviour
     private void JsonConversion(string value) {
         if (value != "null") {
             playerData = JsonUtility.FromJson<PlayerData>(value);
-            Debug.Log("Данные успешно загружены");
         } else {
             playerData = new PlayerData(
             new List<LevelData>(){
-                new LevelData(1, 3),
+                new LevelData(1, 2),
                 new LevelData(2, 2),
-                new LevelData(3, 1),
-                new LevelData(4, 0),
-                new LevelData(5, -1),
+                new LevelData(3, 0),
+                new LevelData(4, 1),
+                new LevelData(5, 0),
             },
             new List<ItemData>(){
                 new ItemData(0, ItemState.Selected),
@@ -54,7 +56,6 @@ public class SaveSystem : MonoBehaviour
             },
             10000);
             SaveProgress();
-            Debug.Log("Данные не обнаруженны, создаю новое сохранение");
         }  
     }
 #endregion
