@@ -18,7 +18,7 @@ public class MainMenuBroker : MonoBehaviour
 
     void Start()
     {
-        var levelData = saveSystem.playerData.levelsDataList.
+        var levelData = saveSystem.GetLevelData().
             Where( ld => ld.starCount == 0).
             Min(ld => ld.levelID);
 

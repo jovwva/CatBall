@@ -20,14 +20,15 @@ public class LevelPanel : MonoBehaviour
     // }
 
     private void Start() {
-        for (int i = 0; i < saveSystem.playerData.levelsDataList.Count; i++) {
+        List<LevelData> levelDataList = saveSystem.GetLevelData();
+        for (int i = 0; i < levelDataList.Count; i++) {
             if (i >= levelButtonList.Count) {
                 Debug.Log($"Непредусмотренный урвоень Level_{i}");
                 LevelButton newLevelButton = Instantiate(levelButtonPref, transform).GetComponent<LevelButton>();
                 levelButtonList.Add(newLevelButton);
             }
 
-            levelButtonList[i].InitButton(saveSystem.LoadLevelData(i), this);
+            levelButtonList[i].InitButton(levelDataList[i], this);
         }   
     }
 

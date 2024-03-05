@@ -80,8 +80,14 @@ public class GameplayController : MonoBehaviour, IEventReceiver<BallDestroyedEve
     private IEnumerator ShowLevelResult()
     {
         int newStarCount = GetStarCount();
+
+        Debug.Log($"TryToSave new data: {levelID}{newStarCount}");
+        // Заменить
         resultPanel.SetResult(levelID, newStarCount);
-        _saveSystem.TrySaveLevelData(levelID, newStarCount);
+        _saveSystem.SetLevelData(new LevelData(levelID, newStarCount));
+
+        _saveSystem.SaveProgress();
+
         yield return new WaitForSeconds(.5f);
         resultPanel.ShowResult();
     }

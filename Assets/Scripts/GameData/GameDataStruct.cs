@@ -1,8 +1,13 @@
 using System.Collections.Generic;
 
+public enum ItemState {
+    Blocked,
+    Purchased,
+    Selected,
+}
+
 [System.Serializable]
-public struct LevelData
-{
+public class LevelData {
     public int levelID;
     public int starCount;
 
@@ -13,14 +18,8 @@ public struct LevelData
     }
 }
 
-public enum ItemState {
-    Blocked,
-    Purchased,
-    Selected,
-}
 [System.Serializable]
-public struct ItemData
-{
+public class ItemData {
     public int          itemID;
     public ItemState    itemState;
 
@@ -30,9 +29,9 @@ public struct ItemData
         this.itemState  = itemState;
     }
 }
+
 [System.Serializable]
-public struct PlayerData 
-{
+public class PlayerData {
     public List<LevelData> levelsDataList;
     public List<ItemData> itemsStateList;
     public int moneyValue;
