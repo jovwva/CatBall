@@ -281,6 +281,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!225 &1522772046 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 1918484473289250619, guid: 1e8c0b7295220b740ac63719e2fa1323, type: 3}
+  m_PrefabInstance: {fileID: 606379763029031341}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1687933367
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -527,6 +532,24 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!1 &1844830874 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8138888335873432521, guid: 8bd024186cedee349ae50732c5a6a778, type: 3}
+  m_PrefabInstance: {fileID: 8452121748456835579}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1844830877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844830874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aabb78b3cd07b4a4bbae527179678420, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameState: 0
 --- !u!114 &1984669923 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2266810515580587300, guid: a3bebdbdc8438dc478bc1425fd0e7a80, type: 3}
@@ -666,6 +689,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1918484473289250619, guid: 1e8c0b7295220b740ac63719e2fa1323, type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1918484473289250619, guid: 1e8c0b7295220b740ac63719e2fa1323, type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2664321283305899028, guid: 1e8c0b7295220b740ac63719e2fa1323, type: 3}
       propertyPath: m_Name
       value: Canvas_Stats
@@ -698,6 +729,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4359698775786716514, guid: 1e8c0b7295220b740ac63719e2fa1323, type: 3}
+      propertyPath: canvasGroup
+      value: 
+      objectReference: {fileID: 1522772046}
     - target: {fileID: 6046817810439655848, guid: 1e8c0b7295220b740ac63719e2fa1323, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1102,6 +1137,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100003779}
     - target: {fileID: 1069488559274791981, guid: 8bd024186cedee349ae50732c5a6a778, type: 3}
+      propertyPath: timeController
+      value: 
+      objectReference: {fileID: 1844830877}
+    - target: {fileID: 1069488559274791981, guid: 8bd024186cedee349ae50732c5a6a778, type: 3}
       propertyPath: _eventBusHolder
       value: 
       objectReference: {fileID: 1039233651}
@@ -1152,7 +1191,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8138888335873432521, guid: 8bd024186cedee349ae50732c5a6a778, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1844830877}
   m_SourcePrefab: {fileID: 100100000, guid: 8bd024186cedee349ae50732c5a6a778, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

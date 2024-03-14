@@ -31,7 +31,6 @@ public class ToolButton : MonoBehaviour
         Vector3 point = pz;
 
         GameObject go = Instantiate(toolObject, point, Quaternion.identity);
-        Debug.Log("Инструмент использован");
     }
     private void ChangeVisual(){
         toolButton.interactable = toolUseCount > 0;

@@ -1717,6 +1717,7 @@ GameObject:
   - component: {fileID: 5114991296776291970}
   - component: {fileID: 2048847694929744799}
   - component: {fileID: 4359698775786716514}
+  - component: {fileID: 1918484473289250619}
   m_Layer: 5
   m_Name: ToolPanel
   m_TagString: Untagged
@@ -1819,8 +1820,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelData: {fileID: 11400000, guid: 8362db135f54b8b489b9b53ae7436480, type: 2}
+  canvasGroup: {fileID: 0}
   toolRoot: {fileID: 519807963567916082}
   toolButtonPrefab: {fileID: 5021315125775349262, guid: ec655739fa3df3649bc924b2f768a2e9, type: 3}
+--- !u!225 &1918484473289250619
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7843951212373030128}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &8332380887197594814
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,6 @@ public enum BallType {
 
 public class BallFactory : MonoBehaviour
 {
-    [SerializeField] private EventBusHolder _busHolder;
     [SerializeField] private BallPool       _ballPool;
 
     public int          ballSpawned = 0;
@@ -22,7 +21,7 @@ public class BallFactory : MonoBehaviour
         private set {
             if (!value && _factoryState)
             {
-                _busHolder.EventBus.Raise(new PipeEmptiedEvent(gameObject));
+                EventBusHolder.Instance.EventBus.Raise(new PipeEmptiedEvent(gameObject));
             }
             _factoryState = value;
         }   

@@ -11,9 +11,11 @@ public class PlatformDrag : MonoBehaviour
     public void StartDrag() {
         anyCollider.enabled = false;
         sprite.color = halfAlphaColor;
+        EventBusHolder.Instance.EventBus.Raise(new ToolDrag(GameState.Slow));
     }
     public void EndDrag() {
         anyCollider.enabled = true;
         sprite.color = Color.white;
+        EventBusHolder.Instance.EventBus.Raise(new ToolDrag(GameState.Normal));
     }
 }

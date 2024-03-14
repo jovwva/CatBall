@@ -1,9 +1,10 @@
 using System.Collections;
 using UnityEngine;
 
-public class GameplayController : MonoBehaviour, IEventReceiver<BallDestroyedEvent>, IEventReceiver<PipeEmptiedEvent>, IEventReceiver<BallApprovedEvent>
+public class GameplayController : MonoBehaviour, 
+    IEventReceiver<BallDestroyedEvent>, IEventReceiver<PipeEmptiedEvent>, IEventReceiver<BallApprovedEvent>, IEventReceiver<ToolDrag>
 {
-    [SerializeField] private EventBusHolder _eventBusHolder;
+    [SerializeField] private TimeScaleController timeController;
     [SerializeField] private SaveSystem     _saveSystem;
     [SerializeField] private bool levelPass = false;
     [Header("Level data")]
@@ -20,16 +21,18 @@ public class GameplayController : MonoBehaviour, IEventReceiver<BallDestroyedEve
 
     private void Start()
     {
-        _eventBusHolder.EventBus.Register(this as IEventReceiver<BallDestroyedEvent>);
-        _eventBusHolder.EventBus.Register(this as IEventReceiver<BallApprovedEvent>);
-        _eventBusHolder.EventBus.Register(this as IEventReceiver<PipeEmptiedEvent>);
+        EventBusHolder.Instance.EventBus.Register(this as IEventReceiver<BallDestroyedEvent>);
+        EventBusHolder.Instance.EventBus.Register(this as IEventReceiver<BallApprovedEvent>);
+        EventBusHolder.Instance.EventBus.Register(this as IEventReceiver<PipeEmptiedEvent>);
+        EventBusHolder.Instance.EventBus.Register(this as IEventReceiver<ToolDrag>);
     }
 
     private void OnDisable()
     {
-        _eventBusHolder.EventBus.Unregister(this as IEventReceiver<BallDestroyedEvent>);
-        _eventBusHolder.EventBus.Unregister(this as IEventReceiver<BallApprovedEvent>);
-        _eventBusHolder.EventBus.Register(this as IEventReceiver<PipeEmptiedEvent>);
+        EventBusHolder.Instance.EventBus.Unregister(this as IEventReceiver<BallDestroyedEvent>);
+        EventBusHolder.Instance.EventBus.Unregister(this as IEventReceiver<BallApprovedEvent>);
+        EventBusHolder.Instance.EventBus.Unregister(this as IEventReceiver<PipeEmptiedEvent>);
+        EventBusHolder.Instance.EventBus.Unregister(this as IEventReceiver<ToolDrag>);
     }
 
     #region IEventReceiver
@@ -42,6 +45,10 @@ public class GameplayController : MonoBehaviour, IEventReceiver<BallDestroyedEve
     public void OnEvent(BallApprovedEvent @event) {
         BallApproved();
     } 
+    public void OnEvent(ToolDrag @event) {
+        Debug.Log($"Новое состояние игры: {@event.gameState}");
+        timeController.ChangeGameState(@event.gameState);
+    }
     #endregion
 
     private void BallDestroyed() {
