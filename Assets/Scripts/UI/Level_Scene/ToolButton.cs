@@ -10,11 +10,12 @@ public class ToolButton : MonoBehaviour
     [SerializeField] private TextMeshProUGUI toolCountText;
 
     private int toolUseCount = 0;
+    private GameObject toolObject;
 
-    public void InitTool(Sprite icon, int count) {
-       
-        toolUseCount    = count;
-        toolIcon.sprite = icon;
+    public void InitTool(ToolCount toolData) {
+        toolUseCount    = toolData.count;
+        toolIcon.sprite = toolData.data.icon;
+        toolObject      = toolData.data.prefab;
 
         toolButton.onClick.AddListener(UseTool);
 
@@ -24,6 +25,12 @@ public class ToolButton : MonoBehaviour
     private void UseTool(){
         toolUseCount--;
         ChangeVisual();
+
+        Vector3 pz = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        pz.z = 0;
+        Vector3 point = pz;
+
+        GameObject go = Instantiate(toolObject, point, Quaternion.identity);
         Debug.Log("Инструмент использован");
     }
     private void ChangeVisual(){
