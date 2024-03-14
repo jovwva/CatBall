@@ -12,6 +12,8 @@ public  struct LevelInfo
 {
     public int         id;
     
+    public int         ballsStock;
+
     public int         oneStarReqValue;
     public int         twoStarReqValue;
     public int         threeStarReqValue;

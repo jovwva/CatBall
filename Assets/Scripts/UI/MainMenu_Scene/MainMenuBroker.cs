@@ -14,11 +14,10 @@ public class MainMenuBroker : MonoBehaviour
     public TextMeshProUGUI playButtonText;
     [Space]
     public int lastLevelID = 0;
-    public SaveSystem saveSystem;
 
     void Start()
     {
-        var levelData = saveSystem.GetLevelDataList().
+        var levelData = SaveSystem.Instance.GetLevelDataList().
             Where( ld => ld.starCount == 0).
             Min(ld => ld.id);
 

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelInfoList:
   - id: 1
+    ballsStock: 10
     oneStarReqValue: 2
     twoStarReqValue: 5
     threeStarReqValue: 10
@@ -24,23 +25,51 @@ MonoBehaviour:
     - name: Red
       data: {fileID: 11400000, guid: 6fe2572bc65a20d48aab20ed3c7b3868, type: 2}
       count: 5
-  - id: 0
-    oneStarReqValue: 0
-    twoStarReqValue: 0
-    threeStarReqValue: 0
-    toolSOArray: []
-  - id: 0
-    oneStarReqValue: 0
-    twoStarReqValue: 0
-    threeStarReqValue: 0
-    toolSOArray: []
-  - id: 0
-    oneStarReqValue: 0
-    twoStarReqValue: 0
-    threeStarReqValue: 0
-    toolSOArray: []
-  - id: 0
-    oneStarReqValue: 0
-    twoStarReqValue: 0
-    threeStarReqValue: 0
-    toolSOArray: []
+  - id: 2
+    ballsStock: 10
+    oneStarReqValue: 2
+    twoStarReqValue: 5
+    threeStarReqValue: 10
+    toolSOArray:
+    - name: Blue
+      data: {fileID: 11400000, guid: 467433578f0cf7b47a74b8cc466aae67, type: 2}
+      count: 5
+    - name: Red
+      data: {fileID: 11400000, guid: 6fe2572bc65a20d48aab20ed3c7b3868, type: 2}
+      count: 5
+  - id: 3
+    ballsStock: 10
+    oneStarReqValue: 2
+    twoStarReqValue: 5
+    threeStarReqValue: 10
+    toolSOArray:
+    - name: Blue
+      data: {fileID: 11400000, guid: 467433578f0cf7b47a74b8cc466aae67, type: 2}
+      count: 5
+    - name: Red
+      data: {fileID: 11400000, guid: 6fe2572bc65a20d48aab20ed3c7b3868, type: 2}
+      count: 5
+  - id: 4
+    ballsStock: 10
+    oneStarReqValue: 2
+    twoStarReqValue: 5
+    threeStarReqValue: 10
+    toolSOArray:
+    - name: Blue
+      data: {fileID: 11400000, guid: 467433578f0cf7b47a74b8cc466aae67, type: 2}
+      count: 5
+    - name: Red
+      data: {fileID: 11400000, guid: 6fe2572bc65a20d48aab20ed3c7b3868, type: 2}
+      count: 5
+  - id: 5
+    ballsStock: 10
+    oneStarReqValue: 2
+    twoStarReqValue: 5
+    threeStarReqValue: 10
+    toolSOArray:
+    - name: Blue
+      data: {fileID: 11400000, guid: 467433578f0cf7b47a74b8cc466aae67, type: 2}
+      count: 5
+    - name: Red
+      data: {fileID: 11400000, guid: 6fe2572bc65a20d48aab20ed3c7b3868, type: 2}
+      count: 5

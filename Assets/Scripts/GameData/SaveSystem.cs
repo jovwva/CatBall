@@ -3,10 +3,18 @@ using UnityEngine;
 
 public class SaveSystem : MonoBehaviour
 {
+    public static SaveSystem Instance { get; private set; }
+    [SerializeField] private LevelDataSO levelData;
     private PlayerData playerData;
 
     private void Awake() {
+        if ( Instance != null ) {
+            Debug.LogError("Another instance of SaveSystem already exists");
+            Destroy(gameObject);
+            return;
+        }
         LoadProgress();
+        Instance = this;
     }
 
 #region SetData
@@ -37,13 +45,14 @@ public class SaveSystem : MonoBehaviour
 
     public List<LevelData>  GetLevelDataList()          => playerData.levelsDataList;
     public List<ItemData>   GetItemDataList()           => playerData.itemsStateList;
+
+    public LevelInfo GetLevelInformation(int levelID)   => levelData.levelInfoList.Find( ld => ld.id == levelID);
 #endregion
 
 #region Save\Load
     public void SaveProgress() {
         string jsonString = JsonUtility.ToJson(playerData);
         PlayerPrefs.SetString("Progress", jsonString);
-        Debug.Log("Новые данные сохранены!");
     }
     public void LoadProgress() {
         string jsonString = PlayerPrefs.GetString("Progress", "null");

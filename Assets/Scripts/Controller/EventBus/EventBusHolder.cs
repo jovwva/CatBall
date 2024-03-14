@@ -7,7 +7,7 @@ public class EventBusHolder : MonoBehaviour
 
     private void Awake() {
         if ( Instance != null ) {
-            Debug.LogError("Another instance of GameplayController already exists");
+            Debug.LogError("Another instance of EventBusHolder already exists");
             Destroy(gameObject);
             return;
         }

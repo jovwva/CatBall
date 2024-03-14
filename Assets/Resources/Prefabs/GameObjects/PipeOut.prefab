@@ -46,11 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d664854140c3f14b98f6cccc56afb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _busHolder: {fileID: 0}
   _ballPool: {fileID: 0}
   ballSpawned: 0
-  ballLimit: 20
-  spawnDelay: 0.3
+  ballLimit: 10
+  spawnDelay: 0.5
   spawnPosition: {fileID: 1858073237785407463}
 --- !u!1 &6109817114876335422
 GameObject:

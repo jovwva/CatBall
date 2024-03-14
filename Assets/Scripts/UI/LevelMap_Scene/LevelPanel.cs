@@ -5,7 +5,6 @@ using UnityEngine;
 public class LevelPanel : MonoBehaviour
 {
     [Header("Динамически заполняемые данные")]
-    [SerializeField] private SaveSystem saveSystem;
     [SerializeField] private List<LevelButton> levelButtonList;
     [Space]
     [Header("Статические данные")]
@@ -20,7 +19,7 @@ public class LevelPanel : MonoBehaviour
     // }
 
     private void Start() {
-        List<LevelData> levelDataList = saveSystem.GetLevelDataList();
+        List<LevelData> levelDataList = SaveSystem.Instance.GetLevelDataList();
         for (int i = 0; i < levelDataList.Count; i++) {
             if (i >= levelButtonList.Count) {
                 Debug.Log($"Непредусмотренный урвоень Level_{i}");
