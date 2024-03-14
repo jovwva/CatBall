@@ -20,7 +20,7 @@ public class MainMenuBroker : MonoBehaviour
     {
         var levelData = saveSystem.GetLevelDataList().
             Where( ld => ld.starCount == 0).
-            Min(ld => ld.levelID);
+            Min(ld => ld.id);
 
         lastLevelID = levelData;
         playButtonText.text = $"Уровень {lastLevelID}";

@@ -8,12 +8,14 @@ public enum ItemState {
 
 [System.Serializable]
 public class LevelData {
-    public int levelID;
-    public int starCount;
+    public int  id;
+    public bool access;
+    public int  starCount;
 
-    public LevelData(int levelID, int starCount)
+    public LevelData(int id, int starCount, bool access)
     {
-        this.levelID    = levelID;
+        this.id         = id;
+        this.access     = access;
         this.starCount  = starCount;
     }
 }

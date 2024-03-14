@@ -13,13 +13,25 @@ public class SaveSystem : MonoBehaviour
     public void SetMoneyValue(int delta) => 
         playerData.moneyValue += delta;
     public void SetLevelData(LevelData levelData) =>
-        playerData.levelsDataList.Find( d => d.levelID == levelData.levelID).starCount = levelData.starCount;
+        playerData.levelsDataList.Find( d => d.id == levelData.id).starCount = levelData.starCount;
     public void SetItemData(ItemData itemData) =>
         playerData.itemsStateList.Find( d => d.itemID == itemData.itemID).itemState = itemData.itemState;
+    public bool TrySetLevelAcces(int levelID) {
+        LevelData data = GetLevelData(levelID);
+
+        if (data != null && !data.access)
+        {
+            data.access = true;
+            return true;
+        }
+
+        return false;
+    }
+
 #endregion
 
 #region GetData
-    public LevelData        GetLevelData(int levelID)   => playerData.levelsDataList.Find( d => d.levelID == levelID);
+    public LevelData        GetLevelData(int levelID)   => playerData.levelsDataList.Find( d => d.id == levelID);
     public ItemData         GetItemData(int itemID)     => playerData.itemsStateList.Find( d => d.itemID == itemID);
     public int              GetMoneyData()              => playerData.moneyValue;
 
@@ -43,11 +55,11 @@ public class SaveSystem : MonoBehaviour
         } else {
             playerData = new PlayerData(
             new List<LevelData>(){
-                new LevelData(1, 2),
-                new LevelData(2, 2),
-                new LevelData(3, 0),
-                new LevelData(4, 1),
-                new LevelData(5, 0),
+                new LevelData(1, 1, true),
+                new LevelData(2, 0, true),
+                new LevelData(3, 0, false),
+                new LevelData(4, 0, false),
+                new LevelData(5, 0, true),
             },
             new List<ItemData>(){
                 new ItemData(0, ItemState.Selected),

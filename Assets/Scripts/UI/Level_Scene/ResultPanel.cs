@@ -26,7 +26,7 @@ public class ResultPanel : MonoBehaviour
     }
 
     public void SetResult(LevelData levelData) {
-        this.levelID = levelData.levelID;
+        this.levelID = levelData.id;
         if (levelData.starCount == 0) {
             resultText.text = "Вы проиграли!";
         } else {
