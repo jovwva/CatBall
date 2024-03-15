@@ -22,10 +22,10 @@ public class ResultPanel : MonoBehaviour
     }
 
     private void Start() {
-        panelHolder.SetActive(false);
+        HidePanel();
     }
 
-    public void SetResult(LevelData levelData) {
+    public void Init(LevelData levelData) {
         this.levelID = levelData.id;
         if (levelData.starCount == 0) {
             resultText.text = "Вы проиграли!";
@@ -38,7 +38,10 @@ public class ResultPanel : MonoBehaviour
         }
     } 
 
-    public void ShowResult() {
+    public void HidePanel() {
+        panelHolder.SetActive(false);
+    }
+    public void ShowPanel() {
         panelHolder.SetActive(true);
     }
 
