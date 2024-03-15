@@ -7,20 +7,20 @@ public class ToolSetter : MonoBehaviour, IEventReceiver<ToolDrag>
     [SerializeField] private GameObject  toolButtonPrefab;
 
 #region UnityVoid
-        private void Start()
-        {
+        private void Start() {
             EventBusHolder.Instance.EventBus.Register(this as IEventReceiver<ToolDrag>);
-    
-            LevelInfo levelInfo = SaveSystem.Instance.GetLevelInformation(1);
+        }
+        private void OnDisable() {
+            EventBusHolder.Instance.EventBus.Unregister(this as IEventReceiver<ToolDrag>);
+        }
+
+        public void Init(int id) {
+            LevelInfo levelInfo = SaveSystem.Instance.GetLevelInformation(id);
     
             foreach(ToolCount tc in levelInfo.toolSOArray) {
                 GameObject go = Instantiate(toolButtonPrefab, toolRoot);
                 go.GetComponent<ToolButton>().InitTool(tc);
             }
-        }
-        private void OnDisable()
-        {
-            EventBusHolder.Instance.EventBus.Unregister(this as IEventReceiver<ToolDrag>);
         }
 #endregion
 

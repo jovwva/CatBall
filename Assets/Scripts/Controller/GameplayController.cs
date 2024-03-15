@@ -21,6 +21,7 @@ public class GameplayController : MonoBehaviour,
     public StarIndicator    starIndicator;
     public CanvasGroup      canvasGroup;
     public ResultPanel      resultPanel;
+    public ToolSetter       toolSetter;
 
     #region EventBus
         private void Start()
@@ -31,6 +32,7 @@ public class GameplayController : MonoBehaviour,
             EventBusHolder.Instance.EventBus.Register(this as IEventReceiver<ToolDrag>);
 
             data  = SaveSystem.Instance.GetLevelInformation(levelID);
+            toolSetter.Init(levelID);
         }
     
         private void OnDisable()
