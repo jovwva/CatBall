@@ -3,6 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class MainMenuBroker : MonoBehaviour
 {
@@ -15,13 +16,14 @@ public class MainMenuBroker : MonoBehaviour
     [Space]
     public int lastLevelID = 0;
 
-    void Start()
-    {
-        var levelData = SaveSystem.Instance.GetLevelDataList().
-            Where( ld => ld.starCount == 0).
-            Min(ld => ld.id);
-
-        lastLevelID = levelData;
+    void Start() {
+        try {
+            lastLevelID = SaveSystem.Instance.GetLevelDataList().
+                Where( ld => ld.access && ld.starCount == 0).Min(ld => ld.id);
+        }
+        catch {
+            lastLevelID = 1;
+        }
         playButtonText.text = $"Уровень {lastLevelID}";
         playButton.onClick.AddListener(LoadLastLevel);
 

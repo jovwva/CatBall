@@ -35,6 +35,7 @@ public class SaveSystem : MonoBehaviour
 
         return false;
     }
+    public bool TryFindLevel(int levelID) => GetLevelData(levelID) != null;
 
 #endregion
 
@@ -64,11 +65,18 @@ public class SaveSystem : MonoBehaviour
         } else {
             playerData = new PlayerData(
             new List<LevelData>(){
-                new LevelData(1, 1, true),
-                new LevelData(2, 0, true),
+                new LevelData(1, 0, true),
+                new LevelData(2, 0, false),
                 new LevelData(3, 0, false),
                 new LevelData(4, 0, false),
-                new LevelData(5, 0, true),
+                new LevelData(5, 0, false),
+
+                // Test data
+                // new LevelData(1, 1, true),
+                // new LevelData(2, 1, true),
+                // new LevelData(3, 1, true),
+                // new LevelData(4, 1, true),
+                // new LevelData(5, 1, true),
             },
             new List<ItemData>(){
                 new ItemData(0, ItemState.Selected),

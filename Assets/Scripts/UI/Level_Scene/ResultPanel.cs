@@ -44,5 +44,11 @@ public class ResultPanel : MonoBehaviour
 
     private void LoadMainMenu()    => SceneManager.LoadSceneAsync("MainMenu");
     private void RestartLevel()    => SceneManager.LoadSceneAsync($"Level_{levelID}");
-    private void LoadNextLevel()    => SceneManager.LoadSceneAsync($"Level_{levelID + 1}");
+    private void LoadNextLevel() {
+        if (SaveSystem.Instance.TryFindLevel(levelID + 1)) {
+            SceneManager.LoadSceneAsync($"Level_{levelID + 1}");
+        } else {
+            LoadMainMenu();
+        }
+    } 
 }
