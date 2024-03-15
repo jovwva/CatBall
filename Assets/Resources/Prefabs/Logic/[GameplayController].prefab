@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8363417146664148157}
   - component: {fileID: 1069488559274791981}
+  - component: {fileID: 157383795858635300}
   m_Layer: 0
   m_Name: '[GameplayController]'
   m_TagString: Untagged
@@ -44,12 +45,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41f1652cbe30a1148bed12414b8f8ba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventBusHolder: {fileID: 0}
+  timeController: {fileID: 157383795858635300}
+  _saveSystem: {fileID: 0}
   levelPass: 0
-  ballsCount: 50
-  ballsWinCount: 12
+  levelID: 1
+  ballsCount: 1000
+  ballsWinCount: 1000
   ballsDestroyed: 0
   ballApproved: 0
   starIndicator: {fileID: 0}
   canvasGroup: {fileID: 0}
   resultPanel: {fileID: 0}
+--- !u!114 &157383795858635300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8138888335873432521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aabb78b3cd07b4a4bbae527179678420, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameState: 0
