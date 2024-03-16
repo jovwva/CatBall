@@ -22,11 +22,11 @@ MonoBehaviour:
     name: Player this
     uniqueID: 000
     photo: https://justplaygames.ru/public/icon_player.png
-  AdWhenLoadingScene: 1
-  showFirstAd: 1
+  AdWhenLoadingScene: 0
+  showFirstAd: 0
   rewardedAfterClosing: 1
   adDisplayCalls: 0
-  fullscreenAdInterval: 60
+  fullscreenAdInterval: 5
   durationOfAdSimulation: 0.5
   loadAdWithDelaySimulation: 0
   testErrorOfRewardedAdsInEditor: 0
@@ -190,7 +190,7 @@ MonoBehaviour:
   languages:
     ru: 1
     en: 1
-    tr: 1
+    tr: 0
     az: 0
     be: 0
     he: 0
@@ -323,7 +323,7 @@ MonoBehaviour:
   metricaEnable: 0
   metricaCounterID: 0
   debug: 1
-  archivingBuild: 1
+  archivingBuild: 0
   logoImageFormat: 1
   backgroundImageFormat: 3
   pixelRatioEnable: 0
