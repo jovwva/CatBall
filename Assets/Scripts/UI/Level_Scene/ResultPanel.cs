@@ -27,8 +27,12 @@ public class ResultPanel : MonoBehaviour
 
     public void Init(LevelData levelData) {
         this.levelID = levelData.id;
-        if (levelData.starCount == 0) {
+        if (!levelData.access) {
             resultText.text = "Вы проиграли!";
+
+            if (SaveSystem.Instance.GetLevelData(levelData.id + 1)?.access == false) {
+                nextLevelButton.interactable = false;
+            }
         } else {
             resultText.text = "Вы победили!";
 

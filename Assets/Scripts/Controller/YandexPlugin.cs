@@ -45,7 +45,7 @@ public class YandexPlugin : MonoBehaviour
 
 // #region CloudSave
 //     public void LoadData() {
-//         //var data = YandexGame.savesData.playerData;
+        //  var data = YandexGame.savesData.playerData;
 //     }
 //     public void SaveData() {
 //         // YandexGame.savesData.playerData = 

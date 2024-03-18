@@ -21,9 +21,9 @@ public class SaveSystem : MonoBehaviour
     public void SetMoneyValue(int delta) => 
         YandexGame.savesData.moneyValue += delta;
     public void SetLevelData(LevelData levelData) =>
-        YandexGame.savesData.levelsDataArray.Where( d => d.id == levelData.id).First().starCount = levelData.starCount;
-    public void SetItemData(ItemData itemData) =>
-        YandexGame.savesData.itemsStateList.Find( d => d.itemID == itemData.itemID).itemState = itemData.itemState;
+        YandexGame.savesData.levelsDataArray.Where( d => d.id == levelData.id).FirstOrDefault().starCount = levelData.starCount;
+    // public void SetItemData(ItemData itemData) =>
+    //     YandexGame.savesData.itemsStateList.Find( d => d.itemID == itemData.itemID).itemState = itemData.itemState;
     public bool TrySetLevelAcces(int levelID) {
         LevelData data = GetLevelData(levelID);
 
@@ -37,24 +37,25 @@ public class SaveSystem : MonoBehaviour
     }
     public bool TryFindLevel(int levelID) => GetLevelData(levelID) != null;
 
-    public void CLearYGS() => YandexGame.ResetSaveProgress();
+    public void CLearYGS() {
+        YandexGame.ResetSaveProgress();
+        SaveProgress();
+    } 
 
 #endregion
 
 #region GetData
-    public LevelData        GetLevelData(int levelID)   => YandexGame.savesData.levelsDataArray.Where( d => d.id == levelID).First();
-    public ItemData         GetItemData(int itemID)     => YandexGame.savesData.itemsStateList.Find( d => d.itemID == itemID);
+    public LevelData        GetLevelData(int levelID)   => YandexGame.savesData.levelsDataArray.Where( d => d.id == levelID).FirstOrDefault();
+    // public ItemData         GetItemData(int itemID)     => YandexGame.savesData.itemsStateList.Find( d => d.itemID == itemID);
     public int              GetMoneyData()              => YandexGame.savesData.moneyValue;
 
-    public LevelData[]  GetLevelDataList()              => YandexGame.savesData.levelsDataArray;
-    public List<ItemData>   GetItemDataList()           => YandexGame.savesData.itemsStateList;
+    public LevelData[]      GetLevelDataArray()              => YandexGame.savesData.levelsDataArray;
+    // public List<ItemData>   GetItemDataList()           => YandexGame.savesData.itemsStateList;
 
     public LevelInfo GetLevelInformation(int levelID)   => levelData.levelInfoList.Find( ld => ld.id == levelID);
 #endregion
 
 #region TrySaveData
-    public void SaveProgress() {
-        YandexGame.SaveProgress();
-    }
+    public void SaveProgress() => YandexGame.SaveProgress();
 #endregion
 }

@@ -18,7 +18,7 @@ public class MainMenuBroker : MonoBehaviour
 
     void Start() {
         try {
-            lastLevelID = SaveSystem.Instance.GetLevelDataList().
+            lastLevelID = SaveSystem.Instance.GetLevelDataArray().
                 Where( ld => ld.access && ld.starCount == 0).Min(ld => ld.id);
         }
         catch {

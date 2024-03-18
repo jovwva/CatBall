@@ -75,7 +75,8 @@ public class GameplayController : MonoBehaviour,
     }
 
     private void ShowLevelResult() {
-        LevelData levelData = new LevelData(levelID, GetStarCount(), true);
+        int newStarCount = GetStarCount();
+        LevelData levelData = new LevelData(levelID, newStarCount, newStarCount > 0);
 
         canvasBroker.ShowLevelResult(levelData);
         CheckLevelResult(levelData);
@@ -83,6 +84,8 @@ public class GameplayController : MonoBehaviour,
 
     private void CheckLevelResult(LevelData levelData) {
         bool needSave = false;
+        if (levelData.access == false) return;
+        
         LevelData oldData = SaveSystem.Instance.GetLevelData(levelData.id);
         
         // Проверка следующего уровня

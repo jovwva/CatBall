@@ -19,7 +19,7 @@ public class LevelPanel : MonoBehaviour
     // }
 
     private void Start() {
-        LevelData[] levelDataList = SaveSystem.Instance.GetLevelDataList();
+        LevelData[] levelDataList = SaveSystem.Instance.GetLevelDataArray();
         
         for (int i = 0; i < levelDataList.Length; i++) {
             if (i >= levelButtonList.Count) {
