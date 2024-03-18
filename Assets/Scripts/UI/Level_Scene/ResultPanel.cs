@@ -30,9 +30,9 @@ public class ResultPanel : MonoBehaviour
         if (!levelData.access) {
             resultText.text = "Вы проиграли!";
 
-            if (SaveSystem.Instance.GetLevelData(levelData.id + 1)?.access == false) {
-                nextLevelButton.interactable = false;
-            }
+            // if (SaveSystem.Instance.GetLevelData(levelData.id + 1)?.access == false) {
+            nextLevelButton.interactable = false;
+            // }
         } else {
             resultText.text = "Вы победили!";
 

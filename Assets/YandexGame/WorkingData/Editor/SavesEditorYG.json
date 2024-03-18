@@ -1,5 +1,5 @@
 {
-  "idSave": 7,
+  "idSave": 1,
   "isFirstSession": false,
   "language": "ru",
   "promptDone": false,
@@ -7,27 +7,27 @@
     {
       "id": 1,
       "access": true,
-      "starCount": 2
+      "starCount": 0
     },
     {
       "id": 2,
-      "access": true,
-      "starCount": 3
+      "access": false,
+      "starCount": 0
     },
     {
       "id": 3,
-      "access": true,
-      "starCount": 1
+      "access": false,
+      "starCount": 0
     },
     {
       "id": 4,
-      "access": true,
-      "starCount": 2
+      "access": false,
+      "starCount": 0
     },
     {
       "id": 5,
-      "access": true,
-      "starCount": 2
+      "access": false,
+      "starCount": 0
     }
   ],
   "moneyValue": 100

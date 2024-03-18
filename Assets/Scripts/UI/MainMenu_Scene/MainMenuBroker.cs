@@ -17,13 +17,9 @@ public class MainMenuBroker : MonoBehaviour
     public int lastLevelID = 0;
 
     void Start() {
-        try {
-            lastLevelID = SaveSystem.Instance.GetLevelDataArray().
-                Where( ld => ld.access && ld.starCount == 0).Min(ld => ld.id);
-        }
-        catch {
-            lastLevelID = 1;
-        }
+        lastLevelID = SaveSystem.Instance.GetLevelDataArray().
+            Where( ld => ld.access).OrderBy(ld => ld.starCount).First().id;
+
         playButtonText.text = $"Уровень {lastLevelID}";
         playButton.onClick.AddListener(LoadLastLevel);
 
