@@ -7,34 +7,27 @@ namespace YG
     public class SavesYG
     {
         // "Технические сохранения" для работы плагина (Не удалять)
-        public int idSave;
-        public bool isFirstSession = true;
-        public string language = "ru";
-        public bool promptDone;
+        public int      idSave;
+        public bool     isFirstSession = true;
+        public string   language = "ru";
+        public bool     promptDone;
 
         // Ваши сохранения
-
-        public PlayerData playerData = new PlayerData(
+        public List<LevelData> levelsDataList =
             new List<LevelData>(){
-                new LevelData(1, 0, true),
-                new LevelData(2, 0, false),
-                new LevelData(3, 0, false),
-                new LevelData(4, 0, false),
-                new LevelData(5, 0, false),
-
-                // Test data
-                // new LevelData(1, 1, true),
-                // new LevelData(2, 1, true),
-                // new LevelData(3, 1, true),
-                // new LevelData(4, 1, true),
-                // new LevelData(5, 1, true),
-            },
+                    new LevelData(1, 0, true),
+                    new LevelData(2, 0, false),
+                    new LevelData(3, 0, false),
+                    new LevelData(4, 0, false),
+                    new LevelData(5, 0, false),
+                };
+        public List<ItemData> itemsStateList = 
             new List<ItemData>(){
-                new ItemData(0, ItemState.Selected),
-                new ItemData(1, ItemState.Purchased),
-                new ItemData(2, ItemState.Blocked), 
-            },
-            10000);
+                    new ItemData(0, ItemState.Selected),
+                    new ItemData(1, ItemState.Purchased),
+                    new ItemData(2, ItemState.Blocked), 
+                };
+        public int moneyValue = 100;
 
         // Поля (сохранения) можно удалять и создавать новые. При обновлении игры сохранения ломаться не должны
 

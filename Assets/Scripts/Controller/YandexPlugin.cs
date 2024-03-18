@@ -1,11 +1,8 @@
 using YG;
 using UnityEngine;
-using System;
 
 public class YandexPlugin : MonoBehaviour
 {
-    
-
     public void ShowAd() {
         YandexGame.FullscreenShow();
     }
@@ -46,15 +43,15 @@ public class YandexPlugin : MonoBehaviour
         }
 #endregion
 
-#region CloudSave
-    public void LoadData() {
-        var data = YandexGame.savesData.playerData;
-    }
-    public void SaveData() {
-        // YandexGame.savesData.playerData = 
-        YandexGame.SaveProgress();
-    }
-#endregion
+// #region CloudSave
+//     public void LoadData() {
+//         //var data = YandexGame.savesData.playerData;
+//     }
+//     public void SaveData() {
+//         // YandexGame.savesData.playerData = 
+//         YandexGame.SaveProgress();
+//     }
+// #endregion
 
 #region Lang
     public void SetString() {
