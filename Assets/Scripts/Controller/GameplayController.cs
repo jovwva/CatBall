@@ -1,10 +1,10 @@
-using System.Collections;
 using UnityEngine;
 
 public class GameplayController : MonoBehaviour, 
     IEventReceiver<BallDestroyedEvent>, IEventReceiver<PipeEmptiedEvent>, IEventReceiver<BallApprovedEvent>, IEventReceiver<ToolDrag>
 {
     [SerializeField] private TimeScaleController timeController;
+    [SerializeField] private CanvasBroker     canvasBroker;
     [Header("Level data")]
     public int levelID = 1;
     private LevelInfo data;
@@ -12,16 +12,6 @@ public class GameplayController : MonoBehaviour,
     private int ballsDestroyed = 0;
     private float ballApproved = 0;
     private bool levelPass = false;
-    
-
-    [Space]
-    // Рефакторинг!!!
-    // Нужно придумать какой-то способ автоматизировать эту связь
-    [Header("UI Link")]
-    public StarIndicator    starIndicator;
-    public CanvasGroup      canvasGroup;
-    public ResultPanel      resultPanel;
-    public ToolSetter       toolSetter;
 
     #region EventBus
         private void Start()
@@ -32,7 +22,7 @@ public class GameplayController : MonoBehaviour,
             EventBusHolder.Instance.EventBus.Register(this as IEventReceiver<ToolDrag>);
 
             data  = SaveSystem.Instance.GetLevelInformation(levelID);
-            toolSetter.Init(levelID);
+            canvasBroker.InitAll(levelID);
         }
     
         private void OnDisable()
@@ -66,7 +56,7 @@ public class GameplayController : MonoBehaviour,
         if (!levelPass)
         {
             float result = ballApproved / data.threeStarReqValue;
-            starIndicator.UpdateStarIndicator(result);
+            canvasBroker.ShowApproval(result);
 
             if (result >= 1) {
                 LevelPass();
@@ -79,26 +69,23 @@ public class GameplayController : MonoBehaviour,
         
         if (!levelPass) {
             levelPass = true;
-            canvasGroup.alpha = 0.5f;
-            StartCoroutine(ShowLevelResult());
+            ShowLevelResult();
         }
         
     }
 
-    private IEnumerator ShowLevelResult()
-    {
+    private void ShowLevelResult() {
         int newStarCount = GetStarCount();
+        LevelData levelData = new LevelData(levelID, newStarCount, newStarCount > 0);
 
-        LevelData levelData = new LevelData(levelID, newStarCount, true);
-        resultPanel.SetResult(levelData);
+        canvasBroker.ShowLevelResult(levelData);
         CheckLevelResult(levelData);
-
-        yield return new WaitForSeconds(.5f);
-        resultPanel.ShowResult();
     }
 
     private void CheckLevelResult(LevelData levelData) {
         bool needSave = false;
+        if (levelData.access == false) return;
+        
         LevelData oldData = SaveSystem.Instance.GetLevelData(levelData.id);
         
         // Проверка следующего уровня

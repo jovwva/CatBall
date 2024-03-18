@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 public class PausePanel : MonoBehaviour
 {
     public Button pauseButton;
+
     public Button mainMenuButton;
     public Button restartButton;
     public Button resumeButton;
+    
     public TextMeshProUGUI levelNameText;
 
     public GameObject pauseHolder;
@@ -19,12 +21,17 @@ public class PausePanel : MonoBehaviour
         mainMenuButton.onClick.AddListener(LoadMainMenu);
         restartButton.onClick.AddListener(RestartLevel);
         resumeButton.onClick.AddListener(ResumeToGame);
+        
         pauseButton.onClick.AddListener(ShowPanel);
     }
 
     private void Start() {
-        levelNameText.text = $"Уровень №{levelID}";
         HidePanel();
+    }
+
+    public void Init(int id) {
+        levelID = id;
+        levelNameText.text = $"Уровень №{id}";
     }
 
     private void ShowPanel() {

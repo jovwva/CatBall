@@ -1,0 +1,34 @@
+{
+  "idSave": 1,
+  "isFirstSession": false,
+  "language": "ru",
+  "promptDone": false,
+  "levelsDataArray": [
+    {
+      "id": 1,
+      "access": true,
+      "starCount": 0
+    },
+    {
+      "id": 2,
+      "access": false,
+      "starCount": 0
+    },
+    {
+      "id": 3,
+      "access": false,
+      "starCount": 0
+    },
+    {
+      "id": 4,
+      "access": false,
+      "starCount": 0
+    },
+    {
+      "id": 5,
+      "access": false,
+      "starCount": 0
+    }
+  ],
+  "moneyValue": 100
+}

@@ -31,17 +31,3 @@ public class ItemData {
         this.itemState  = itemState;
     }
 }
-
-[System.Serializable]
-public class PlayerData {
-    public List<LevelData> levelsDataList;
-    public List<ItemData> itemsStateList;
-    public int moneyValue;
-
-    public PlayerData(List<LevelData> levelsDataList, List<ItemData> itemsStateList, int moneyValue)
-    {
-        this.levelsDataList = levelsDataList;
-        this.itemsStateList = itemsStateList;
-        this.moneyValue     = moneyValue;
-    }
-}
