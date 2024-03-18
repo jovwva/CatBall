@@ -13,14 +13,15 @@ namespace YG
         public bool     promptDone;
 
         // Ваши сохранения
-        public List<LevelData> levelsDataList =
-            new List<LevelData>(){
-                    new LevelData(1, 0, true),
-                    new LevelData(2, 0, false),
-                    new LevelData(3, 0, false),
-                    new LevelData(4, 0, false),
-                    new LevelData(5, 0, false),
-                };
+        public LevelData[] levelsDataArray = 
+            new LevelData[5]{
+                new LevelData(1, 0, true),
+                new LevelData(2, 0, false),
+                new LevelData(3, 0, false),
+                new LevelData(4, 0, false),
+                new LevelData(5, 0, false),
+            };
+
         public List<ItemData> itemsStateList = 
             new List<ItemData>(){
                     new ItemData(0, ItemState.Selected),

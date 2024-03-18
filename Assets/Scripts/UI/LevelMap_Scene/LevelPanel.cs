@@ -19,10 +19,12 @@ public class LevelPanel : MonoBehaviour
     // }
 
     private void Start() {
-        List<LevelData> levelDataList = SaveSystem.Instance.GetLevelDataList();
-        for (int i = 0; i < levelDataList.Count; i++) {
+        LevelData[] levelDataList = SaveSystem.Instance.GetLevelDataList();
+        
+        for (int i = 0; i < levelDataList.Length; i++) {
             if (i >= levelButtonList.Count) {
                 Debug.Log($"Непредусмотренный урвоень Level_{i}");
+                // return;
                 LevelButton newLevelButton = Instantiate(levelButtonPref, transform).GetComponent<LevelButton>();
                 levelButtonList.Add(newLevelButton);
             }
