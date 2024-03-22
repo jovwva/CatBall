@@ -268,6 +268,10 @@ PrefabInstance:
       propertyPath: _ballPool
       value: 
       objectReference: {fileID: 851876554}
+    - target: {fileID: 2251226601401061029, guid: 6845b9bbd7c89cf4a85e2c8184e9ed0e, type: 3}
+      propertyPath: ballLimit
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 3032340356418934599, guid: 6845b9bbd7c89cf4a85e2c8184e9ed0e, type: 3}
       propertyPath: m_Name
       value: BluePipeOut (1)
@@ -1011,7 +1015,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7542262853933180756, guid: 1e8c0b7295220b740ac63719e2fa1323, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7638387561592101451, guid: 1e8c0b7295220b740ac63719e2fa1323, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1227,6 +1231,10 @@ PrefabInstance:
       propertyPath: _ballPool
       value: 
       objectReference: {fileID: 851876554}
+    - target: {fileID: 2251226601401061029, guid: 6845b9bbd7c89cf4a85e2c8184e9ed0e, type: 3}
+      propertyPath: ballLimit
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 3032340356418934599, guid: 6845b9bbd7c89cf4a85e2c8184e9ed0e, type: 3}
       propertyPath: m_Name
       value: BluePipeOut
