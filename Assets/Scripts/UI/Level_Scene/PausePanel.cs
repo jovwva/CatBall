@@ -14,6 +14,7 @@ public class PausePanel : MonoBehaviour
     public TextMeshProUGUI levelNameText;
 
     public GameObject pauseHolder;
+    public GameObject blockZone;
 
     private int levelID = 100;
 
@@ -36,10 +37,12 @@ public class PausePanel : MonoBehaviour
 
     private void ShowPanel() {
         Time.timeScale = 0;
+        blockZone.SetActive(true);
         pauseHolder.SetActive(true);
     } 
     private void HidePanel() {
         Time.timeScale = 1;
+        blockZone.SetActive(false);
         pauseHolder.SetActive(false);
     } 
 

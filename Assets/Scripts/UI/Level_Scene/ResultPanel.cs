@@ -12,6 +12,7 @@ public class ResultPanel : MonoBehaviour
     public GameObject panelHolder;
     public StarInResult[] starArray = new StarInResult[3];
     public TextMeshProUGUI resultText;
+    public GameObject blockZone;
 
     private int levelID;
 
@@ -43,9 +44,11 @@ public class ResultPanel : MonoBehaviour
     } 
 
     public void HidePanel() {
+        blockZone.SetActive(false);
         panelHolder.SetActive(false);
     }
     public void ShowPanel() {
+        blockZone.SetActive(true);
         panelHolder.SetActive(true);
     }
 

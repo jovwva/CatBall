@@ -1147,17 +1147,6 @@ PrefabInstance:
       addedObject: {fileID: 698046986}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0de87e750b48e7049b8551764c63c6fe, type: 3}
---- !u!114 &2100003779 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3771185520742120775, guid: 1e8c0b7295220b740ac63719e2fa1323, type: 3}
-  m_PrefabInstance: {fileID: 606379763029031341}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52b71ac29fb2b440955b484a7be9d11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &606379763029031341
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1253,7 +1242,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 137321490009519171, guid: 1e8c0b7295220b740ac63719e2fa1323, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 606379763029031344}
   m_SourcePrefab: {fileID: 100100000, guid: 1e8c0b7295220b740ac63719e2fa1323, type: 3}
 --- !u!114 &606379763029031342 stripped
 MonoBehaviour:
@@ -1266,6 +1258,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4095912f8e1610a41a8bdb4817f1db7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &606379763029031343 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 137321490009519171, guid: 1e8c0b7295220b740ac63719e2fa1323, type: 3}
+  m_PrefabInstance: {fileID: 606379763029031341}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &606379763029031344
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606379763029031343}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &2006839007320700852
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1415,7 +1424,7 @@ PrefabInstance:
     - target: {fileID: 1069488559274791981, guid: 8bd024186cedee349ae50732c5a6a778, type: 3}
       propertyPath: starIndicator
       value: 
-      objectReference: {fileID: 2100003779}
+      objectReference: {fileID: 0}
     - target: {fileID: 1069488559274791981, guid: 8bd024186cedee349ae50732c5a6a778, type: 3}
       propertyPath: _eventBusHolder
       value: 

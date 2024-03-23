@@ -1465,10 +1465,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1353075313915728787, guid: 3d949fb6bfdd55840accf0963d9f8557, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -264863369, guid: a0639cecf2924174cab74391bfaf203a, type: 3}
     - target: {fileID: 1519461816489603090, guid: 3d949fb6bfdd55840accf0963d9f8557, type: 3}
       propertyPath: m_Name
       value: BluePipeIn
@@ -1529,10 +1525,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8345848833349556936, guid: 3d949fb6bfdd55840accf0963d9f8557, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -1211369250, guid: a0639cecf2924174cab74391bfaf203a, type: 3}
     - target: {fileID: 8820941697283571141, guid: 3d949fb6bfdd55840accf0963d9f8557, type: 3}
       propertyPath: m_Points.Array.data[0].x
       value: -0.40005505
