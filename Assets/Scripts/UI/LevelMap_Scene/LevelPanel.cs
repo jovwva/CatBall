@@ -37,6 +37,4 @@ public class LevelPanel : MonoBehaviour
     {
         SceneManager.LoadSceneAsync($"Level_{levelID}");
     }
-
-
 }
