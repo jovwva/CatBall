@@ -28,8 +28,8 @@ MonoBehaviour:
     twoStarReqValue: 20
     threeStarReqValue: 30
     toolSOArray:
-    - name: Blue_Right
-      data: {fileID: 11400000, guid: 217d091bdfed0e343bcf9017460f97ff, type: 2}
+    - name: Blue_Left
+      data: {fileID: 11400000, guid: 467433578f0cf7b47a74b8cc466aae67, type: 2}
       count: 1
   - id: 3
     ballsStock: 50
@@ -62,10 +62,10 @@ MonoBehaviour:
       data: {fileID: 11400000, guid: 217d091bdfed0e343bcf9017460f97ff, type: 2}
       count: 1
   - id: 6
-    ballsStock: 100
-    oneStarReqValue: 2
-    twoStarReqValue: 5
-    threeStarReqValue: 50
+    ballsStock: 70
+    oneStarReqValue: 25
+    twoStarReqValue: 40
+    threeStarReqValue: 60
     toolSOArray:
     - name: Blue_Left
       data: {fileID: 11400000, guid: 467433578f0cf7b47a74b8cc466aae67, type: 2}
@@ -74,19 +74,19 @@ MonoBehaviour:
       data: {fileID: 11400000, guid: 217d091bdfed0e343bcf9017460f97ff, type: 2}
       count: 1
   - id: 7
-    ballsStock: 100
-    oneStarReqValue: 2
-    twoStarReqValue: 5
-    threeStarReqValue: 50
+    ballsStock: 50
+    oneStarReqValue: 15
+    twoStarReqValue: 30
+    threeStarReqValue: 40
     toolSOArray:
     - name: Blue_Right
       data: {fileID: 11400000, guid: 217d091bdfed0e343bcf9017460f97ff, type: 2}
       count: 1
   - id: 8
     ballsStock: 100
-    oneStarReqValue: 2
-    twoStarReqValue: 5
-    threeStarReqValue: 50
+    oneStarReqValue: 20
+    twoStarReqValue: 40
+    threeStarReqValue: 75
     toolSOArray:
     - name: Blue_Left
       data: {fileID: 11400000, guid: 467433578f0cf7b47a74b8cc466aae67, type: 2}
@@ -95,10 +95,10 @@ MonoBehaviour:
       data: {fileID: 11400000, guid: 217d091bdfed0e343bcf9017460f97ff, type: 2}
       count: 1
   - id: 9
-    ballsStock: 100
-    oneStarReqValue: 2
-    twoStarReqValue: 5
-    threeStarReqValue: 50
+    ballsStock: 50
+    oneStarReqValue: 10
+    twoStarReqValue: 20
+    threeStarReqValue: 30
     toolSOArray:
     - name: Blue_Left
       data: {fileID: 11400000, guid: 467433578f0cf7b47a74b8cc466aae67, type: 2}

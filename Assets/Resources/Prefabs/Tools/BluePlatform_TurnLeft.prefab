@@ -190,6 +190,10 @@ PrefabInstance:
       value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 3160689082095927774, guid: 62a407c6d3ae8d544a0ee08379470ddb, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160689082095927774, guid: 62a407c6d3ae8d544a0ee08379470ddb, type: 3}
       propertyPath: m_Offset.y
       value: 0
       objectReference: {fileID: 0}
