@@ -83,10 +83,10 @@ MonoBehaviour:
       data: {fileID: 11400000, guid: 217d091bdfed0e343bcf9017460f97ff, type: 2}
       count: 1
   - id: 8
-    ballsStock: 100
+    ballsStock: 75
     oneStarReqValue: 20
-    twoStarReqValue: 40
-    threeStarReqValue: 75
+    twoStarReqValue: 30
+    threeStarReqValue: 40
     toolSOArray:
     - name: Blue_Left
       data: {fileID: 11400000, guid: 467433578f0cf7b47a74b8cc466aae67, type: 2}
