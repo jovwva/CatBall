@@ -296,15 +296,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8275278890968826820, guid: 35fa95bde1a56744eb9b514cef2e0af8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 499.92468
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8275278890968826820, guid: 35fa95bde1a56744eb9b514cef2e0af8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 478.26114
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8275278890968826820, guid: 35fa95bde1a56744eb9b514cef2e0af8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.25263235
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8275278890968826820, guid: 35fa95bde1a56744eb9b514cef2e0af8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -337,10 +337,6 @@ PrefabInstance:
     - target: {fileID: 8275278890968826826, guid: 35fa95bde1a56744eb9b514cef2e0af8, type: 3}
       propertyPath: m_Name
       value: Timer Before Ads
-      objectReference: {fileID: 0}
-    - target: {fileID: 8275278890968826826, guid: 35fa95bde1a56744eb9b514cef2e0af8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

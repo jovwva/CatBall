@@ -508,7 +508,7 @@ MonoBehaviour:
   - {fileID: 8275278891694843188}
   - {fileID: 8275278891352812731}
   - {fileID: 8275278891031627906}
-  realtimeSeconds: 1
+  realtimeSeconds: 0
   onShowTimer:
     m_PersistentCalls:
       m_Calls: []

@@ -1082,10 +1082,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Timer Before Ads
       objectReference: {fileID: 0}
-    - target: {fileID: 8275278890968826826, guid: 35fa95bde1a56744eb9b514cef2e0af8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

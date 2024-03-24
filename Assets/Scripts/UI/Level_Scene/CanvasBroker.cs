@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using YG;
 
 public class CanvasBroker : MonoBehaviour
 {
@@ -22,11 +23,12 @@ public class CanvasBroker : MonoBehaviour
     public void ShowLevelResult(LevelData levelData) => StartCoroutine(ShowResult(levelData));
     public void ShowApproval(float value)            => starIndicator?.UpdateStarIndicator(value);
     
-    private IEnumerator ShowResult(LevelData levelData) {
+    IEnumerator ShowResult(LevelData levelData) {
         playPanel.HidePanel();
         resultPanel.Init(levelData);
+        YandexGame.FullscreenShow();
 
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(1f);
         resultPanel.ShowPanel();
     }
 }
