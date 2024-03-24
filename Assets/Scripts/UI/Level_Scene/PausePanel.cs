@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using YG;
 
 public class PausePanel : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class PausePanel : MonoBehaviour
     public TextMeshProUGUI levelNameText;
 
     public GameObject pauseHolder;
+    public GameObject blockZone;
 
     private int levelID = 100;
 
@@ -31,15 +33,21 @@ public class PausePanel : MonoBehaviour
 
     public void Init(int id) {
         levelID = id;
-        levelNameText.text = $"Уровень №{id}";
+        if (YandexGame.EnvironmentData.language == "ru") {
+            levelNameText.text = $"Уровень №{id}";
+        } else { 
+            levelNameText.text = $"Level №{id}";;
+        }
     }
 
     private void ShowPanel() {
         Time.timeScale = 0;
+        blockZone.SetActive(true);
         pauseHolder.SetActive(true);
     } 
     private void HidePanel() {
         Time.timeScale = 1;
+        blockZone.SetActive(false);
         pauseHolder.SetActive(false);
     } 
 

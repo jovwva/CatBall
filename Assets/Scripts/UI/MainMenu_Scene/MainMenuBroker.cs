@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
+using YG;
 
 public class MainMenuBroker : MonoBehaviour
 {
@@ -20,7 +21,11 @@ public class MainMenuBroker : MonoBehaviour
         lastLevelID = SaveSystem.Instance.GetLevelDataArray().
             Where( ld => ld.access).OrderBy(ld => ld.starCount).First().id;
 
-        playButtonText.text = $"Уровень {lastLevelID}";
+        if (YandexGame.EnvironmentData.language == "ru") {
+            playButtonText.text = $"Уровень №{lastLevelID}";
+        } else { 
+            playButtonText.text = $"Level №{lastLevelID}";;
+        }
         playButton.onClick.AddListener(LoadLastLevel);
 
         mapButton.onClick.AddListener(LoadMapLevel);

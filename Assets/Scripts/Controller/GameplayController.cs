@@ -66,12 +66,10 @@ public class GameplayController : MonoBehaviour,
     }
 
     public void LevelPass() {
-        
         if (!levelPass) {
             levelPass = true;
             ShowLevelResult();
         }
-        
     }
 
     private void ShowLevelResult() {
@@ -100,8 +98,7 @@ public class GameplayController : MonoBehaviour,
         if (needSave) SaveSystem.Instance.SaveProgress();
     }
 
-    private int GetStarCount() {
-        
+    private int GetStarCount() {      
         if (ballApproved >= data.threeStarReqValue) {
             return 3;
         } else if (ballApproved >= data.twoStarReqValue) {
@@ -111,16 +108,5 @@ public class GameplayController : MonoBehaviour,
         } else {
             return 0;
         }
-        // float result = ballApproved / data.threeStarReqValue;
-
-        // if (result < .5f) {
-        //     return 0;
-        // } else if (result < .65f){
-        //     return 1;
-        // } else if (result < .85f) {
-        //     return 2;
-        // } else {
-        //     return 3;
-        // }
     }
 }

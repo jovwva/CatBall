@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using YG;
@@ -7,6 +6,7 @@ public class SaveSystem : MonoBehaviour
 {
     public static SaveSystem Instance { get; private set; }
     [SerializeField] private LevelDataSO levelData;
+    private int levelCount = 9;
 
     private void Awake() {
         if ( Instance != null ) {
@@ -15,6 +15,24 @@ public class SaveSystem : MonoBehaviour
             return;
         }
         Instance = this;
+    }
+    private void Start() {
+        if (YandexGame.savesData.levelsDataArray.Length != levelCount) {
+
+            LevelData[] newLevelsDataArray = new LevelData[levelCount];
+            int oldLenght = YandexGame.savesData.levelsDataArray.Length;
+
+            for (int i = 0; i < levelCount; i++) {
+                if (i < oldLenght) {
+                    newLevelsDataArray[i] = YandexGame.savesData.levelsDataArray[i];
+                } else {
+                    newLevelsDataArray[i] = new LevelData(i + 1, 0, false);
+                }
+                // YandexGame.savesData.levelsDataArray[i] = new LevelData(i + 1, 0, false);
+            }
+            YandexGame.savesData.levelsDataArray = newLevelsDataArray;
+            SaveProgress();
+        }
     }
 
 #region SetData

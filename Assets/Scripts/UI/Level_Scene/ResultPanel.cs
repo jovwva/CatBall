@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using YG;
 
 public class ResultPanel : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class ResultPanel : MonoBehaviour
     public GameObject panelHolder;
     public StarInResult[] starArray = new StarInResult[3];
     public TextMeshProUGUI resultText;
+    public GameObject blockZone;
 
     private int levelID;
 
@@ -28,13 +30,21 @@ public class ResultPanel : MonoBehaviour
     public void Init(LevelData levelData) {
         this.levelID = levelData.id;
         if (!levelData.access) {
-            resultText.text = "Вы проиграли!";
+            if (YandexGame.EnvironmentData.language == "ru") {
+                resultText.text = "Вы проиграли!";
+            } else { 
+                resultText.text = "You lose!";
+            }
 
             // if (SaveSystem.Instance.GetLevelData(levelData.id + 1)?.access == false) {
             nextLevelButton.interactable = false;
             // }
         } else {
-            resultText.text = "Вы победили!";
+            if (YandexGame.EnvironmentData.language == "ru") {
+                resultText.text = "Вы победили!";
+            } else { 
+                resultText.text = "You win!";
+            }
 
             for(int i=0; i < levelData.starCount; i++) {
                 starArray[i].ShowStar();
@@ -43,9 +53,11 @@ public class ResultPanel : MonoBehaviour
     } 
 
     public void HidePanel() {
+        blockZone.SetActive(false);
         panelHolder.SetActive(false);
     }
     public void ShowPanel() {
+        blockZone.SetActive(true);
         panelHolder.SetActive(true);
     }
 

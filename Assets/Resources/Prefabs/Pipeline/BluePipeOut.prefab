@@ -48,8 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ballPool: {fileID: 0}
   ballSpawned: 0
-  ballLimit: 1000
-  spawnDelay: 0.5
+  ballLimit: 50
+  spawnDelay: 0.35
   spawnPosition: {fileID: 7874851778761675529}
 --- !u!1 &8566738354657981828
 GameObject:

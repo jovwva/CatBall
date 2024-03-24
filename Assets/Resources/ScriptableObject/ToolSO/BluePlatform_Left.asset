@@ -15,4 +15,4 @@ MonoBehaviour:
   toolName: BluePlatform_TurnLeft
   id: 0
   prefab: {fileID: 441505504056127121, guid: 9271b26fcbb28a9468f88bd3b5ddd2e1, type: 3}
-  icon: {fileID: 21300000, guid: d46f707b911cda2438ae55e2aa81c95b, type: 3}
+  icon: {fileID: 1386448556, guid: fc6d3c11484b84d4198fe4229a57c83c, type: 3}

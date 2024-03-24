@@ -1,4 +1,5 @@
 using UnityEngine;
+using YG;
 
 class DragTransform : MonoBehaviour
 {
@@ -6,8 +7,13 @@ class DragTransform : MonoBehaviour
     private Vector3 mousePosition;
     private bool isDraging = true;
     
-
-    private void Start() => OnMouseDown();
+    private void Start() {
+        OnMouseDown();
+        if (YandexGame.EnvironmentData.deviceType != "desktop") {
+            Debug.Log("ne desktop");
+            transform.position = Vector3.zero;
+        } 
+    }
 
     private Vector3 GetMousePosition() => Camera.main.WorldToScreenPoint(transform.position);
 
@@ -30,6 +36,6 @@ class DragTransform : MonoBehaviour
     {
         if (!isDraging) return;
 
-        transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition  -mousePosition);
+        transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition - mousePosition);
     }
 }

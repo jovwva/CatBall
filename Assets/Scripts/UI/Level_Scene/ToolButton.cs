@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 
 public class ToolButton : MonoBehaviour
 {
@@ -28,7 +29,7 @@ public class ToolButton : MonoBehaviour
 
         Vector3 pz = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         pz.z = 0;
-        Vector3 point = pz;
+        Vector3 point = pz;     
 
         GameObject go = Instantiate(toolObject, point, Quaternion.identity);
     }
