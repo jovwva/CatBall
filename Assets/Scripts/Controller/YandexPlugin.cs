@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class YandexPlugin : MonoBehaviour
 {
-    public void ShowAd() {
-        YandexGame.FullscreenShow();
-    }
+    // public void ShowAd() {
+    //     YandexGame.FullscreenShow();
+    // }
 
 #region RewardAD
         private void OnEnable() => YandexGame.RewardVideoEvent += Rewarded;
@@ -53,13 +53,13 @@ public class YandexPlugin : MonoBehaviour
 //     }
 // #endregion
 
-#region Lang
-    public void SetString() {
-        if (YandexGame.EnvironmentData.language == "ru") {
-            Debug.Log("я русский");
-        } else { 
-            Debug.Log("i'm Dolboeb");
-        }
-    }
-#endregion
+// #region Lang
+//     public void SetString() {
+//         if (YandexGame.EnvironmentData.language == "ru") {
+//             Debug.Log("я русский");
+//         } else { 
+//             Debug.Log("i'm Dolboeb");
+//         }
+//     }
+// #endregion
 }

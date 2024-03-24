@@ -26,6 +26,10 @@ public class TimerBeforeAdsYG : MonoBehaviour
 
     public Button startGameButton;
     public GameObject container;
+    public GameObject blockZone;
+
+    public bool isDefaulte = true;
+
 
     private void Start()
     {
@@ -36,15 +40,21 @@ public class TimerBeforeAdsYG : MonoBehaviour
         for (int i = 0; i < secondObjects.Length; i++)
             secondObjects[i].SetActive(false);
 
-        if (secondObjects.Length > 0)
-            StartCoroutine(CheckTimerAd());
-        else
-            Debug.LogError("Fill in the array 'secondObjects'");
+        if (isDefaulte) {       
+            if (secondObjects.Length > 0)
+                StartCoroutine(CheckTimerAd());
+            else
+                Debug.LogError("Fill in the array 'secondObjects'");
+        } else {
+            if (YandexGame.timerShowAd >= 60) 
+                ShowTimerRadek();
+        }        
     }
 
     private void ContinueGame()
     {
         container.SetActive(false);
+        blockZone.SetActive(false);
         Time.timeScale = 1;
     }
 
@@ -70,6 +80,18 @@ public class TimerBeforeAdsYG : MonoBehaviour
             else
                 yield return new WaitForSecondsRealtime(1.0f);
         }
+    }
+
+    public void ShowTimerRadek() {
+        Debug.Log("Радековская реклама");
+        blockZone.SetActive(true);
+        Time.timeScale = 0;
+        onShowTimer?.Invoke();
+        objSecCounter = 0;
+        if (secondsPanelObject)
+            secondsPanelObject.SetActive(true);
+
+        StartCoroutine(TimerAdShow());
     }
 
     int objSecCounter;

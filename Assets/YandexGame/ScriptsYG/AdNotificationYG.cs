@@ -8,6 +8,7 @@ public class AdNotificationYG : MonoBehaviour
     public GameObject notificationObj;
     [Min(1), Tooltip("Максимальное время показа объекта нотификации. Если реклама так и не будет показана, то объект скроется через указанное в данном параметре время.")]
     public float waitingForAds = 3;
+    public GameObject blockZone;
 
     public static bool showingNotification;
     public static AdNotificationYG Instance;
@@ -46,9 +47,11 @@ public class AdNotificationYG : MonoBehaviour
 
     private IEnumerator CloseNotification()
     {
+        blockZone.SetActive(true);
         yield return new WaitForSecondsRealtime(waitingForAds);
         notificationObj.SetActive(false);
         showingNotification = false;
+        blockZone.SetActive(false);
         YandexGame.CloseFullAdEvent?.Invoke();
     }
 

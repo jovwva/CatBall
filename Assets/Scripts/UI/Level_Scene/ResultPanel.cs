@@ -20,7 +20,7 @@ public class ResultPanel : MonoBehaviour
     private void Awake() {
         mainMenuButton.onClick.AddListener(LoadMainMenu);
         restartButton.onClick.AddListener(RestartLevel);
-        nextLevelButton.onClick.AddListener(LoadNextLevel);
+        nextLevelButton.onClick.AddListener(LoadNextLevel); 
     }
 
     private void Start() {
@@ -61,11 +61,11 @@ public class ResultPanel : MonoBehaviour
         panelHolder.SetActive(true);
     }
 
-    private void LoadMainMenu()    => SceneManager.LoadSceneAsync("MainMenu");
-    private void RestartLevel()    => SceneManager.LoadSceneAsync($"Level_{levelID}");
+    private void LoadMainMenu()    => SceneManager.LoadScene("MainMenu");
+    private void RestartLevel()    => SceneManager.LoadScene($"Level_{levelID}");
     private void LoadNextLevel() {
         if (SaveSystem.Instance.TryFindLevel(levelID + 1)) {
-            SceneManager.LoadSceneAsync($"Level_{levelID + 1}");
+            SceneManager.LoadScene($"Level_{levelID + 1}");
         } else {
             LoadMainMenu();
         }

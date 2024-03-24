@@ -27,10 +27,6 @@ public class PausePanel : MonoBehaviour
         pauseButton.onClick.AddListener(ShowPanel);
     }
 
-    private void Start() {
-        HidePanel();
-    }
-
     public void Init(int id) {
         levelID = id;
         if (YandexGame.EnvironmentData.language == "ru") {
@@ -51,7 +47,13 @@ public class PausePanel : MonoBehaviour
         pauseHolder.SetActive(false);
     } 
 
-    private void LoadMainMenu()    => SceneManager.LoadSceneAsync("MainMenu");
-    private void RestartLevel()    => SceneManager.LoadSceneAsync($"Level_{levelID}");
+    private void LoadMainMenu() {
+        Time.timeScale = 1;
+        SceneManager.LoadSceneAsync("MainMenu");
+    }
+    private void RestartLevel() {
+        Time.timeScale = 1;
+        SceneManager.LoadSceneAsync($"Level_{levelID}");
+    } 
     private void ResumeToGame()    => HidePanel();
 }
