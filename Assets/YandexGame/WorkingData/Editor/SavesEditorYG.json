@@ -1,5 +1,5 @@
 {
-  "idSave": 9,
+  "idSave": 3,
   "isFirstSession": false,
   "language": "ru",
   "promptDone": false,
@@ -12,36 +12,36 @@
     {
       "id": 2,
       "access": true,
-      "starCount": 3
+      "starCount": 0
     },
     {
       "id": 3,
       "access": true,
-      "starCount": 3
+      "starCount": 0
     },
     {
       "id": 4,
-      "access": true,
-      "starCount": 3
+      "access": false,
+      "starCount": 0
     },
     {
       "id": 5,
-      "access": true,
-      "starCount": 3
+      "access": false,
+      "starCount": 0
     },
     {
       "id": 6,
-      "access": true,
-      "starCount": 2
+      "access": false,
+      "starCount": 0
     },
     {
       "id": 7,
-      "access": true,
-      "starCount": 3
+      "access": false,
+      "starCount": 0
     },
     {
       "id": 8,
-      "access": true,
+      "access": false,
       "starCount": 0
     },
     {

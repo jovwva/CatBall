@@ -11,16 +11,19 @@ public class ResultPanel : MonoBehaviour
     public Button nextLevelButton;
 
     public GameObject panelHolder;
+    
     public StarInResult[] starArray = new StarInResult[3];
     public TextMeshProUGUI resultText;
     public GameObject blockZone;
+
+    public SkipLevelRewardPanel rewardADSPanel;
 
     private int levelID;
 
     private void Awake() {
         mainMenuButton.onClick.AddListener(LoadMainMenu);
         restartButton.onClick.AddListener(RestartLevel);
-        nextLevelButton.onClick.AddListener(LoadNextLevel); 
+        // nextLevelButton.onClick.AddListener(LoadNextLevel); 
     }
 
     private void Start() {
@@ -30,16 +33,14 @@ public class ResultPanel : MonoBehaviour
     public void Init(LevelData levelData) {
         this.levelID = levelData.id;
         if (!levelData.access) {
+            // nextLevelButton.onClick.AddListener(ShowRewardPanel);
             if (YandexGame.EnvironmentData.language == "ru") {
                 resultText.text = "Вы проиграли!";
             } else { 
                 resultText.text = "You lose!";
             }
-
-            // if (SaveSystem.Instance.GetLevelData(levelData.id + 1)?.access == false) {
-            nextLevelButton.interactable = false;
-            // }
         } else {
+            // nextLevelButton.onClick.AddListener(LoadNextLevel);
             if (YandexGame.EnvironmentData.language == "ru") {
                 resultText.text = "Вы победили!";
             } else { 
@@ -50,6 +51,16 @@ public class ResultPanel : MonoBehaviour
                 starArray[i].ShowStar();
             }
         }
+
+        if (!levelData.access && 
+            // levelID != 9 && 
+            // !SaveSystem.Instance.GetLevelData(levelID + 1).access )
+            SaveSystem.Instance.TrySetLevelAccesRew(levelID + 1) ) 
+            {
+                nextLevelButton.onClick.AddListener(ShowRewardPanel);
+            }
+        else 
+            nextLevelButton.onClick.AddListener(LoadNextLevel);
     } 
 
     public void HidePanel() {
@@ -70,4 +81,14 @@ public class ResultPanel : MonoBehaviour
             LoadMainMenu();
         }
     } 
+
+    private void ShowRewardPanel()  => rewardADSPanel.ShowPanel();
+    public void RewardSkipLvl() {
+        if (SaveSystem.Instance.TrySetLevelAcces(levelID + 1))
+        {
+            SaveSystem.Instance.SaveProgress();
+        }
+        // SaveSystem.Instance.SaveProgress();
+        LoadNextLevel();
+    }  
 }

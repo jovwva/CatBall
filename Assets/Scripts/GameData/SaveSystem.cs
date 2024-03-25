@@ -53,6 +53,16 @@ public class SaveSystem : MonoBehaviour
 
         return false;
     }
+    public bool TrySetLevelAccesRew(int levelID) {
+        LevelData data = GetLevelData(levelID);
+
+        if (data != null && !data.access)
+        {
+            return true;
+        }
+
+        return false;
+    }
     public bool TryFindLevel(int levelID) => GetLevelData(levelID) != null;
 
     public void CLearYGS() {
