@@ -11,6 +11,14 @@ public class Ball : MonoBehaviour {
         this.BallType = ballType;
     }
 
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.transform.CompareTag("Ball")){
+            EventBusHolder.Instance.EventBus.Raise(new BallDestroyedEvent(BallType.AnyBall));
+            ReleaseBall();
+        }
+    }
+
     public void ReleaseBall() {
         if (!isActive) return;
 

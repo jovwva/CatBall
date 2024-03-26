@@ -106,3 +106,114 @@ MonoBehaviour:
     - name: Blue_Right
       data: {fileID: 11400000, guid: 217d091bdfed0e343bcf9017460f97ff, type: 2}
       count: 1
+  - id: 10
+    ballsStock: 50
+    oneStarReqValue: 10
+    twoStarReqValue: 20
+    threeStarReqValue: 30
+    toolSOArray:
+    - name: Blue_Hor
+      data: {fileID: 11400000, guid: aac17d0801c992348bc60d4c320fe411, type: 2}
+      count: 1
+  - id: 11
+    ballsStock: 100
+    oneStarReqValue: 10
+    twoStarReqValue: 20
+    threeStarReqValue: 50
+    toolSOArray:
+    - name: Blue_Hor
+      data: {fileID: 11400000, guid: aac17d0801c992348bc60d4c320fe411, type: 2}
+      count: 1
+    - name: Blue_R
+      data: {fileID: 11400000, guid: 217d091bdfed0e343bcf9017460f97ff, type: 2}
+      count: 1
+    - name: Blue_L
+      data: {fileID: 11400000, guid: 467433578f0cf7b47a74b8cc466aae67, type: 2}
+      count: 1
+  - id: 12
+    ballsStock: 100
+    oneStarReqValue: 10
+    twoStarReqValue: 20
+    threeStarReqValue: 50
+    toolSOArray:
+    - name: Blue_Hor
+      data: {fileID: 11400000, guid: aac17d0801c992348bc60d4c320fe411, type: 2}
+      count: 1
+    - name: Blue_R
+      data: {fileID: 11400000, guid: 217d091bdfed0e343bcf9017460f97ff, type: 2}
+      count: 1
+    - name: Blue_L
+      data: {fileID: 11400000, guid: 467433578f0cf7b47a74b8cc466aae67, type: 2}
+      count: 1
+  - id: 13
+    ballsStock: 100
+    oneStarReqValue: 20
+    twoStarReqValue: 30
+    threeStarReqValue: 60
+    toolSOArray:
+    - name: Blue_R
+      data: {fileID: 11400000, guid: 217d091bdfed0e343bcf9017460f97ff, type: 2}
+      count: 1
+    - name: Blue_L
+      data: {fileID: 11400000, guid: 467433578f0cf7b47a74b8cc466aae67, type: 2}
+      count: 1
+  - id: 14
+    ballsStock: 50
+    oneStarReqValue: 10
+    twoStarReqValue: 20
+    threeStarReqValue: 35
+    toolSOArray:
+    - name: Blue_V
+      data: {fileID: 11400000, guid: a29f43f10b7505040b6a3a06b57a8b7b, type: 2}
+      count: 1
+  - id: 15
+    ballsStock: 50
+    oneStarReqValue: 10
+    twoStarReqValue: 20
+    threeStarReqValue: 35
+    toolSOArray:
+    - name: Blue_L
+      data: {fileID: 11400000, guid: 467433578f0cf7b47a74b8cc466aae67, type: 2}
+      count: 1
+  - id: 16
+    ballsStock: 50
+    oneStarReqValue: 10
+    twoStarReqValue: 20
+    threeStarReqValue: 35
+    toolSOArray:
+    - name: Blue_R
+      data: {fileID: 11400000, guid: 217d091bdfed0e343bcf9017460f97ff, type: 2}
+      count: 1
+    - name: Blue_H
+      data: {fileID: 11400000, guid: aac17d0801c992348bc60d4c320fe411, type: 2}
+      count: 1
+  - id: 17
+    ballsStock: 100
+    oneStarReqValue: 10
+    twoStarReqValue: 30
+    threeStarReqValue: 50
+    toolSOArray:
+    - name: Blackhole
+      data: {fileID: 11400000, guid: a460f3dfc3b089b4db49b46f04e37489, type: 2}
+      count: 2
+  - id: 18
+    ballsStock: 150
+    oneStarReqValue: 50
+    twoStarReqValue: 75
+    threeStarReqValue: 125
+    toolSOArray:
+    - name: Blackhole
+      data: {fileID: 11400000, guid: a460f3dfc3b089b4db49b46f04e37489, type: 2}
+      count: 3
+    - name: Left
+      data: {fileID: 11400000, guid: 467433578f0cf7b47a74b8cc466aae67, type: 2}
+      count: 3
+    - name: Right
+      data: {fileID: 11400000, guid: 217d091bdfed0e343bcf9017460f97ff, type: 2}
+      count: 3
+    - name: Hor
+      data: {fileID: 11400000, guid: aac17d0801c992348bc60d4c320fe411, type: 2}
+      count: 3
+    - name: Ver
+      data: {fileID: 11400000, guid: a29f43f10b7505040b6a3a06b57a8b7b, type: 2}
+      count: 3
