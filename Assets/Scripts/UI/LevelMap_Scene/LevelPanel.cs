@@ -10,14 +10,6 @@ public class LevelPanel : MonoBehaviour
     [Header("Статические данные")]
     [SerializeField] private GameObject levelButtonPref;
 
-    // private void Awake() {
-    //     levelButtonList = new List<LevelButton>();
-
-    //     foreach(Transform go in transform) {
-    //         levelButtonList.Add(go.GetComponent<LevelButton>());
-    //     }
-    // }
-
     private void Start() {
         LevelData[] levelDataList = SaveSystem.Instance.GetLevelDataArray();
         
