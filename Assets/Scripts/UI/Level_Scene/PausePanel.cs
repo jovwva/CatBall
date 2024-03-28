@@ -17,6 +17,8 @@ public class PausePanel : MonoBehaviour
     public GameObject pauseHolder;
     public GameObject blockZone;
 
+    public UlimatePanel ulimatePanel;
+
     private int levelID = 100;
 
     private void Awake() {
@@ -51,7 +53,9 @@ public class PausePanel : MonoBehaviour
         pauseHolder.SetActive(false);
     } 
 
-    private void LoadMainMenu()    => SceneManager.LoadSceneAsync("MainMenu");
-    private void RestartLevel()    => SceneManager.LoadSceneAsync($"Level_{levelID}");
+    private void LoadMainMenu()    => ulimatePanel.Init(levelID, ButtonVoid.MainMenu);
+    // SceneManager.LoadSceneAsync("MainMenu");
+    private void RestartLevel()    => ulimatePanel.Init(levelID, ButtonVoid.Restart);
+    // SceneManager.LoadSceneAsync($"Level_{levelID}");
     private void ResumeToGame()    => HidePanel();
 }

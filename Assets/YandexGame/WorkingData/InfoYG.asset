@@ -320,7 +320,7 @@ MonoBehaviour:
     imageURI: https://justplaygames.ru/public/Paymant3.png
     priceValue: 30
     consumed: 1
-  metricaEnable: 1
+  metricaEnable: 0
   metricaCounterID: 96832820
   debug: 1
   archivingBuild: 0

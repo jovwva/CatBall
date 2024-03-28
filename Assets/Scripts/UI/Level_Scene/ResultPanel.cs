@@ -15,6 +15,8 @@ public class ResultPanel : MonoBehaviour
     public TextMeshProUGUI resultText;
     public GameObject blockZone;
 
+    public UlimatePanel ulimatePanel;
+
     private int levelID;
 
     private void Awake() {
@@ -61,13 +63,16 @@ public class ResultPanel : MonoBehaviour
         panelHolder.SetActive(true);
     }
 
-    private void LoadMainMenu()    => SceneManager.LoadSceneAsync("MainMenu");
-    private void RestartLevel()    => SceneManager.LoadSceneAsync($"Level_{levelID}");
-    private void LoadNextLevel() {
-        if (SaveSystem.Instance.TryFindLevel(levelID + 1)) {
-            SceneManager.LoadSceneAsync($"Level_{levelID + 1}");
-        } else {
-            LoadMainMenu();
-        }
-    } 
+    private void LoadMainMenu()    => ulimatePanel.Init(levelID, ButtonVoid.MainMenu);
+    // SceneManager.LoadSceneAsync("MainMenu");
+    private void RestartLevel()    => ulimatePanel.Init(levelID, ButtonVoid.Restart);
+    // SceneManager.LoadSceneAsync($"Level_{levelID}");
+    private void LoadNextLevel()   => ulimatePanel.Init(levelID, ButtonVoid.NextLevel);
+    // {
+        // if (SaveSystem.Instance.TryFindLevel(levelID + 1)) {
+        //     SceneManager.LoadSceneAsync($"Level_{levelID + 1}");
+        // } else {
+        //     LoadMainMenu();
+        // }
+    // } 
 }
