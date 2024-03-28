@@ -1,5 +1,5 @@
 {
-  "idSave": 3,
+  "idSave": 4,
   "isFirstSession": false,
   "language": "ru",
   "promptDone": false,
@@ -46,6 +46,51 @@
     },
     {
       "id": 9,
+      "access": false,
+      "starCount": 0
+    },
+    {
+      "id": 10,
+      "access": false,
+      "starCount": 0
+    },
+    {
+      "id": 11,
+      "access": false,
+      "starCount": 0
+    },
+    {
+      "id": 12,
+      "access": false,
+      "starCount": 0
+    },
+    {
+      "id": 13,
+      "access": false,
+      "starCount": 0
+    },
+    {
+      "id": 14,
+      "access": false,
+      "starCount": 0
+    },
+    {
+      "id": 15,
+      "access": false,
+      "starCount": 0
+    },
+    {
+      "id": 16,
+      "access": false,
+      "starCount": 0
+    },
+    {
+      "id": 17,
+      "access": false,
+      "starCount": 0
+    },
+    {
+      "id": 18,
       "access": false,
       "starCount": 0
     }
