@@ -15,4 +15,4 @@ MonoBehaviour:
   toolName: Blackhole
   id: 5
   prefab: {fileID: 5707403297956331747, guid: 03d58b38ef5719043a53d7472a35cb97, type: 3}
-  icon: {fileID: -868625620, guid: 93d3f66898975294ca1d3ad4a4325a90, type: 3}
+  icon: {fileID: 21300000, guid: db76ca88fbcc7c2418eb29d621cf46d0, type: 3}

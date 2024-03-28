@@ -1,4 +1,6 @@
+using YG;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class GameplayController : MonoBehaviour, 
     IEventReceiver<BallDestroyedEvent>, IEventReceiver<PipeEmptiedEvent>, IEventReceiver<BallApprovedEvent>, IEventReceiver<ToolDrag>
@@ -23,6 +25,9 @@ public class GameplayController : MonoBehaviour,
 
             data  = SaveSystem.Instance.GetLevelInformation(levelID);
             canvasBroker.InitAll(levelID);
+            
+            var eventParams = new Dictionary<string, string>{ { "LevelsStart", $"Level_{levelID}" } };
+            YandexMetrica.Send("triggers", eventParams);
         }
     
         private void OnDisable()

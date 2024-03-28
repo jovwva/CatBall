@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 using YG;
 
 public class ResultPanel : MonoBehaviour
@@ -67,7 +67,12 @@ public class ResultPanel : MonoBehaviour
     // SceneManager.LoadSceneAsync("MainMenu");
     private void RestartLevel()    => ulimatePanel.Init(levelID, ButtonVoid.Restart);
     // SceneManager.LoadSceneAsync($"Level_{levelID}");
-    private void LoadNextLevel()   => ulimatePanel.Init(levelID, ButtonVoid.NextLevel);
+    private void LoadNextLevel()   {
+            var eventParams = new Dictionary<string, string>{ { "LevelPass", $"Level_{levelID}" } };
+            YandexMetrica.Send("triggers", eventParams);
+
+            ulimatePanel.Init(levelID, ButtonVoid.NextLevel);
+    } 
     // {
         // if (SaveSystem.Instance.TryFindLevel(levelID + 1)) {
         //     SceneManager.LoadSceneAsync($"Level_{levelID + 1}");

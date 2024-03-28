@@ -1,6 +1,7 @@
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine;
+using YG;
 
 public class LevelMapBroker : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class LevelMapBroker : MonoBehaviour
     private void Awake() {
         mainMenuButton.onClick.AddListener(LoadMainMenu);
     }
+
+    private void Start() => YandexGame.FullscreenShow();
 
     private void LoadMainMenu()    => SceneManager.LoadSceneAsync("MainMenu");
 }
