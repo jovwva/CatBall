@@ -30,7 +30,8 @@ public class ResultPanel : MonoBehaviour
     }
 
     public void Init(LevelData levelData) {
-        this.levelID = levelData.id;
+        levelID = levelData.id;
+        
         if (!levelData.access) {
             if (YandexGame.EnvironmentData.language == "ru") {
                 resultText.text = "Вы проиграли!";
@@ -38,9 +39,7 @@ public class ResultPanel : MonoBehaviour
                 resultText.text = "You lose!";
             }
 
-            // if (SaveSystem.Instance.GetLevelData(levelData.id + 1)?.access == false) {
             nextLevelButton.interactable = false;
-            // }
         } else {
             if (YandexGame.EnvironmentData.language == "ru") {
                 resultText.text = "Вы победили!";
@@ -64,20 +63,11 @@ public class ResultPanel : MonoBehaviour
     }
 
     private void LoadMainMenu()    => ulimatePanel.Init(levelID, ButtonVoid.MainMenu);
-    // SceneManager.LoadSceneAsync("MainMenu");
     private void RestartLevel()    => ulimatePanel.Init(levelID, ButtonVoid.Restart);
-    // SceneManager.LoadSceneAsync($"Level_{levelID}");
     private void LoadNextLevel()   {
             var eventParams = new Dictionary<string, string>{ { "LevelPass", $"Level_{levelID}" } };
             YandexMetrica.Send("triggers", eventParams);
 
             ulimatePanel.Init(levelID, ButtonVoid.NextLevel);
     } 
-    // {
-        // if (SaveSystem.Instance.TryFindLevel(levelID + 1)) {
-        //     SceneManager.LoadSceneAsync($"Level_{levelID + 1}");
-        // } else {
-        //     LoadMainMenu();
-        // }
-    // } 
 }

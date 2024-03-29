@@ -9,6 +9,7 @@ public class UlimatePanel : MonoBehaviour
 
     private int levelID;
     private bool isWorking = false;
+    
     public void Init(int levelID, ButtonVoid buttonVoid)
     {
 
@@ -66,7 +67,8 @@ public class UlimatePanel : MonoBehaviour
         if (SaveSystem.Instance.TryFindLevel(levelID + 1)) {
             SceneManager.LoadSceneAsync($"Level_{levelID + 1}");
         } else {
-            LoadMainMenu();
+            // LoadMainMenu();
+            SceneManager.LoadSceneAsync($"Level_{Random.Range(5,14)}");
         }
     } 
 }
