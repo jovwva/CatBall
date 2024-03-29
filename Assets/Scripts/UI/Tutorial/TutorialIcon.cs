@@ -1,37 +1,60 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class TutorialIcon : MonoBehaviour
+public class TutorialIcon : MonoBehaviour, IEventReceiver<ToolDrag>
 {
-    /*
-    1) проверить проходили ли уровень+
-    2) Активировать подсветку+
-    3) ждать нажатия
-    4) Активировать анимашку
-    5) ждать нажатия 
-    6) Активировать подсветку
-    */
-
     public int levelID;
-    public GameObject sparks;
-
+    public GameObject sparks_1;
+    public GameObject sparks_2;
+    public GameObject tetxHolder;
+    public bool reqTurorial = false;
+    public int trigerStep = 0;
 
     private void Start()
     {
+        
         if (SaveSystem.Instance.GetLevelData(levelID).starCount == 0){
-            sparks.SetActive(true);
+            reqTurorial = true;
+            EventBusHolder.Instance.EventBus.Register(this as IEventReceiver<ToolDrag>);
+            ActivateTrigger(0);
         }
+    }
+
+    private void OnDisable() {
+        if (!reqTurorial) return;
+        EventBusHolder.Instance.EventBus.Unregister(this as IEventReceiver<ToolDrag>);
     }
 
     public void ActivateTrigger(int id){
+        if (trigerStep > id)
+        {
+            return;
+        }
+
+        if (!reqTurorial) return;
         switch(id) {
             case 0:
-
+                sparks_1.SetActive(true);
                 break;
             case 1:
-
+                sparks_1.SetActive(false);
+                sparks_2.SetActive(true);
+                break;
+            case 2:
+                sparks_2.SetActive(false);
+                tetxHolder.SetActive(true);
                 break;
         }
+        trigerStep = id;
     }
+
+    #region EventBus
+    public UniqueId Id { get; } = new UniqueId();
+    public void OnEvent(ToolDrag @event) {
+        if (@event.gameState == GameState.Slow) {
+            ActivateTrigger(1);
+        } else {
+            ActivateTrigger(2);
+        }
+    }
+#endregion
 }
