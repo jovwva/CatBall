@@ -11,7 +11,6 @@ public class TutorialIcon : MonoBehaviour, IEventReceiver<ToolDrag>
 
     private void Start()
     {
-        
         if (SaveSystem.Instance.GetLevelData(levelID).starCount == 0){
             reqTurorial = true;
             EventBusHolder.Instance.EventBus.Register(this as IEventReceiver<ToolDrag>);
