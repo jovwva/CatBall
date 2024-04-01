@@ -136,7 +136,7 @@ PlayerSettings:
   vulkanEnableLateAcquireNextImage: 0
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
-  bundleVersion: 0.3
+  bundleVersion: 0.4
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -389,7 +389,7 @@ PlayerSettings:
     BANNER_DYNAMIC_2: 
     BANNER_STATIC_1: 
     BANNER_STATIC_2: 
-    CHOOSE_LOADING_TYPE: 
+    CHOOSE_LOADING_TYPE: 4
     CONFIGURE_SHADOWS_AROUND_CANVAS: medium
     CONNECT_PLUGIN: YG1.6
     CUSTOMIZE_BARS_BACKGROUND: 
@@ -405,7 +405,7 @@ PlayerSettings:
     GP_TOKEN: 
     IGB_GAME_DISTRIBUTION_GAME_ID: 
     IGB_VK_PLAY_GAME_ID: 
-    LOCK_ASPECT_RATIO: all
+    LOCK_ASPECT_RATIO: pc navigator
     YG_BANNER_DYNAMIC_1: 
     YG_BANNER_DYNAMIC_2: 
     YG_BANNER_STATIC_1: 
@@ -680,7 +680,23 @@ PlayerSettings:
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    WebGL: YG_PLUGIN_YANDEX_GAME;YG_NEWTONSOFT_FOR_AUTOLOCALIZATION;YG_NEWTONSOFT_FOR_SAVES;YG_TEXT_MESH_PRO
+    Android: DOTWEEN
+    EmbeddedLinux: DOTWEEN
+    GameCoreScarlett: DOTWEEN
+    GameCoreXboxOne: DOTWEEN
+    LinuxHeadlessSimulation: DOTWEEN
+    Nintendo Switch: DOTWEEN
+    PS4: DOTWEEN
+    PS5: DOTWEEN
+    QNX: DOTWEEN
+    Stadia: DOTWEEN
+    Standalone: DOTWEEN
+    VisionOS: DOTWEEN
+    WebGL: YG_PLUGIN_YANDEX_GAME;YG_NEWTONSOFT_FOR_AUTOLOCALIZATION;YG_NEWTONSOFT_FOR_SAVES;YG_TEXT_MESH_PRO;DOTWEEN
+    Windows Store Apps: DOTWEEN
+    XboxOne: DOTWEEN
+    iPhone: DOTWEEN
+    tvOS: DOTWEEN
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}

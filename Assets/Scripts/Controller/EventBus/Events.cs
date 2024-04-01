@@ -1,11 +1,11 @@
 using UnityEngine;
 
 public readonly struct BallDestroyedEvent : IEvent {
-    public readonly BallType BallType;
+public readonly BallType BallType;
 
-    public BallDestroyedEvent(BallType ballType) {
-        BallType = ballType;
-    }
+public BallDestroyedEvent(BallType ballType) {
+    BallType = ballType;
+}
 }
 public readonly struct BallApprovedEvent : IEvent {
     public readonly BallType BallType;
@@ -37,3 +37,4 @@ public enum GameState {
     Slow,
     Pause,
 }
+

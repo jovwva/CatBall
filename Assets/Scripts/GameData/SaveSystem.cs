@@ -6,7 +6,7 @@ public class SaveSystem : MonoBehaviour
 {
     public static SaveSystem Instance { get; private set; }
     [SerializeField] private LevelDataSO levelData;
-    private int levelCount = 9;
+    private int levelCount = 18;
 
     private void Awake() {
         if ( Instance != null ) {

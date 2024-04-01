@@ -25,8 +25,8 @@ MonoBehaviour:
   AdWhenLoadingScene: 0
   showFirstAd: 0
   rewardedAfterClosing: 1
-  adDisplayCalls: 0
-  fullscreenAdInterval: 360
+  adDisplayCalls: 1
+  fullscreenAdInterval: 60
   durationOfAdSimulation: 0.5
   loadAdWithDelaySimulation: 0
   testErrorOfRewardedAdsInEditor: 0
@@ -320,7 +320,7 @@ MonoBehaviour:
     imageURI: https://justplaygames.ru/public/Paymant3.png
     priceValue: 30
     consumed: 1
-  metricaEnable: 1
+  metricaEnable: 0
   metricaCounterID: 96832820
   debug: 1
   archivingBuild: 0
