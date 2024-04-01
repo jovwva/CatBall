@@ -14,8 +14,9 @@ public class BallFactory : MonoBehaviour
     public int          ballLimit   = 20;
     public float        spawnDelay  = .4f;
     public Transform    spawnPosition;
-
+    public LeverSwitch leverSwitch;
     private bool         _factoryState = true;
+   
     public bool FactoryState {
         get { return _factoryState; }
         private set {
@@ -35,8 +36,8 @@ public class BallFactory : MonoBehaviour
             return;
         }
         timer += Time.deltaTime; 
-
-        if (timer >= spawnDelay) {
+        
+        if (timer >= spawnDelay && leverSwitch.leverIsOpen) {
             timer = 0f;
             
             Ball ball = _ballPool.Pool.Get();
