@@ -40,16 +40,16 @@ public class SaveSystem : MonoBehaviour
         YandexGame.savesData.levelsDataArray.Where( d => d.id == levelData.id).First().starCount = levelData.starCount;
     // public void SetItemData(ItemData itemData) =>
     //     YandexGame.savesData.itemsStateList.Find( d => d.itemID == itemData.itemID).itemState = itemData.itemState;
-    public bool TrySetLevelAcces(int levelID) {
+    public void TrySetLevelAcces(int levelID) {
         LevelData data = GetLevelData(levelID);
 
         if (data != null && !data.access)
         {
             data.access = true;
-            return true;
+            // return true;
         }
 
-        return false;
+        // return false;
     }
     public bool TryFindLevel(int levelID) => GetLevelData(levelID) != null;
     public bool TrySetMoneyValue(int moneyDelta) 
