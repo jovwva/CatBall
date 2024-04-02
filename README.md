@@ -1,2 +1,2 @@
 # CatBall
- et-project for Web
+ pet-project for Yandex.Game
