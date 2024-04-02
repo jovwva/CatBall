@@ -16,6 +16,7 @@ public class ResultPanel : MonoBehaviour
     public GameObject blockZone;
 
     public UlimatePanel ulimatePanel;
+    [SerializeField] private RewardPanel rewardPanel;
 
     private int levelID;
 
@@ -47,6 +48,7 @@ public class ResultPanel : MonoBehaviour
                 resultText.text = "You win!";
             }
 
+            rewardPanel.InirRewardPanel(levelData.starCount);
             for(int i=0; i < levelData.starCount; i++) {
                 starArray[i].ShowStar();
             }

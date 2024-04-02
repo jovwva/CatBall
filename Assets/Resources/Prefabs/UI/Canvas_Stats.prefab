@@ -998,6 +998,7 @@ MonoBehaviour:
   resultText: {fileID: 7747376574514537036}
   blockZone: {fileID: 0}
   ulimatePanel: {fileID: 1075380933370252668}
+  rewardPanel: {fileID: 2600132794028829198}
 --- !u!1 &3503557535745695562
 GameObject:
   m_ObjectHideFlags: 0
@@ -2635,6 +2636,18 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 32709
       objectReference: {fileID: 0}
+    - target: {fileID: 570068135252060839, guid: d7c5e352d85f5964c8333927346741ea, type: 3}
+      propertyPath: rewardItem
+      value: 
+      objectReference: {fileID: 371351081892011548}
+    - target: {fileID: 570068135252060839, guid: d7c5e352d85f5964c8333927346741ea, type: 3}
+      propertyPath: rewardHolder
+      value: 
+      objectReference: {fileID: 1037693872878729136}
+    - target: {fileID: 570068135252060839, guid: d7c5e352d85f5964c8333927346741ea, type: 3}
+      propertyPath: rewardPrefab
+      value: 
+      objectReference: {fileID: 3564016803216040085, guid: e69d653b162eb9c4484f750a27bdca51, type: 3}
     - target: {fileID: 973579370390637411, guid: d7c5e352d85f5964c8333927346741ea, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2681,7 +2694,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3937438032888668590, guid: d7c5e352d85f5964c8333927346741ea, type: 3}
       propertyPath: m_SortingLayer
-      value: 0
+      value: 32709
       objectReference: {fileID: 0}
     - target: {fileID: 4079160659338629453, guid: d7c5e352d85f5964c8333927346741ea, type: 3}
       propertyPath: m_IsActive
@@ -2755,6 +2768,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8663046603906730037, guid: d7c5e352d85f5964c8333927346741ea, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8872513632866532779, guid: d7c5e352d85f5964c8333927346741ea, type: 3}
       propertyPath: m_Name
       value: Rewards
@@ -2768,12 +2785,40 @@ PrefabInstance:
       value: 32709
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8458097405872201751, guid: d7c5e352d85f5964c8333927346741ea, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7c5e352d85f5964c8333927346741ea, type: 3}
+--- !u!114 &371351081892011548 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2799975791309889205, guid: d7c5e352d85f5964c8333927346741ea, type: 3}
+  m_PrefabInstance: {fileID: 2593175027987333289}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6319dc24a0f53774299b8c119e9a3a39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!224 &1037693872878729136 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3286061914052917017, guid: d7c5e352d85f5964c8333927346741ea, type: 3}
+  m_PrefabInstance: {fileID: 2593175027987333289}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2527010280373441278 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 66833285056172631, guid: d7c5e352d85f5964c8333927346741ea, type: 3}
   m_PrefabInstance: {fileID: 2593175027987333289}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2600132794028829198 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 570068135252060839, guid: d7c5e352d85f5964c8333927346741ea, type: 3}
+  m_PrefabInstance: {fileID: 2593175027987333289}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 762ffeeb6d73c42478ed36ac8b8ba2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
