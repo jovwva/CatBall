@@ -26,13 +26,14 @@ public class MainMenuBroker : MonoBehaviour
         } else { 
             playButtonText.text = $"Level №{lastLevelID}";;
         }
-        playButton.onClick.AddListener(LoadLastLevel);
 
+        playButton.onClick.AddListener(LoadLastLevel);
         mapButton.onClick.AddListener(LoadMapLevel);
         // settingButton.onClick.AddListener(LoadMapLevel);
-        // shopButton.onClick.AddListener(LoadMapLevel);
+        shopButton.onClick.AddListener(LoadMapLevel);
     }
 
     private void LoadLastLevel()    => SceneManager.LoadSceneAsync($"Level_{lastLevelID}");
     private void LoadMapLevel()     => SceneManager.LoadSceneAsync("LevelsMap");
+    private void OpenShopPanel()    => Debug.Log("ShopOpen!");
 }
