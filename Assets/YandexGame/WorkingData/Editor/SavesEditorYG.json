@@ -1,5 +1,5 @@
 {
-  "idSave": 8,
+  "idSave": 9,
   "isFirstSession": false,
   "language": "ru",
   "promptDone": false,
@@ -95,5 +95,5 @@
       "starCount": 0
     }
   ],
-  "moneyValue": 100
+  "moneyValue": 225
 }
