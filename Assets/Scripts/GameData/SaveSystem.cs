@@ -36,24 +36,34 @@ public class SaveSystem : MonoBehaviour
     }
 
 #region SetData
-    public void SetMoneyValue(int delta) => 
-        YandexGame.savesData.moneyValue += delta;
     public void SetLevelData(LevelData levelData) =>
         YandexGame.savesData.levelsDataArray.Where( d => d.id == levelData.id).First().starCount = levelData.starCount;
     // public void SetItemData(ItemData itemData) =>
     //     YandexGame.savesData.itemsStateList.Find( d => d.itemID == itemData.itemID).itemState = itemData.itemState;
-    public bool TrySetLevelAcces(int levelID) {
+    public void TrySetLevelAcces(int levelID) {
         LevelData data = GetLevelData(levelID);
 
         if (data != null && !data.access)
         {
             data.access = true;
-            return true;
+            // return true;
         }
 
-        return false;
+        // return false;
     }
     public bool TryFindLevel(int levelID) => GetLevelData(levelID) != null;
+    public bool TrySetMoneyValue(int moneyDelta) 
+    {
+        if (moneyDelta < 0 && Mathf.Abs(moneyDelta) > YandexGame.savesData.moneyValue)
+        {
+            return false;
+        }
+        else
+        {
+            YandexGame.savesData.moneyValue += moneyDelta;
+            return true;
+        }
+    }
 
     public void CLearYGS() {
         YandexGame.ResetSaveProgress();
@@ -65,7 +75,7 @@ public class SaveSystem : MonoBehaviour
 #region GetData
     public LevelData        GetLevelData(int levelID)   => YandexGame.savesData.levelsDataArray.Where( d => d.id == levelID).FirstOrDefault();
     // public ItemData         GetItemData(int itemID)     => YandexGame.savesData.itemsStateList.Find( d => d.itemID == itemID);
-    public int              GetMoneyData()              => YandexGame.savesData.moneyValue;
+    public int              GetMoneyValue()              => YandexGame.savesData.moneyValue;
 
     public LevelData[]      GetLevelDataArray()         => YandexGame.savesData.levelsDataArray;
     // public List<ItemData>   GetItemDataList()           => YandexGame.savesData.itemsStateList;

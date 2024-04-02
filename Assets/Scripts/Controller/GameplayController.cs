@@ -11,9 +11,10 @@ public class GameplayController : MonoBehaviour,
     public int levelID = 1;
     private LevelInfo data;
 
-    private int ballsDestroyed = 0;
-    private float ballApproved = 0;
-    private bool levelPass = false;
+    private int ballsDestroyed  = 0;
+    private float ballApproved  = 0;
+    private bool levelPass      = false;
+    private bool isSaveRequired = false;
 
     #region EventBus
         private void Start()
@@ -36,6 +37,8 @@ public class GameplayController : MonoBehaviour,
             EventBusHolder.Instance.EventBus.Unregister(this as IEventReceiver<BallApprovedEvent>);
             EventBusHolder.Instance.EventBus.Unregister(this as IEventReceiver<PipeEmptiedEvent>);
             EventBusHolder.Instance.EventBus.Unregister(this as IEventReceiver<ToolDrag>);
+        
+            if (isSaveRequired) SaveSystem.Instance.SaveProgress();
         }
     #endregion
 
@@ -77,6 +80,9 @@ public class GameplayController : MonoBehaviour,
         }
     }
 
+    /// <summary>
+    /// Запускает цепочку финализации уровня. Упаковывает данные в контейнер, после чего передает его в Canvas и систему сохранений.
+    /// </summary>
     private void ShowLevelResult() {
         int newStarCount = GetStarCount();
         LevelData levelData = new LevelData(levelID, newStarCount, newStarCount > 0);
@@ -85,24 +91,29 @@ public class GameplayController : MonoBehaviour,
         CheckLevelResult(levelData);
     }
 
+    /// <summary>
+    /// Проверяется требуется ли обновить сохраненные данные. Если проиграть уровень, то обновления => сохранения не будет
+    /// </summary>
+    /// <param name="levelData"></param>
     private void CheckLevelResult(LevelData levelData) {
-        bool needSave = false;
+        // Если игрок не прошел уровень, то не будет новых звезд или денег, так что сохраняться не нужно
         if (levelData.access == false) return;
         
         LevelData oldData = SaveSystem.Instance.GetLevelData(levelData.id);
         
         // Проверка следующего уровня
-        if (SaveSystem.Instance.TrySetLevelAcces(levelData.id + 1)) {
-            needSave = true;
-        }
+        SaveSystem.Instance.TrySetLevelAcces(levelData.id + 1);
+        // Проверка актуального уровня
         if (oldData.starCount < levelData.starCount) {
             SaveSystem.Instance.SetLevelData(levelData);
-            needSave = true;
         }
 
-        if (needSave) SaveSystem.Instance.SaveProgress();
+        isSaveRequired = true;
     }
-
+    /// <summary>
+    /// Возвращает количество полученных звезд заработанных за уровень обрабатывая данные из БД.
+    /// </summary>
+    /// <returns></returns>
     private int GetStarCount() {      
         if (ballApproved >= data.threeStarReqValue) {
             return 3;

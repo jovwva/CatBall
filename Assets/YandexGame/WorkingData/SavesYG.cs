@@ -25,17 +25,7 @@ namespace YG
                 new LevelData(8, 0, false),
                 new LevelData(9, 0, false),
             };
-
-        // public List<ItemData> itemsStateList = 
-        //     new List<ItemData>(){
-        //             new ItemData(0, ItemState.Selected),
-        //             new ItemData(1, ItemState.Purchased),
-        //             new ItemData(2, ItemState.Blocked), 
-        //         };
         public int moneyValue = 100;
-
-        // Поля (сохранения) можно удалять и создавать новые. При обновлении игры сохранения ломаться не должны
-
 
         // Вы можете выполнить какие то действия при загрузке сохранений
         // public SavesYG()
