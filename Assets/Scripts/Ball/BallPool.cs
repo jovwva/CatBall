@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Pool;
 
+// TODO поменять нейминг класса
 public class BallPool : MonoBehaviour
 {
     public enum PoolType

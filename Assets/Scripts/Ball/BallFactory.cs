@@ -5,7 +5,7 @@ public enum BallType {
     BlueBall,
     RedBall,
 }
-
+// TODO поменять нейминг класса
 public class BallFactory : MonoBehaviour
 {
     [SerializeField] private BallPool       _ballPool;
@@ -14,8 +14,9 @@ public class BallFactory : MonoBehaviour
     public int          ballLimit   = 20;
     public float        spawnDelay  = .4f;
     public Transform    spawnPosition;
-    public LeverSwitch leverSwitch;
+    
     private bool         _factoryState = true;
+    private bool        _isleverOpen = false;
    
     public bool FactoryState {
         get { return _factoryState; }
@@ -37,7 +38,7 @@ public class BallFactory : MonoBehaviour
         }
         timer += Time.deltaTime; 
         
-        if (timer >= spawnDelay && leverSwitch.leverIsOpen) {
+        if (timer >= spawnDelay && _isleverOpen) {
             timer = 0f;
             
             Ball ball = _ballPool.Pool.Get();
@@ -48,5 +49,9 @@ public class BallFactory : MonoBehaviour
         if (ballSpawned >= ballLimit) {
             FactoryState = false;
         }
+    }
+
+    public void SwitchLever(){
+        _isleverOpen = !_isleverOpen;
     }
 }

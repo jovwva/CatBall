@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 695240256303217883}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.005, y: 0.105, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -59,8 +59,8 @@ Transform:
   m_GameObject: {fileID: 2286160508486246244}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.85, y: 0, z: 0}
-  m_LocalScale: {x: 0.7269, y: 0.3595, z: 1}
+  m_LocalPosition: {x: 0.622, y: -0.009, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8621669901064874031}
@@ -106,7 +106,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Sprite: {fileID: 2057142559, guid: 26b7f51cd38160a47be4da5388065ac9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -169,7 +169,6 @@ MonoBehaviour:
   ballLimit: 50
   spawnDelay: 0.35
   spawnPosition: {fileID: 7874851778761675529}
-  leverSwitch: {fileID: 3093001557833207498}
 --- !u!1 &5127446710629316314
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,8 +195,8 @@ Transform:
   m_GameObject: {fileID: 5127446710629316314}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.35, y: 0, z: 0}
-  m_LocalScale: {x: 0.6138, y: 0.15231968, z: 1}
+  m_LocalPosition: {x: 0.262, y: -0.002, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8621669901064874031}
@@ -243,7 +242,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Sprite: {fileID: 1669540902, guid: 26b7f51cd38160a47be4da5388065ac9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -345,7 +344,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd3e3713721485e40a7262bd0811d981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leverIsOpen: 0
+  _leverTransform: {fileID: 8621669901064874031}
+  _spriteHandle: {fileID: 1782486696752149131}
+  _ballFactory: {fileID: 2251226601401061029}
 --- !u!1 &8566738354657981828
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,10 +401,6 @@ PrefabInstance:
     - target: {fileID: 3579377909488913502, guid: 0af3da3f3e83256478167aae961e227a, type: 3}
       propertyPath: m_SortingOrder
       value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5428705433932867527, guid: 0af3da3f3e83256478167aae961e227a, type: 3}
-      propertyPath: m_Creator
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5428705433932867527, guid: 0af3da3f3e83256478167aae961e227a, type: 3}
       propertyPath: m_ColliderSegment.Array.size
