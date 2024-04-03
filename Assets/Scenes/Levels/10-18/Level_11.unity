@@ -306,7 +306,7 @@ PrefabInstance:
       objectReference: {fileID: 851876554}
     - target: {fileID: 2251226601401061029, guid: 6845b9bbd7c89cf4a85e2c8184e9ed0e, type: 3}
       propertyPath: ballLimit
-      value: 50
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 3032340356418934599, guid: 6845b9bbd7c89cf4a85e2c8184e9ed0e, type: 3}
       propertyPath: m_Name
@@ -696,6 +696,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1928852233189326845, guid: f7b5227a6f8cc4a4fa21643ac981d87a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.75
+      objectReference: {fileID: 0}
     - target: {fileID: 2021364657134230770, guid: f7b5227a6f8cc4a4fa21643ac981d87a, type: 3}
       propertyPath: m_Name
       value: '[DestroyZone]'
@@ -706,7 +710,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5294293351341059652, guid: f7b5227a6f8cc4a4fa21643ac981d87a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: -1.75
       objectReference: {fileID: 0}
     - target: {fileID: 5294293351341059652, guid: f7b5227a6f8cc4a4fa21643ac981d87a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -739,6 +743,10 @@ PrefabInstance:
     - target: {fileID: 5294293351341059652, guid: f7b5227a6f8cc4a4fa21643ac981d87a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6421953270737197377, guid: f7b5227a6f8cc4a4fa21643ac981d87a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1463,7 +1471,7 @@ PrefabInstance:
       objectReference: {fileID: 851876554}
     - target: {fileID: 2251226601401061029, guid: 6845b9bbd7c89cf4a85e2c8184e9ed0e, type: 3}
       propertyPath: ballLimit
-      value: 50
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 3032340356418934599, guid: 6845b9bbd7c89cf4a85e2c8184e9ed0e, type: 3}
       propertyPath: m_Name

@@ -15,7 +15,7 @@ public class RewardPanel : MonoBehaviour
     /// <param name="starCount"></param>
     public void InirRewardPanel(int starCount)
     {
-        gameObject.SetActive(true);
+        // gameObject.SetActive(true);
 
         int reward = CalculateReward(starCount);
 
