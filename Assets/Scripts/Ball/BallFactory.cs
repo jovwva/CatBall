@@ -16,7 +16,7 @@ public class BallFactory : MonoBehaviour
     public Transform    spawnPosition;
     
     private bool         _factoryState = true;
-    private bool        _isleverOpen = false;
+    private bool        _isLeverOpen = false;
    
     public bool FactoryState {
         get { return _factoryState; }
@@ -38,7 +38,7 @@ public class BallFactory : MonoBehaviour
         }
         timer += Time.deltaTime; 
         
-        if (timer >= spawnDelay && _isleverOpen) {
+        if (timer >= spawnDelay && _isLeverOpen) {
             timer = 0f;
             
             Ball ball = _ballPool.Pool.Get();
@@ -51,7 +51,17 @@ public class BallFactory : MonoBehaviour
         }
     }
 
-    public void SwitchLever(){
-        _isleverOpen = !_isleverOpen;
+    // public bool SwitchLever(bool _isSwitchLever)
+    // {
+    //     _isSwitchLever = !_isSwitchLever;
+    //     _isLeverOpen = _isSwitchLever;
+    //     return(_isSwitchLever);
+    // }
+
+    public void ChangeState(bool isLeverOpen)
+    {
+        if (_isLeverOpen == isLeverOpen)
+            return;
+        _isLeverOpen = isLeverOpen;
     }
 }
