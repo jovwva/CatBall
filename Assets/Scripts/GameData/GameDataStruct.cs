@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 public enum ItemState {
     Blocked,
     Purchased,

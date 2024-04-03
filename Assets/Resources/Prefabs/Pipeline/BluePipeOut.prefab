@@ -167,7 +167,7 @@ MonoBehaviour:
   _ballPool: {fileID: 0}
   ballSpawned: 0
   ballLimit: 50
-  spawnDelay: 0.35
+  spawnDelay: 0.2
   spawnPosition: {fileID: 7874851778761675529}
 --- !u!1 &5127446710629316314
 GameObject:
@@ -676,7 +676,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5524593076400776173, guid: 0af3da3f3e83256478167aae961e227a, type: 3}
       propertyPath: m_LocalAABB.m_Center.y
-      value: 0.0053818226
+      value: 0.005381584
       objectReference: {fileID: 0}
     - target: {fileID: 5524593076400776173, guid: 0af3da3f3e83256478167aae961e227a, type: 3}
       propertyPath: m_LocalAABB.m_Extent.x
