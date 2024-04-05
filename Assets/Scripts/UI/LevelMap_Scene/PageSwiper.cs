@@ -6,22 +6,22 @@ public class PageSwiper : MonoBehaviour
 {
     private List<Transform> _pages = new List<Transform>();
     private int _currentPageNumber = 0;
-    private void Awake()
+    private void Start()
     {
         foreach (Transform page in transform)
         {
             _pages.Add(page);
         }
-        Debug.Log(_pages.Count);
     }
     public void NextPage()
     {
         if(_currentPageNumber < _pages.Count - 1)
         {
-            Debug.Log(_currentPageNumber);
-            _pages[_currentPageNumber].gameObject.SetActive(false);
-            _currentPageNumber++;
-            _pages[_currentPageNumber].gameObject.SetActive(true);
+            SwipePage(1);
+        }
+        else
+        {
+            SwipePage(- _currentPageNumber);
         }
     }
 
@@ -29,17 +29,18 @@ public class PageSwiper : MonoBehaviour
     {
         if(_currentPageNumber > 0)
         {
-            Debug.Log(_currentPageNumber);
-            _pages[_currentPageNumber].gameObject.SetActive(false);
-            _currentPageNumber--;
-            _pages[_currentPageNumber].gameObject.SetActive(true);
+            SwipePage(-1);
+        }
+        else
+        {
+            SwipePage(_pages.Count - 1);
         }
     }
 
-    // Возвращает текущую страницу и максимальное кол-во страниц
-    public void CurrentPageAndMaxPages(out int curPage, out int maxPage)
+    private void SwipePage(int numberOfPages)
     {
-        curPage = _currentPageNumber;
-        maxPage = _pages.Count;
+        _pages[_currentPageNumber].gameObject.SetActive(false);
+        _currentPageNumber += numberOfPages;
+        _pages[_currentPageNumber].gameObject.SetActive(true);
     }
 }
