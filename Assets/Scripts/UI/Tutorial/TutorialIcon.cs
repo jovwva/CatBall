@@ -5,9 +5,11 @@ public class TutorialIcon : MonoBehaviour, IEventReceiver<ToolDrag>
     public int levelID;
     public GameObject sparks_1;
     public GameObject sparks_2;
+    public GameObject sparks_3;
     public GameObject tetxHolder;
     public bool reqTurorial = false;
     public int trigerStep = 0;
+    public TutorialTigger tutorialTigger;
 
     private void Start()
     {
@@ -37,9 +39,14 @@ public class TutorialIcon : MonoBehaviour, IEventReceiver<ToolDrag>
             case 1:
                 sparks_1.SetActive(false);
                 sparks_2.SetActive(true);
+                tutorialTigger.ChangeState(true);
                 break;
             case 2:
                 sparks_2.SetActive(false);
+                sparks_3.SetActive(true);
+                break;
+            case 3:
+                sparks_3.SetActive(false);
                 tetxHolder.SetActive(true);
                 break;
         }
