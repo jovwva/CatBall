@@ -25,6 +25,15 @@ namespace YG
                 new LevelData(8, 0, false),
                 new LevelData(9, 0, false),
             };
+        public ItemData[] itemDataArray =
+            new ItemData[6]{
+                new ItemData(0, ProductStatus.CanBuy),
+                new ItemData(1, ProductStatus.Selected),
+                new ItemData(2, ProductStatus.Bought),
+                new ItemData(3, ProductStatus.CanBuy),
+                new ItemData(4, ProductStatus.CanBuy),
+                new ItemData(5, ProductStatus.CanBuy),
+            };
         public int moneyValue = 100;
 
         // Вы можете выполнить какие то действия при загрузке сохранений
