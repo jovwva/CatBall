@@ -396,16 +396,16 @@ PlayerSettings:
     CUSTOMIZE_LOADING_SCREEN_BACKGROUND: 
     CUSTOMIZE_LOGO: 
     CUSTOM_EVENT_IN_CSS: 
-    CUSTOM_EVENT_IN_HTML: <script src="https://yandex.ru/games/sdk/v2"></script>
-    CUSTOM_EVENT_IN_JS: YaGames.init().then(ysdk=>{console.log("Yandex SDK initialized");window.ysdk=ysdk});
-    DISABLE_CONSOLE_MESSAGES: 
+    CUSTOM_EVENT_IN_HTML: 
+    CUSTOM_EVENT_IN_JS: 
+    DISABLE_CONSOLE_MESSAGES: all
     GP_GAMEREADY_AUTOCALL_DELAY: 
     GP_PROJECT_ID: 
     GP_SHOW_PRELOADER_AD: 
     GP_TOKEN: 
     IGB_GAME_DISTRIBUTION_GAME_ID: 
     IGB_VK_PLAY_GAME_ID: 
-    LOCK_ASPECT_RATIO: pc navigator
+    LOCK_ASPECT_RATIO: pc touch
     YG_BANNER_DYNAMIC_1: 
     YG_BANNER_DYNAMIC_2: 
     YG_BANNER_STATIC_1: 
