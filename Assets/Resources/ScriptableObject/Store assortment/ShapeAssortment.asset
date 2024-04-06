@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7df33f6416a7424dae705944a937564, type: 3}
+  m_Name: ShapeAssortment
+  m_EditorClassIdentifier: 
+  itemShapeSOList:
+  - {fileID: 11400000, guid: 1385a154e32a9a5488f7defd48791000, type: 2}
+  - {fileID: 11400000, guid: 44ed49d03f509b045a108e3d74315aae, type: 2}
+  - {fileID: 11400000, guid: fe6d14a9a6f24874498649f92432ffb1, type: 2}

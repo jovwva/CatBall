@@ -18,15 +18,15 @@ public class ItemObject : MonoBehaviour
         [Header("Тестовые данные")]
         public bool isTestRun = false;
 
-        public Sprite icon;
-        public string price;
-        public ProductStatus status;
+        public Sprite        testIcon;
+        public string        testPrice;
+        public ProductStatus testStatus;
         
         [Space]
         [Header("Elements")]
         [SerializeField] private Image           iconImage;
         [SerializeField] private TextMeshProUGUI priceText;
-        [SerializeField] private Button          itemButton;
+        // [SerializeField] private Button          itemButton;
         [SerializeField] private TextMeshProUGUI buttonText;
     
         private Dictionary<ProductStatus, string> statusMessages = new Dictionary<ProductStatus, string>
@@ -46,7 +46,7 @@ public class ItemObject : MonoBehaviour
         if (isTestRun)
         {
             Tuple<Sprite, string, ProductStatus> dataTest = 
-                new Tuple<Sprite, string, ProductStatus>(icon, price, status);
+                new Tuple<Sprite, string, ProductStatus>(testIcon, testPrice, testStatus);
             SetData<object>(dataTest);
         }
     }
