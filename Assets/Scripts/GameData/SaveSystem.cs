@@ -38,8 +38,8 @@ public class SaveSystem : MonoBehaviour
 #region SetData
     public void SetLevelData(LevelData levelData) =>
         YandexGame.savesData.levelsDataArray.Where( d => d.id == levelData.id).First().starCount = levelData.starCount;
-    // public void SetItemData(ItemData itemData) =>
-    //     YandexGame.savesData.itemsStateList.Find( d => d.itemID == itemData.itemID).itemState = itemData.itemState;
+    public void SetItemData(ItemData itemData) =>
+        YandexGame.savesData.itemDataArray.Where( d => d.id == itemData.id).First().itemState = itemData.itemState;
     public void TrySetLevelAcces(int levelID) {
         LevelData data = GetLevelData(levelID);
 
@@ -73,12 +73,12 @@ public class SaveSystem : MonoBehaviour
 #endregion
 
 #region GetData
-    public LevelData        GetLevelData(int levelID)   => YandexGame.savesData.levelsDataArray.Where( d => d.id == levelID).FirstOrDefault();
-    // public ItemData         GetItemData(int itemID)     => YandexGame.savesData.itemsStateList.Find( d => d.itemID == itemID);
-    public int              GetMoneyValue()              => YandexGame.savesData.moneyValue;
+    public LevelData        GetLevelData(int id)   => YandexGame.savesData.levelsDataArray.Where( d => d.id == id ).FirstOrDefault();
+    public ItemData         GetItemData(int id)    => YandexGame.savesData.itemDataArray.Where( d => d.id == id ).FirstOrDefault();
+    public int              GetMoneyValue()        => YandexGame.savesData.moneyValue;
 
-    public LevelData[]      GetLevelDataArray()         => YandexGame.savesData.levelsDataArray;
-    // public List<ItemData>   GetItemDataList()           => YandexGame.savesData.itemsStateList;
+    public LevelData[]      GetLevelDataArray()    => YandexGame.savesData.levelsDataArray;
+    public ItemData[]       GetItemDataArray()     => YandexGame.savesData.itemDataArray;
 
     public LevelInfo GetLevelInformation(int levelID)   => levelData.levelInfoList.Find( ld => ld.id == levelID);
 #endregion

@@ -22,7 +22,7 @@ public class ShopBroker : MonoBehaviour
     [SerializeField] private Button colorPanelButton;
     [SerializeField] private Button shapePanelButton;
 
-    private ShopState shopState;
+    private ShopState shopState = ShopState.Empty;
     private Dictionary<ShopState, ShopAssortment> statusMessages;
 #endregion
 
@@ -41,12 +41,7 @@ public class ShopBroker : MonoBehaviour
     }
     private void Start()
     {
-        shopState = ShopState.ColorPanel;
-        
-        if (isTestRun)
-        {
-            SetAssortment(testAssortment.itemList);
-        }
+        ChangeActivePanel(ShopState.ColorPanel);
     }
         
 #endregion
@@ -56,14 +51,21 @@ public class ShopBroker : MonoBehaviour
     {
         if (this.shopState == shopState) return;
         
-        Debug.Log(shopState);
         ResetAssortment();
+
+        if (isTestRun)
+        {
+            SetAssortment(testAssortment.itemList);
+            return;
+        }
+
         ShopAssortment data = GetAssortment(shopState);
         if (data == null)
         {
             Debug.LogWarning("Ассортимент не найден!");
             return;
         }
+
         SetAssortment(data.itemList);
     }
     private void ResetAssortment()
@@ -87,9 +89,10 @@ public class ShopBroker : MonoBehaviour
 
         for (int i = 0; i < dataList.Count; i++)
         {
-            // TODO: Нужно что-то решать с ProductStatus!!!
+            ProductStatus status = SaveSystem.Instance.GetItemData(dataList[i].id).itemState;
+
             Tuple<Sprite, int, ProductStatus, int> value = new Tuple<Sprite, int, ProductStatus, int>
-                (dataList[i].icon, dataList[i].price, ProductStatus.Bought, dataList[i].price);
+                (dataList[i].icon, dataList[i].price, status, dataList[i].id);
             itemList[i].SetData<object>(value);
         }
     }
@@ -107,6 +110,7 @@ public class ShopBroker : MonoBehaviour
 [Serializable]
 public enum ShopState
 {
+    Empty,
     ColorPanel,
     ShapePanel,
 }

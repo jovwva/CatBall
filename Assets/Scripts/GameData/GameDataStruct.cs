@@ -1,9 +1,3 @@
-public enum ItemState {
-    Blocked,
-    Purchased,
-    Selected,
-}
-
 [System.Serializable]
 public class LevelData {
     public int  id;
@@ -20,12 +14,12 @@ public class LevelData {
 
 [System.Serializable]
 public class ItemData {
-    public int          itemID;
-    public ItemState    itemState;
+    public int           id;
+    public ProductStatus itemState;
 
-    public ItemData(int itemID, ItemState itemState)
+    public ItemData(int id, ProductStatus itemState)
     {
-        this.itemID     = itemID;
+        this.id         = id;
         this.itemState  = itemState;
     }
 }
