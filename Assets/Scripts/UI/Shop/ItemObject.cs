@@ -40,6 +40,7 @@ public class ItemObject : MonoBehaviour
     
 #endregion
 
+#region MonoBehaviour
     private void Awake()
     {
         if (!isTestRun)
@@ -54,6 +55,7 @@ public class ItemObject : MonoBehaviour
             SetData<object>(dataTest);
         }
     }
+#endregion
 
 #region WorkWithData
     public void TurnOff()
