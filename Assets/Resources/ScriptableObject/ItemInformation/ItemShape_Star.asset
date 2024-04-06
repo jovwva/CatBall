@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 5
   icon: {fileID: 21300000, guid: c4f379a186abcd0458c776e21efa91a4, type: 3}
-  price: 100
-  shapeSprite: {fileID: 21300000, guid: a83aadcf48852574db8e1709aeea8175, type: 3}
+  price: 300
+  shapeTexture: {fileID: 2800000, guid: a83aadcf48852574db8e1709aeea8175, type: 3}
