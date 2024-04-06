@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7df33f6416a7424dae705944a937564, type: 3}
-  m_Name: ShapeAssortment
+  m_Script: {fileID: 11500000, guid: 40a1f25f9c302704aa5ca053276054a8, type: 3}
+  m_Name: AssortmentOf_Shape
   m_EditorClassIdentifier: 
-  itemShapeSOList:
+  itemList:
   - {fileID: 11400000, guid: 1385a154e32a9a5488f7defd48791000, type: 2}
   - {fileID: 11400000, guid: 44ed49d03f509b045a108e3d74315aae, type: 2}
   - {fileID: 11400000, guid: fe6d14a9a6f24874498649f92432ffb1, type: 2}

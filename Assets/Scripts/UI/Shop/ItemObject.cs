@@ -16,11 +16,10 @@ public class ItemObject : MonoBehaviour
 {
 #region Field
         [Header("Тестовые данные")]
-        public bool isTestRun = false;
+        [SerializeField] private bool isTestRun = false;
 
-        public Sprite        testIcon;
-        public string        testPrice;
-        public ProductStatus testStatus;
+        [SerializeField] private ItemSO        testItem;
+        [SerializeField] private ProductStatus testStatus = ProductStatus.Bought;
         
         [Space]
         [Header("Elements")]
@@ -37,32 +36,42 @@ public class ItemObject : MonoBehaviour
             { ProductStatus.Selected,   "Выбрано" }
         };
     
-        // private Data data;
+        private int id;
     
 #endregion
 
+    private void Awake()
+    {
+        if (!isTestRun)
+            TurnOff();
+    }
     private void Start()
     {
         if (isTestRun)
         {
-            Tuple<Sprite, string, ProductStatus> dataTest = 
-                new Tuple<Sprite, string, ProductStatus>(testIcon, testPrice, testStatus);
+            Tuple<Sprite, int, ProductStatus, int> dataTest = 
+                new Tuple<Sprite, int, ProductStatus, int>(testItem.icon, testItem.price, testStatus, testItem.id);
             SetData<object>(dataTest);
         }
     }
+
 #region WorkWithData
     public void TurnOff()
     {
         gameObject.SetActive(false);
-        // data = null;
+        id = -1;
     }
 
-    public void SetData<T>(Tuple<Sprite, string, ProductStatus> data)
+    public void SetData<T>(Tuple<Sprite, int, ProductStatus, int> data)
     {
-        iconImage.sprite    = data.Item1;
-        priceText.text      = data.Item2;
+        if (id == data.Item4) return;
+        
+        id = data.Item4;
+        iconImage.sprite    = data.Item1;   
+        priceText.text      = $"{data.Item2}";
 
         buttonText.text     = GetMessageForStatus(data.Item3);
+        gameObject.SetActive(true);
     }
 
     private string GetMessageForStatus(ProductStatus status)

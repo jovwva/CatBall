@@ -7,36 +7,45 @@ public class ShopBroker : MonoBehaviour
 {
 #region Field
     [Header("Тестовые данные")]
-    public bool isTestRun = false;
+    [SerializeField] private bool isTestRun = false;
 
-    public Sprite testIcon;
-    public string testPrice;
-    public ProductStatus testStatus;
+    [SerializeField] private ShopAssortment  testAssortment;
+    [SerializeField] private ProductStatus   testStatus = ProductStatus.Bought;
 
     [Space]
-    [Header("Объекты")]
+    [Header("Списки")]
     [SerializeField] private List<ItemObject> itemList;
+    [SerializeField] private ShopAssortment  colorAssortment;
+    [SerializeField] private ShopAssortment  shapeAssortment;
     [Space]
     [Header("Кнопки")]
     [SerializeField] private Button colorPanelButton;
     [SerializeField] private Button shapePanelButton;
 
     private ShopState shopState;
+    private Dictionary<ShopState, ShopAssortment> statusMessages;
 #endregion
 
 #region MonoBehaviour
     
-    private void Start()
+    private void Awake()
     {
-        shopState = ShopState.ColorPanel;
+        statusMessages = new Dictionary<ShopState, ShopAssortment>
+        {
+            { ShopState.ColorPanel, colorAssortment },
+            { ShopState.ShapePanel, shapeAssortment },
+        };
 
         colorPanelButton.onClick.AddListener(() => ChangeActivePanel(ShopState.ColorPanel));
         shapePanelButton.onClick.AddListener(() => ChangeActivePanel(ShopState.ShapePanel));
+    }
+    private void Start()
+    {
+        shopState = ShopState.ColorPanel;
         
         if (isTestRun)
         {
-            List<int> i = new List<int>();
-            SetAssortment(i);
+            SetAssortment(testAssortment.itemList);
         }
     }
         
@@ -49,27 +58,53 @@ public class ShopBroker : MonoBehaviour
         
         Debug.Log(shopState);
         ResetAssortment();
-
-        // SetAssortment();
+        ShopAssortment data = GetAssortment(shopState);
+        if (data == null)
+        {
+            Debug.LogWarning("Ассортимент не найден!");
+            return;
+        }
+        SetAssortment(data.itemList);
     }
     private void ResetAssortment()
     {
         foreach(ItemObject item in itemList)
             item.TurnOff();
     }
-    private void SetAssortment<T>(List<T> data)
+    private void SetAssortment(List<ItemSO> dataList)
     {
-        foreach(ItemObject item in itemList)
+        if (isTestRun)
         {
-            Tuple<Sprite, string, ProductStatus> dataTest = 
-                new Tuple<Sprite, string, ProductStatus>(testIcon, testPrice, testStatus);
-            item.SetData<object>(dataTest);
+            for (int i = 0; i < testAssortment.itemList.Count; i++)
+            {
+                Tuple<Sprite, int, ProductStatus, int> value = new Tuple<Sprite, int, ProductStatus, int>(
+                    testAssortment.itemList[i].icon, testAssortment.itemList[i].price, testStatus, testAssortment.itemList[i].id);
+                        
+                itemList[i].SetData<object>(value);
+            }
+            return;
         }
+
+        for (int i = 0; i < dataList.Count; i++)
+        {
+            // TODO: Нужно что-то решать с ProductStatus!!!
+            Tuple<Sprite, int, ProductStatus, int> value = new Tuple<Sprite, int, ProductStatus, int>
+                (dataList[i].icon, dataList[i].price, ProductStatus.Bought, dataList[i].price);
+            itemList[i].SetData<object>(value);
+        }
+    }
+    private ShopAssortment GetAssortment(ShopState AssortmentType)
+    {
+        if (statusMessages.TryGetValue(AssortmentType, out ShopAssortment data))
+        {
+            return data;
+        }
+        return null;
     }
 #endregion
 }
 
-[System.Serializable]
+[Serializable]
 public enum ShopState
 {
     ColorPanel,

@@ -451,12 +451,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTestRun: 0
-  icon: {fileID: 0}
-  price: 
-  status: 0
+  testItem: {fileID: 11400000, guid: 5497f22dc8c2e7c419eaf25f858316a2, type: 2}
+  testStatus: 2
   iconImage: {fileID: 5222799367055508568}
   priceText: {fileID: 552232706225684435}
-  itemButton: {fileID: 287818704656274550}
   buttonText: {fileID: 8378183989344631722}
 --- !u!1 &6028313114693162696
 GameObject:
