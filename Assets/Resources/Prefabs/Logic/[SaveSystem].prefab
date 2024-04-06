@@ -45,3 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelData: {fileID: 11400000, guid: 8362db135f54b8b489b9b53ae7436480, type: 2}
+  colorAssortment: {fileID: 11400000, guid: 61ee28f421375ad4ea5469b6f1e73497, type: 2}
+  shapeAssortment: {fileID: 11400000, guid: 605993febe60b884e8f245c1e69e9580, type: 2}

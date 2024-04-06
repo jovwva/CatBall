@@ -17,19 +17,16 @@ public class BackGroundHolder : MonoBehaviour
 
 #region MonoBehaviour
     
-        private void Start()
-        {
-            if (isTestRun)
-            {
-                ChangeColor(testColorItem.color);
-                ChangeShape(testShapeItem.shapeTexture);
-            }
-        }
-    
-        private void Update()
-        {
-            ornamentRI.uvRect = new Rect(ornamentRI.uvRect.position + new Vector2(_x, _y) * Time.deltaTime, ornamentRI.uvRect.size);
-        }
+    private void Start()
+    {
+        ChangeColor(isTestRun ? testColorItem.color : SaveSystem.Instance.GetBackColor());
+        ChangeShape(isTestRun ? testShapeItem.shapeTexture : SaveSystem.Instance.GetBackShape());
+    }
+
+    private void Update()
+    {
+        ornamentRI.uvRect = new Rect(ornamentRI.uvRect.position + new Vector2(_x, _y) * Time.deltaTime, ornamentRI.uvRect.size);
+    }
     
 #endregion
 

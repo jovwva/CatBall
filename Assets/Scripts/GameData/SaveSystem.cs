@@ -6,7 +6,12 @@ public class SaveSystem : MonoBehaviour
 {
     public static SaveSystem Instance { get; private set; }
     [SerializeField] private LevelDataSO levelData;
+    [SerializeField] private ShopAssortment  colorAssortment;
+    [SerializeField] private ShopAssortment  shapeAssortment;
+
     private int levelCount = 18;
+    private int colorId = 0;
+    private int shapeId = 3;
 
     private void Awake() {
         if ( Instance != null ) {
@@ -28,7 +33,6 @@ public class SaveSystem : MonoBehaviour
                 } else {
                     newLevelsDataArray[i] = new LevelData(i + 1, 0, false);
                 }
-                // YandexGame.savesData.levelsDataArray[i] = new LevelData(i + 1, 0, false);
             }
             YandexGame.savesData.levelsDataArray = newLevelsDataArray;
             SaveProgress();
@@ -44,12 +48,7 @@ public class SaveSystem : MonoBehaviour
         LevelData data = GetLevelData(levelID);
 
         if (data != null && !data.access)
-        {
             data.access = true;
-            // return true;
-        }
-
-        // return false;
     }
     public bool TryFindLevel(int levelID) => GetLevelData(levelID) != null;
     public bool TrySetMoneyValue(int moneyDelta) 
@@ -65,7 +64,8 @@ public class SaveSystem : MonoBehaviour
         }
     }
 
-    public void CLearYGS() {
+    public void CLearYGS() 
+    {
         YandexGame.ResetSaveProgress();
         SaveProgress();
     } 
@@ -81,6 +81,17 @@ public class SaveSystem : MonoBehaviour
     public ItemData[]       GetItemDataArray()     => YandexGame.savesData.itemDataArray;
 
     public LevelInfo GetLevelInformation(int levelID)   => levelData.levelInfoList.Find( ld => ld.id == levelID);
+
+    public Color    GetBackColor()
+    {
+        ItemColorSO itemColor = (ItemColorSO)colorAssortment.itemList.Where( d => d.id == colorId).FirstOrDefault();
+        return itemColor.color;
+    } 
+    public Texture  GetBackShape() 
+    {
+        ItemShapeSO itemShape = (ItemShapeSO)shapeAssortment.itemList.Where( d => d.id == shapeId).FirstOrDefault();
+        return itemShape.shapeTexture;
+    }
 #endregion
 
 #region TrySaveData

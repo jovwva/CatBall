@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f38616dae01f1244bb7b2905a85d2a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTestRun: 1
+  isTestRun: 0
   testColorItem: {fileID: 11400000, guid: 5497f22dc8c2e7c419eaf25f858316a2, type: 2}
   testShapeItem: {fileID: 11400000, guid: 44ed49d03f509b045a108e3d74315aae, type: 2}
   ornamentRI: {fileID: 8427568583857510986}
