@@ -1778,6 +1778,7 @@ GameObject:
   - component: {fileID: 1084959057}
   - component: {fileID: 1084959058}
   - component: {fileID: 1084959059}
+  - component: {fileID: 1084959060}
   m_Layer: 5
   m_Name: ShopPanel
   m_TagString: Untagged
@@ -1874,6 +1875,23 @@ MonoBehaviour:
   shapeAssortment: {fileID: 11400000, guid: 605993febe60b884e8f245c1e69e9580, type: 2}
   colorPanelButton: {fileID: 1828571014}
   shapePanelButton: {fileID: 1438060227}
+  assortmentBroker: {fileID: 1084959060}
+--- !u!114 &1084959060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084959055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a10a1301ead9cf469b17ac18245f339, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTestRun: 0
+  testColorItem: {fileID: 11400000, guid: e3e6b45dd3f96ce498cfe91f05dc9e8d, type: 2}
+  testShapeItem: {fileID: 11400000, guid: 44ed49d03f509b045a108e3d74315aae, type: 2}
+  testAnyItem: {fileID: 11400000, guid: fe6d14a9a6f24874498649f92432ffb1, type: 2}
 --- !u!1 &1105735537
 GameObject:
   m_ObjectHideFlags: 0
@@ -3098,7 +3116,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5720708004239323907, guid: f65e8645de626f94093a018406c2ac94, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

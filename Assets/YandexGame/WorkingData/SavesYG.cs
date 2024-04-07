@@ -27,9 +27,9 @@ namespace YG
             };
         public ItemData[] itemDataArray =
             new ItemData[6]{
-                new ItemData(0, ProductStatus.CanBuy),
-                new ItemData(1, ProductStatus.Selected),
-                new ItemData(2, ProductStatus.Bought),
+                new ItemData(0, ProductStatus.Selected),
+                new ItemData(1, ProductStatus.CanBuy),
+                new ItemData(2, ProductStatus.CanBuy),
                 new ItemData(3, ProductStatus.CanBuy),
                 new ItemData(4, ProductStatus.CanBuy),
                 new ItemData(5, ProductStatus.CanBuy),

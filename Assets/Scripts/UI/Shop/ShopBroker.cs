@@ -21,6 +21,8 @@ public class ShopBroker : MonoBehaviour
     [Header("Кнопки")]
     [SerializeField] private Button colorPanelButton;
     [SerializeField] private Button shapePanelButton;
+    [Space]
+    [SerializeField] private AssortmentBroker assortmentBroker; 
 
     private ShopState shopState = ShopState.Empty;
     private Dictionary<ShopState, ShopAssortment> statusMessages;
@@ -41,6 +43,9 @@ public class ShopBroker : MonoBehaviour
     }
     private void Start()
     {
+        foreach(ItemObject item in itemList)
+            item.InitielizeButton(this);
+
         ChangeActivePanel(ShopState.ColorPanel);
     }
         
@@ -59,7 +64,7 @@ public class ShopBroker : MonoBehaviour
             return;
         }
 
-        ShopAssortment data = GetAssortment(shopState);
+        ShopAssortment data = GetAssortmentType(shopState);
         if (data == null)
         {
             Debug.LogWarning("Ассортимент не найден!");
@@ -96,7 +101,7 @@ public class ShopBroker : MonoBehaviour
             itemList[i].SetData<object>(value);
         }
     }
-    private ShopAssortment GetAssortment(ShopState AssortmentType)
+    private ShopAssortment GetAssortmentType(ShopState AssortmentType)
     {
         if (statusMessages.TryGetValue(AssortmentType, out ShopAssortment data))
         {
@@ -105,6 +110,18 @@ public class ShopBroker : MonoBehaviour
         return null;
     }
 #endregion
+
+    public void TrySelect(int id)
+    {
+        Debug.Log($"TrySelect {id}");
+        // assortmentBroker.ChangeSelectedColor();
+        // assortmentBroker.ChangeSelectedShape();
+    }
+    public void TryBuy(int id)
+    {
+        Debug.Log($"TryBuy {id}");
+        // assortmentBroker.TryBuyItem();
+    }
 }
 
 [Serializable]

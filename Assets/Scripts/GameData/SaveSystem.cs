@@ -55,14 +55,18 @@ public class SaveSystem : MonoBehaviour
     {
         if (moneyDelta < 0 && Mathf.Abs(moneyDelta) > YandexGame.savesData.moneyValue)
         {
+            Debug.Log("Недостаточно средств!");
             return false;
         }
         else
         {
+            Debug.Log("Транзакция осуществлена!");
             YandexGame.savesData.moneyValue += moneyDelta;
             return true;
         }
     }
+    public void  SetBackColor(int id) => colorId = id;
+    public void  SetBackShape(int id) => shapeId = id;
 
     public void CLearYGS() 
     {

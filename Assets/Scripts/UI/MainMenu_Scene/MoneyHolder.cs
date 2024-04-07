@@ -8,6 +8,14 @@ public class MoneyHolder : MonoBehaviour
 
     private void Start()
     {
-        moneyValueText.text = $"{SaveSystem.Instance.GetMoneyValue()}";
+        UpdateMoney();
+
+        AssortmentBroker.MoneyChnaged += UpdateMoney;
     }
+    void OnDestroy()
+    {
+        AssortmentBroker.MoneyChnaged -= UpdateMoney;
+    }
+
+    private void UpdateMoney() => moneyValueText.text = SaveSystem.Instance.GetMoneyValue().ToString();
 }
