@@ -28,12 +28,32 @@ public class PageSwiper : MonoBehaviour
     {
         if (swiperType == SwiperType.Limited)
         {
-            // своя логика подсчета
+            CountPages(i);
+            UpdateButton();
         }
         else
         {
-            // своя логика подсчета
+            if(_currentPageNumber == 0 && i < 0)
+            {
+                CountPages(_pages.Count - 1);
+            }
+            else if (_currentPageNumber == _pages.Count - 1 && i > 0)
+            {
+                CountPages(-(_pages.Count - 1));
+            }
+            else
+            {
+                CountPages(i);
+            }
+            UpdateButton();
         }
+    }
+
+    private void CountPages(int i)
+    {
+        _pages[_currentPageNumber].gameObject.SetActive(false);
+        _currentPageNumber += i;
+        _pages[_currentPageNumber].gameObject.SetActive(true);
     }
 
     private void UpdateButton()

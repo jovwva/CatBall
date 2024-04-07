@@ -1038,19 +1038,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1913466414}
         m_TargetAssemblyTypeName: PageSwiper, Assembly-CSharp
-        m_MethodName: NextPage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2026485635}
-        m_TargetAssemblyTypeName: SwitchingLevelMapButtons, Assembly-CSharp
-        m_MethodName: SwitchState
+        m_MethodName: StepRight
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1783,19 +1771,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1913466414}
         m_TargetAssemblyTypeName: PageSwiper, Assembly-CSharp
-        m_MethodName: PreviousPage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2026485635}
-        m_TargetAssemblyTypeName: SwitchingLevelMapButtons, Assembly-CSharp
-        m_MethodName: SwitchState
+        m_MethodName: StepLeft
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3057,6 +3033,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c81e89ac79b7024f929c4ddc4832da7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swiperType: 1
+  _pages:
+  - {fileID: 1879580008}
+  - {fileID: 1774679230}
+  sw: {fileID: 2026485635}
 --- !u!1 &2026485633
 GameObject:
   m_ObjectHideFlags: 0
@@ -3107,9 +3088,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a632d540897ae94459ff841a9f1a6905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _previousButton: {fileID: 1297026831}
-  _nextButton: {fileID: 658607502}
-  pageSwiper: {fileID: 1913466414}
+  leftButton: {fileID: 1297026831}
+  rightButton: {fileID: 658607502}
+  state: 0
 --- !u!1001 &2090760501
 PrefabInstance:
   m_ObjectHideFlags: 0
