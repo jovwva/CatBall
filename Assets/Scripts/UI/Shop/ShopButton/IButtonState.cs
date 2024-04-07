@@ -23,6 +23,12 @@ public class CanBuyState : IButtonState, IBuyableState
 {
     public int id { get; set; }
     public event EventHandler<int> BuyClicked;
+
+    public CanBuyState(int id)
+    {
+        this.id = id;
+    }
+
     public void OnButtonClicked()
     {
         // Логика для состояния "Можно купить"
@@ -34,6 +40,12 @@ public class BoughtState : IButtonState, ISelectableState
 {
     public int id { get; set; }
     public event EventHandler<int> SelectClicked;
+
+    public BoughtState(int id)
+    {
+        this.id = id;
+    }
+
     public void OnButtonClicked()
     {
         // Логика для состояния "Куплено"
@@ -45,16 +57,26 @@ public class SelectedState : IButtonState
 {
     public int id { get; set; }
 
+    public SelectedState(int id)
+    {
+        this.id = id;
+    }
+
     public void OnButtonClicked()
     {
         // Логика для состояния "Выбрано"
-        Debug.Log("Продукт уже выбран!");
+        Debug.Log($"Продукт №{id} уже выбран!");
     }
 }
 
 public class ErrorState : IButtonState
 {
     public int id { get; set; }
+
+    public ErrorState(int id)
+    {
+        this.id = id;
+    }
 
     public void OnButtonClicked()
     {

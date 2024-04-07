@@ -54,40 +54,15 @@ public class ItemObject : MonoBehaviour
     }
 #endregion
 
-    private void OnButtonClicked()
-    {
-        currentState.OnButtonClicked();
-    }
-
-    private void SetButtonState(ProductStatus status)
-    {
-        if (statusInfo.ContainsKey(status))
-        {
-            ButtonStateInfo stateInfo = statusInfo[status];
-            
-            buttonText.text = stateInfo.message;
-            currentState    = stateInfo.state;
-        }
-        else
-        {
-            ButtonStateInfo stateInfo = statusInfo[ProductStatus.Error];
-
-            itemButton.interactable = false;
-            buttonText.text = stateInfo.message;
-            currentState    = stateInfo.state;
-        }
-    }
-
-#region WorkWithData
-
+#region ButtonLogic
     public void InitielizeButton(ShopBroker broker)
     {
         statusInfo = new Dictionary<ProductStatus, ButtonStateInfo>
         {
-            { ProductStatus.CanBuy,     new ButtonStateInfo("Купить", new CanBuyState()) },
-            { ProductStatus.Bought,     new ButtonStateInfo("Выбрать", new BoughtState()) },
-            { ProductStatus.Selected,   new ButtonStateInfo("Выбрано", new SelectedState()) },
-            { ProductStatus.Error,      new ButtonStateInfo("Недоступно", new ErrorState()) },
+            { ProductStatus.CanBuy,     new ButtonStateInfo("Купить", new CanBuyState(id)) },
+            { ProductStatus.Bought,     new ButtonStateInfo("Выбрать", new BoughtState(id)) },
+            { ProductStatus.Selected,   new ButtonStateInfo("Выбрано", new SelectedState(id)) },
+            { ProductStatus.Error,      new ButtonStateInfo("Недоступно", new ErrorState(id)) },
         };
 
         foreach (var kvp in statusInfo)
@@ -103,6 +78,39 @@ public class ItemObject : MonoBehaviour
             }
         }
     }
+    private void UpdateId()
+    {
+        foreach (var kvp in statusInfo)
+        {
+            kvp.Value.state.id = id;
+        }
+    }
+    private void OnButtonClicked()
+    {
+        currentState.OnButtonClicked();
+    }
+    
+    private void SetButtonState(ProductStatus status)
+    {
+        if (statusInfo.ContainsKey(status))
+        {
+            ButtonStateInfo stateInfo = statusInfo[status];
+            
+            buttonText.text = stateInfo.message;
+            currentState    = stateInfo.state;
+        }
+        else
+        {
+            ButtonStateInfo stateInfo = statusInfo[ProductStatus.Error];
+    
+            itemButton.interactable = false;
+            buttonText.text = stateInfo.message;
+            currentState    = stateInfo.state;
+        }
+    }
+#endregion
+
+#region WorkWithData
     public void TurnOff()
     {
         gameObject.SetActive(false);
@@ -117,6 +125,7 @@ public class ItemObject : MonoBehaviour
         iconImage.sprite    = data.Item1;   
         priceText.text      = data.Item2.ToString();
 
+        UpdateId();
         SetButtonState(data.Item3);
 
         gameObject.SetActive(true);
