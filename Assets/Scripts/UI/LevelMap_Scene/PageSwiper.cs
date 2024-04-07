@@ -1,59 +1,53 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PageSwiper : MonoBehaviour
 {
     [SerializeField] private SwiperType swiperType = SwiperType.Loop;
-    [SerializeField] private List<Transform> _pages = new List<Transform>();
-    [SerializeField] private SwitcherLevelMapButtons sw;
+    [SerializeField] private List<Transform> pageList = new List<Transform>();
+    [Header("Кнопки")]
+    [SerializeField] private Button leftButton;
+    [SerializeField] private Button rightButton;
+    [SerializeField] private MapButtonVisualizer ButtonVisualizer;
 
     private int _currentPageNumber = 0;
 
     private void Start()
     {
+        ButtonVisualizer = new MapButtonVisualizer(leftButton, rightButton);
+        
         UpdateButton();
-    }
+    }  
 
-    public void StepRight()
-    {
-        SwipePage(1);
-    }
+    public void StepRight() => SwipePage(1);
+    public void StepLeft()  => SwipePage(-1);
 
-    public void StepLeft()
+    private void SwipePage(int delta)
     {
-        SwipePage(-1);
-    }
-
-    private void SwipePage(int i)
-    {
-        if (swiperType == SwiperType.Limited)
+        if(swiperType == SwiperType.Loop)
         {
-            CountPages(i);
-            UpdateButton();
+            if(_currentPageNumber == 0 && delta < 0)
+            {
+                CountPages(pageList.Count -1);
+                return;
+            }
+            else if (_currentPageNumber == pageList.Count - 1 && delta > 0)
+            {
+                CountPages(-(pageList.Count - 1));
+                return;
+            }
         }
-        else
-        {
-            if(_currentPageNumber == 0 && i < 0)
-            {
-                CountPages(_pages.Count - 1);
-            }
-            else if (_currentPageNumber == _pages.Count - 1 && i > 0)
-            {
-                CountPages(-(_pages.Count - 1));
-            }
-            else
-            {
-                CountPages(i);
-            }
-            UpdateButton();
-        }
+        CountPages(delta);
     }
 
     private void CountPages(int i)
     {
-        _pages[_currentPageNumber].gameObject.SetActive(false);
+        pageList[_currentPageNumber].gameObject.SetActive(false);
         _currentPageNumber += i;
-        _pages[_currentPageNumber].gameObject.SetActive(true);
+        pageList[_currentPageNumber].gameObject.SetActive(true);
+
+        UpdateButton();
     }
 
     private void UpdateButton()
@@ -61,15 +55,15 @@ public class PageSwiper : MonoBehaviour
         if (swiperType == SwiperType.Limited)
         {
             if (_currentPageNumber == 0)
-                sw.SwitchState(ButtonsState.Right);
-            else if(_currentPageNumber == _pages.Count - 1)
-                sw.SwitchState(ButtonsState.Left);
+                ButtonVisualizer.SwitchState(ButtonsState.Right);
+            else if(_currentPageNumber == pageList.Count - 1)
+                ButtonVisualizer.SwitchState(ButtonsState.Left);
             else
-                sw.SwitchState(ButtonsState.Everyone);
+                ButtonVisualizer.SwitchState(ButtonsState.Everyone);
         }   
         else
         {
-            sw.SwitchState(ButtonsState.Everyone);
+            ButtonVisualizer.SwitchState(ButtonsState.Everyone);
         }
     }
 }
