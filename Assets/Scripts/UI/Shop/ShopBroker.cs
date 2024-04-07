@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -110,17 +111,47 @@ public class ShopBroker : MonoBehaviour
         return null;
     }
 #endregion
-
     public void TrySelect(int id)
     {
-        Debug.Log($"TrySelect {id}");
-        // assortmentBroker.ChangeSelectedColor();
-        // assortmentBroker.ChangeSelectedShape();
+        int oldId;
+
+        if (colorAssortment.itemList.Exists(p => p.id == id))
+        {
+            oldId = SaveSystem.Instance.GetBackColorId();
+            assortmentBroker.SelectColor(id);
+        } 
+        else
+        {
+            oldId = SaveSystem.Instance.GetBackShapeId();
+            assortmentBroker.SelectShape(id);
+        }
+
+        assortmentBroker.DeselectItem(oldId);
+        UpdateButtonState(oldId, ProductStatus.Bought);
+        UpdateButtonState(id, ProductStatus.Selected);
     }
     public void TryBuy(int id)
     {
         Debug.Log($"TryBuy {id}");
-        // assortmentBroker.TryBuyItem();
+
+        ItemSO item = colorAssortment.itemList.FirstOrDefault(i => i.id == id) 
+            ?? shapeAssortment.itemList.FirstOrDefault(i => i.id == id);
+
+        if (item != null && assortmentBroker.TryBuyItem(item))
+        {
+            UpdateButtonState(id, ProductStatus.Bought);
+        }
+    }
+
+    private void UpdateButtonState(int id, ProductStatus newStatus)
+    {
+        Debug.Log($"UpdateButtonState, id: {id}");
+        ItemObject itemToUpdate = itemList.FirstOrDefault(item => item.id == id);
+    
+        if (itemToUpdate != null)
+        {
+            itemToUpdate.SetButtonState(newStatus);
+        }
     }
 }
 

@@ -13,6 +13,8 @@ public class SaveSystem : MonoBehaviour
     private int colorId = 0;
     private int shapeId = 3;
 
+#region MonoBehaviour
+    
     private void Awake() {
         if ( Instance != null ) {
             Debug.LogError("Another instance of SaveSystem already exists");
@@ -38,6 +40,8 @@ public class SaveSystem : MonoBehaviour
             SaveProgress();
         }
     }
+    
+#endregion
 
 #region SetData
     public void SetLevelData(LevelData levelData) =>
@@ -96,6 +100,9 @@ public class SaveSystem : MonoBehaviour
         ItemShapeSO itemShape = (ItemShapeSO)shapeAssortment.itemList.Where( d => d.id == shapeId).FirstOrDefault();
         return itemShape.shapeTexture;
     }
+
+    public int GetBackColorId() => colorId;
+    public int GetBackShapeId() => shapeId;
 #endregion
 
 #region TrySaveData

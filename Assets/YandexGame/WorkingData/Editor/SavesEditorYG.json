@@ -98,19 +98,19 @@
   "itemDataArray": [
     {
       "id": 0,
-      "itemState": 0
-    },
-    {
-      "id": 1,
-      "itemState": 1
-    },
-    {
-      "id": 2,
       "itemState": 2
     },
     {
-      "id": 3,
+      "id": 1,
       "itemState": 0
+    },
+    {
+      "id": 2,
+      "itemState": 0
+    },
+    {
+      "id": 3,
+      "itemState": 2
     },
     {
       "id": 4,

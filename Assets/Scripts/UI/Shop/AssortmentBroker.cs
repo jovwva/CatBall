@@ -18,36 +18,40 @@ public class AssortmentBroker : MonoBehaviour
     {
         if (isTestRun)
         {
-            ChangeSelectedColor(testColorItem.id);
-            ChangeSelectedShape(testShapeItem.id);
+            SelectColor(testColorItem.id);
+            SelectShape(testShapeItem.id);
             
             TryBuyItem(testAnyItem);
         }
     }
 
-    public void TryBuyItem(ItemSO item)
+    public bool TryBuyItem(ItemSO item)
     {
-        if (!SaveSystem.Instance.TrySetMoneyValue(-item.price)) return;
+        if (!SaveSystem.Instance.TrySetMoneyValue(-item.price)) 
+            return false;
 
         MoneyChnaged?.Invoke();    
 
-        if (isTestRun) return;    
         SaveSystem.Instance.SetItemData(new ItemData(item.id, ProductStatus.Bought));
+        return true;
     }
-    public void ChangeSelectedColor(int id)
+
+    public void DeselectItem(int id)
+    {
+        SaveSystem.Instance.SetItemData(new ItemData(id, ProductStatus.Bought));
+    }
+    public void SelectColor(int id)
     {
         SaveSystem.Instance.SetBackColor(id);
         ColorChanged?.Invoke();
 
-        if (isTestRun) return;
         SaveSystem.Instance.SetItemData(new ItemData(id, ProductStatus.Selected));
     }
-    public void ChangeSelectedShape(int id)
+    public void SelectShape(int id)
     {
         SaveSystem.Instance.SetBackShape(id);
         ShapeChanged?.Invoke();
 
-        if (isTestRun) return;
         SaveSystem.Instance.SetItemData(new ItemData(id, ProductStatus.Selected));
     }
 }

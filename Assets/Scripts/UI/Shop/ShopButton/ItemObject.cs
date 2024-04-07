@@ -30,7 +30,7 @@ public class ItemObject : MonoBehaviour
 
     private Dictionary<ProductStatus, ButtonStateInfo> statusInfo;
 
-    private int id;
+    public int id {private set; get;}
     private IButtonState currentState;
     
 #endregion
@@ -90,7 +90,7 @@ public class ItemObject : MonoBehaviour
         currentState.OnButtonClicked();
     }
     
-    private void SetButtonState(ProductStatus status)
+    public void SetButtonState(ProductStatus status)
     {
         if (statusInfo.ContainsKey(status))
         {
