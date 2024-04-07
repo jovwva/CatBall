@@ -1,56 +1,62 @@
 using System.Collections.Generic;
 using UnityEngine;
+
 public class PageSwiper : MonoBehaviour
 {
-    private List<Transform> _pages = new List<Transform>();
+    [SerializeField] private SwiperType swiperType = SwiperType.Loop;
+    [SerializeField] private List<Transform> _pages = new List<Transform>();
+    [SerializeField] private SwitcherLevelMapButtons sw;
+
     private int _currentPageNumber = 0;
-    [SerializeField] private int _numberOfPagesTurn = 1;
-    
-    
+
     private void Start()
     {
-        foreach (Transform page in transform)
-        {
-            _pages.Add(page);
-        }
-        
-    }
-    public void NextPage()
-    {
-        if(_currentPageNumber < _pages.Count - 1)
-        {
-            SwipePage(_numberOfPagesTurn);
-        }
+        UpdateButton();
     }
 
-    public void PreviousPage()
+    public void StepRight()
     {
-        if(_currentPageNumber > 0)
-        {
-            SwipePage(- _numberOfPagesTurn);
-        }
+        SwipePage(1);
+    }
+
+    public void StepLeft()
+    {
+        SwipePage(-1);
     }
 
     private void SwipePage(int i)
     {
-        _pages[_currentPageNumber].gameObject.SetActive(false);
-        _currentPageNumber += i;
-        _pages[_currentPageNumber].gameObject.SetActive(true);
-    }
-
-    public ButtonsState CheckButtonsState()
-    {
-        ButtonsState currentState;
-        if (_currentPageNumber == 0)
+        if (swiperType == SwiperType.Limited)
         {
-            currentState = ButtonsState.onlyRight;
-        }
-        else if (_currentPageNumber == _pages.Count - 1)
-        {
-            currentState = ButtonsState.onlyLeft;
+            // своя логика подсчета
         }
         else
-            currentState = ButtonsState.everyone;
-        return currentState;
+        {
+            // своя логика подсчета
+        }
     }
+
+    private void UpdateButton()
+    {
+        if (swiperType == SwiperType.Limited)
+        {
+            if (_currentPageNumber == 0)
+                sw.SwitchState(ButtonsState.Right);
+            else if(_currentPageNumber == _pages.Count - 1)
+                sw.SwitchState(ButtonsState.Left);
+            else
+                sw.SwitchState(ButtonsState.Everyone);
+        }   
+        else
+        {
+            sw.SwitchState(ButtonsState.Everyone);
+        }
+    }
+}
+
+[System.Serializable]
+public enum SwiperType
+{
+    Loop,
+    Limited
 }
