@@ -1,27 +1,25 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 public class PageSwiper : MonoBehaviour
 {
     private List<Transform> _pages = new List<Transform>();
     private int _currentPageNumber = 0;
+    [SerializeField] private int _numberOfPagesTurn = 1;
+    
+    
     private void Start()
     {
         foreach (Transform page in transform)
         {
             _pages.Add(page);
         }
+        
     }
     public void NextPage()
     {
         if(_currentPageNumber < _pages.Count - 1)
         {
-            SwipePage(1);
-        }
-        else
-        {
-            SwipePage(- _currentPageNumber);
+            SwipePage(_numberOfPagesTurn);
         }
     }
 
@@ -29,18 +27,30 @@ public class PageSwiper : MonoBehaviour
     {
         if(_currentPageNumber > 0)
         {
-            SwipePage(-1);
-        }
-        else
-        {
-            SwipePage(_pages.Count - 1);
+            SwipePage(- _numberOfPagesTurn);
         }
     }
 
-    private void SwipePage(int numberOfPages)
+    private void SwipePage(int i)
     {
         _pages[_currentPageNumber].gameObject.SetActive(false);
-        _currentPageNumber += numberOfPages;
+        _currentPageNumber += i;
         _pages[_currentPageNumber].gameObject.SetActive(true);
+    }
+
+    public ButtonsState CheckButtonsState()
+    {
+        ButtonsState currentState;
+        if (_currentPageNumber == 0)
+        {
+            currentState = ButtonsState.onlyRight;
+        }
+        else if (_currentPageNumber == _pages.Count - 1)
+        {
+            currentState = ButtonsState.onlyLeft;
+        }
+        else
+            currentState = ButtonsState.everyone;
+        return currentState;
     }
 }
