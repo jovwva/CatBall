@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class AssortmentBroker : MonoBehaviour
 {
+#region Field
+
     [Header("Тестовые данные")]
     [SerializeField] private bool isTestRun = false;
 
@@ -13,7 +15,11 @@ public class AssortmentBroker : MonoBehaviour
     public static event Action  ColorChanged;
     public static event Action  ShapeChanged;
     public static event Action  MoneyChnaged;
+    
+#endregion
 
+#region MonoBehaviour
+    
     private void Start()
     {
         if (isTestRun)
@@ -24,6 +30,14 @@ public class AssortmentBroker : MonoBehaviour
             TryBuyItem(testAnyItem);
         }
     }
+    private void OnDisable()
+    {
+        SaveSystem.Instance.SaveProgress();
+    }
+        
+#endregion
+    
+#region Event
 
     public bool TryBuyItem(ItemSO item)
     {
@@ -54,4 +68,6 @@ public class AssortmentBroker : MonoBehaviour
 
         SaveSystem.Instance.SetItemData(new ItemData(id, ProductStatus.Selected));
     }
+
+#endregion
 }

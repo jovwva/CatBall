@@ -1,5 +1,5 @@
 {
-  "idSave": 12,
+  "idSave": 22,
   "isFirstSession": false,
   "language": "ru",
   "promptDone": false,
@@ -98,28 +98,30 @@
   "itemDataArray": [
     {
       "id": 0,
-      "itemState": 2
+      "itemState": 1
     },
     {
       "id": 1,
-      "itemState": 0
-    },
-    {
-      "id": 2,
-      "itemState": 0
-    },
-    {
-      "id": 3,
       "itemState": 2
     },
     {
+      "id": 2,
+      "itemState": 1
+    },
+    {
+      "id": 3,
+      "itemState": 1
+    },
+    {
       "id": 4,
-      "itemState": 0
+      "itemState": 2
     },
     {
       "id": 5,
       "itemState": 0
     }
   ],
-  "moneyValue": 525
+  "moneyValue": 9600,
+  "colorId": 1,
+  "shapeId": 4
 }

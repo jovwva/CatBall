@@ -39,6 +39,8 @@ public class SaveSystem : MonoBehaviour
             YandexGame.savesData.levelsDataArray = newLevelsDataArray;
             SaveProgress();
         }
+        colorId = YandexGame.savesData.colorId;
+        shapeId = YandexGame.savesData.shapeId;
     }
     
 #endregion
@@ -69,8 +71,16 @@ public class SaveSystem : MonoBehaviour
             return true;
         }
     }
-    public void  SetBackColor(int id) => colorId = id;
-    public void  SetBackShape(int id) => shapeId = id;
+    public void  SetBackColor(int id) 
+    {
+        colorId = id;
+        YandexGame.savesData.colorId = id;
+    } 
+    public void  SetBackShape(int id)
+    {
+        shapeId = id;
+        YandexGame.savesData.shapeId = id;
+    } 
 
     public void CLearYGS() 
     {

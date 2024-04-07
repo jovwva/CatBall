@@ -30,11 +30,13 @@ namespace YG
                 new ItemData(0, ProductStatus.Selected),
                 new ItemData(1, ProductStatus.CanBuy),
                 new ItemData(2, ProductStatus.CanBuy),
-                new ItemData(3, ProductStatus.CanBuy),
+                new ItemData(3, ProductStatus.Selected),
                 new ItemData(4, ProductStatus.CanBuy),
                 new ItemData(5, ProductStatus.CanBuy),
             };
         public int moneyValue = 100;
+        public int colorId = 0;
+        public int shapeId = 3;
 
         // Вы можете выполнить какие то действия при загрузке сохранений
         // public SavesYG()
