@@ -26,20 +26,20 @@ namespace YG
                 new LevelData(9, 0, false),
             };
         public ItemData[] itemDataArray =
-            new ItemData[13]{
+            new ItemData[12]{
                 new ItemData(0, ProductStatus.Selected),
                 new ItemData(1, ProductStatus.CanBuy),
                 new ItemData(2, ProductStatus.CanBuy),
-                new ItemData(3, ProductStatus.Selected),
+                new ItemData(3, ProductStatus.CanBuy),
                 new ItemData(4, ProductStatus.CanBuy),
                 new ItemData(5, ProductStatus.CanBuy),
-                new ItemData(6, ProductStatus.CanBuy),
+
+                new ItemData(6, ProductStatus.Selected),
                 new ItemData(7, ProductStatus.CanBuy),
                 new ItemData(8, ProductStatus.CanBuy),
                 new ItemData(9, ProductStatus.CanBuy),
                 new ItemData(10, ProductStatus.CanBuy),
-                new ItemData(11, ProductStatus.CanBuy),
-                new ItemData(12, ProductStatus.CanBuy),
+                new ItemData(11, ProductStatus.CanBuy)
             };
         public int moneyValue = 100;
         public int colorId = 0;

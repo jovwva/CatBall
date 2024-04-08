@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a509dd1ec54f984780fe646fe7970dc, type: 3}
-  m_Name: ItemColor_Brown
+  m_Script: {fileID: 11500000, guid: fb918064468d37e48b7fc9b14f6bbafa, type: 3}
+  m_Name: ItemShape_Star
   m_EditorClassIdentifier: 
-  id: 6
-  icon: {fileID: 21300000, guid: 6366e56160845d34b87d243b5a844f45, type: 3}
-  price: 100
-  color: {r: 0.454902, g: 0.3647059, b: 0.2627451, a: 1}
+  id: 11
+  icon: {fileID: 21300000, guid: 6d7d53fa48540044f82cd36ff74733d5, type: 3}
+  price: 300
+  shapeTexture: {fileID: 2800000, guid: a83aadcf48852574db8e1709aeea8175, type: 3}

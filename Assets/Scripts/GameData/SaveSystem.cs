@@ -10,9 +10,9 @@ public class SaveSystem : MonoBehaviour
     [SerializeField] private ShopAssortment  shapeAssortment;
 
     private int levelCount = 18;
-    private int itemCount = 13;
+    private int itemCount = 12;
     private int colorId = 0;
-    private int shapeId = 3;
+    private int shapeId = 6;
 
 #region MonoBehaviour
     
