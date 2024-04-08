@@ -15,13 +15,16 @@ public class SaveSystem : MonoBehaviour
 
 #region MonoBehaviour
     
-    private void Awake() {
-        if ( Instance != null ) {
-            Debug.LogError("Another instance of SaveSystem already exists");
+    private void Awake() 
+    {
+        transform.SetParent(null);
+        if ( Instance != null ) 
+        {
             Destroy(gameObject);
             return;
         }
         Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
     private void Start() {
         if (YandexGame.savesData.levelsDataArray.Length != levelCount) {
@@ -39,6 +42,9 @@ public class SaveSystem : MonoBehaviour
             YandexGame.savesData.levelsDataArray = newLevelsDataArray;
             SaveProgress();
         }
+
+        Debug.Log("Save System Start!");
+
         colorId = YandexGame.savesData.colorId;
         shapeId = YandexGame.savesData.shapeId;
     }

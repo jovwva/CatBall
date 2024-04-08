@@ -21,7 +21,12 @@ public class MainMenuBroker : MonoBehaviour
     [Space]
     [SerializeField] private int lastLevelID = 0;
 
-    void Start() {
+    private void Awake()
+    {
+        Time.timeScale = 1;
+    }
+    void Start() 
+    {
         lastLevelID = SaveSystem.Instance.GetLevelDataArray().
             Where( ld => ld.access).OrderBy(ld => ld.starCount).First().id;
 
@@ -40,6 +45,7 @@ public class MainMenuBroker : MonoBehaviour
 
     private void LoadLastLevel()    => SceneManager.LoadSceneAsync($"Level_{lastLevelID}");
     private void LoadMapLevel()     => SceneManager.LoadSceneAsync("LevelsMap");
+    
     private void OpenShopPanel()
     {
         shopPanel.SetActive(true);
