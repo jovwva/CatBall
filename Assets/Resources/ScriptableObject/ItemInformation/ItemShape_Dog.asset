@@ -15,4 +15,4 @@ MonoBehaviour:
   id: 3
   icon: {fileID: 21300000, guid: 1df2c24fbaf2df84097118503673e431, type: 3}
   price: 100
-  shapeSprite: {fileID: 21300000, guid: 14b39b56984167f448740996af2c1582, type: 3}
+  shapeTexture: {fileID: 2800000, guid: 14b39b56984167f448740996af2c1582, type: 3}

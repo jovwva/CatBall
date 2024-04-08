@@ -6,15 +6,25 @@ public class SaveSystem : MonoBehaviour
 {
     public static SaveSystem Instance { get; private set; }
     [SerializeField] private LevelDataSO levelData;
-    private int levelCount = 18;
+    [SerializeField] private ShopAssortment  colorAssortment;
+    [SerializeField] private ShopAssortment  shapeAssortment;
 
-    private void Awake() {
-        if ( Instance != null ) {
-            Debug.LogError("Another instance of SaveSystem already exists");
+    private int levelCount = 18;
+    private int colorId = 0;
+    private int shapeId = 3;
+
+#region MonoBehaviour
+    
+    private void Awake() 
+    {
+        transform.SetParent(null);
+        if ( Instance != null ) 
+        {
             Destroy(gameObject);
             return;
         }
         Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
     private void Start() {
         if (YandexGame.savesData.levelsDataArray.Length != levelCount) {
@@ -28,12 +38,18 @@ public class SaveSystem : MonoBehaviour
                 } else {
                     newLevelsDataArray[i] = new LevelData(i + 1, 0, false);
                 }
-                // YandexGame.savesData.levelsDataArray[i] = new LevelData(i + 1, 0, false);
             }
             YandexGame.savesData.levelsDataArray = newLevelsDataArray;
             SaveProgress();
         }
+
+        Debug.Log("Save System Start!");
+
+        colorId = YandexGame.savesData.colorId;
+        shapeId = YandexGame.savesData.shapeId;
     }
+    
+#endregion
 
 #region SetData
     public void SetLevelData(LevelData levelData) =>
@@ -44,28 +60,36 @@ public class SaveSystem : MonoBehaviour
         LevelData data = GetLevelData(levelID);
 
         if (data != null && !data.access)
-        {
             data.access = true;
-            // return true;
-        }
-
-        // return false;
     }
     public bool TryFindLevel(int levelID) => GetLevelData(levelID) != null;
     public bool TrySetMoneyValue(int moneyDelta) 
     {
         if (moneyDelta < 0 && Mathf.Abs(moneyDelta) > YandexGame.savesData.moneyValue)
         {
+            Debug.Log("Недостаточно средств!");
             return false;
         }
         else
         {
+            Debug.Log("Транзакция осуществлена!");
             YandexGame.savesData.moneyValue += moneyDelta;
             return true;
         }
     }
+    public void  SetBackColor(int id) 
+    {
+        colorId = id;
+        YandexGame.savesData.colorId = id;
+    } 
+    public void  SetBackShape(int id)
+    {
+        shapeId = id;
+        YandexGame.savesData.shapeId = id;
+    } 
 
-    public void CLearYGS() {
+    public void CLearYGS() 
+    {
         YandexGame.ResetSaveProgress();
         SaveProgress();
     } 
@@ -81,6 +105,20 @@ public class SaveSystem : MonoBehaviour
     public ItemData[]       GetItemDataArray()     => YandexGame.savesData.itemDataArray;
 
     public LevelInfo GetLevelInformation(int levelID)   => levelData.levelInfoList.Find( ld => ld.id == levelID);
+
+    public Color    GetBackColor()
+    {
+        ItemColorSO itemColor = (ItemColorSO)colorAssortment.itemList.Where( d => d.id == colorId).FirstOrDefault();
+        return itemColor.color;
+    } 
+    public Texture  GetBackShape() 
+    {
+        ItemShapeSO itemShape = (ItemShapeSO)shapeAssortment.itemList.Where( d => d.id == shapeId).FirstOrDefault();
+        return itemShape.shapeTexture;
+    }
+
+    public int GetBackColorId() => colorId;
+    public int GetBackShapeId() => shapeId;
 #endregion
 
 #region TrySaveData

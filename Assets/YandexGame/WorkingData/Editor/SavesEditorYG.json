@@ -1,5 +1,5 @@
 {
-  "idSave": 10,
+  "idSave": 28,
   "isFirstSession": false,
   "language": "ru",
   "promptDone": false,
@@ -37,16 +37,16 @@
     {
       "id": 7,
       "access": true,
-      "starCount": 0
+      "starCount": 3
     },
     {
       "id": 8,
-      "access": false,
-      "starCount": 0
+      "access": true,
+      "starCount": 3
     },
     {
       "id": 9,
-      "access": false,
+      "access": true,
       "starCount": 0
     },
     {
@@ -95,5 +95,33 @@
       "starCount": 0
     }
   ],
-  "moneyValue": 350
+  "itemDataArray": [
+    {
+      "id": 0,
+      "itemState": 1
+    },
+    {
+      "id": 1,
+      "itemState": 2
+    },
+    {
+      "id": 2,
+      "itemState": 1
+    },
+    {
+      "id": 3,
+      "itemState": 1
+    },
+    {
+      "id": 4,
+      "itemState": 2
+    },
+    {
+      "id": 5,
+      "itemState": 1
+    }
+  ],
+  "moneyValue": 9425,
+  "colorId": 1,
+  "shapeId": 4
 }

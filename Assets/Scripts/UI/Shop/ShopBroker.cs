@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,6 +22,8 @@ public class ShopBroker : MonoBehaviour
     [Header("Кнопки")]
     [SerializeField] private Button colorPanelButton;
     [SerializeField] private Button shapePanelButton;
+    [Space]
+    [SerializeField] private AssortmentBroker assortmentBroker; 
 
     private ShopState shopState = ShopState.Empty;
     private Dictionary<ShopState, ShopAssortment> statusMessages;
@@ -41,6 +44,9 @@ public class ShopBroker : MonoBehaviour
     }
     private void Start()
     {
+        foreach(ItemObject item in itemList)
+            item.InitielizeButton(this);
+
         ChangeActivePanel(ShopState.ColorPanel);
     }
         
@@ -59,7 +65,7 @@ public class ShopBroker : MonoBehaviour
             return;
         }
 
-        ShopAssortment data = GetAssortment(shopState);
+        ShopAssortment data = GetAssortmentType(shopState);
         if (data == null)
         {
             Debug.LogWarning("Ассортимент не найден!");
@@ -96,7 +102,7 @@ public class ShopBroker : MonoBehaviour
             itemList[i].SetData<object>(value);
         }
     }
-    private ShopAssortment GetAssortment(ShopState AssortmentType)
+    private ShopAssortment GetAssortmentType(ShopState AssortmentType)
     {
         if (statusMessages.TryGetValue(AssortmentType, out ShopAssortment data))
         {
@@ -105,6 +111,48 @@ public class ShopBroker : MonoBehaviour
         return null;
     }
 #endregion
+    public void TrySelect(int id)
+    {
+        int oldId;
+
+        if (colorAssortment.itemList.Exists(p => p.id == id))
+        {
+            oldId = SaveSystem.Instance.GetBackColorId();
+            assortmentBroker.SelectColor(id);
+        } 
+        else
+        {
+            oldId = SaveSystem.Instance.GetBackShapeId();
+            assortmentBroker.SelectShape(id);
+        }
+
+        assortmentBroker.DeselectItem(oldId);
+        UpdateButtonState(oldId, ProductStatus.Bought);
+        UpdateButtonState(id, ProductStatus.Selected);
+    }
+    public void TryBuy(int id)
+    {
+        Debug.Log($"TryBuy {id}");
+
+        ItemSO item = colorAssortment.itemList.FirstOrDefault(i => i.id == id) 
+            ?? shapeAssortment.itemList.FirstOrDefault(i => i.id == id);
+
+        if (item != null && assortmentBroker.TryBuyItem(item))
+        {
+            UpdateButtonState(id, ProductStatus.Bought);
+        }
+    }
+
+    private void UpdateButtonState(int id, ProductStatus newStatus)
+    {
+        Debug.Log($"UpdateButtonState, id: {id}");
+        ItemObject itemToUpdate = itemList.FirstOrDefault(item => item.id == id);
+    
+        if (itemToUpdate != null)
+        {
+            itemToUpdate.SetButtonState(newStatus);
+        }
+    }
 }
 
 [Serializable]

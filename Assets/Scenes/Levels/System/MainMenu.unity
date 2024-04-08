@@ -160,7 +160,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0.5, b: 1, a: 0}
+  m_BackGroundColor: {r: 0.70440245, g: 0.1129701, b: 0.14908011, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -786,22 +786,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 3803538}
-    - target: {fileID: 4428512438052616378, guid: 2f03999557d776a46b0d4de354d18d77, type: 3}
-      propertyPath: m_OverridePixelPerfect
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5497107988470102288, guid: 2f03999557d776a46b0d4de354d18d77, type: 3}
       propertyPath: m_Name
       value: Canvas_Background
       objectReference: {fileID: 0}
-    - target: {fileID: 5497107988470102288, guid: 2f03999557d776a46b0d4de354d18d77, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8427568583857510986, guid: 2f03999557d776a46b0d4de354d18d77, type: 3}
-      propertyPath: m_Texture
-      value: 
-      objectReference: {fileID: 2800000, guid: 14b39b56984167f448740996af2c1582, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1778,6 +1766,7 @@ GameObject:
   - component: {fileID: 1084959057}
   - component: {fileID: 1084959058}
   - component: {fileID: 1084959059}
+  - component: {fileID: 1084959060}
   m_Layer: 5
   m_Name: ShopPanel
   m_TagString: Untagged
@@ -1874,6 +1863,23 @@ MonoBehaviour:
   shapeAssortment: {fileID: 11400000, guid: 605993febe60b884e8f245c1e69e9580, type: 2}
   colorPanelButton: {fileID: 1828571014}
   shapePanelButton: {fileID: 1438060227}
+  assortmentBroker: {fileID: 1084959060}
+--- !u!114 &1084959060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084959055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a10a1301ead9cf469b17ac18245f339, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTestRun: 0
+  testColorItem: {fileID: 11400000, guid: e3e6b45dd3f96ce498cfe91f05dc9e8d, type: 2}
+  testShapeItem: {fileID: 11400000, guid: 44ed49d03f509b045a108e3d74315aae, type: 2}
+  testAnyItem: {fileID: 11400000, guid: fe6d14a9a6f24874498649f92432ffb1, type: 2}
 --- !u!1 &1105735537
 GameObject:
   m_ObjectHideFlags: 0
@@ -2561,23 +2567,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2672812735854837184, guid: 0d2783062bec7b9499e3184d74c99e41, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2672812735854837184, guid: 0d2783062bec7b9499e3184d74c99e41, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2672812735854837184, guid: 0d2783062bec7b9499e3184d74c99e41, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 360.69
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2672812735854837184, guid: 0d2783062bec7b9499e3184d74c99e41, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 440.69
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2672812735854837184, guid: 0d2783062bec7b9499e3184d74c99e41, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -75
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3284605127628364576, guid: 0d2783062bec7b9499e3184d74c99e41, type: 3}
       propertyPath: m_IsActive
@@ -2593,15 +2599,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5311258477922931547, guid: 0d2783062bec7b9499e3184d74c99e41, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5311258477922931547, guid: 0d2783062bec7b9499e3184d74c99e41, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5311258477922931547, guid: 0d2783062bec7b9499e3184d74c99e41, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 76
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5311258477922931547, guid: 0d2783062bec7b9499e3184d74c99e41, type: 3}
       propertyPath: m_LocalScale.x
@@ -2617,11 +2623,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5311258477922931547, guid: 0d2783062bec7b9499e3184d74c99e41, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 646.69
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5311258477922931547, guid: 0d2783062bec7b9499e3184d74c99e41, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -75
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5311258477922931547, guid: 0d2783062bec7b9499e3184d74c99e41, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -2637,7 +2643,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7094523873029426198, guid: 0d2783062bec7b9499e3184d74c99e41, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7625694428482507935, guid: 0d2783062bec7b9499e3184d74c99e41, type: 3}
       propertyPath: m_Color.b
@@ -2677,7 +2683,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8243525605604758695, guid: 0d2783062bec7b9499e3184d74c99e41, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 634.69
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8243525605604758695, guid: 0d2783062bec7b9499e3184d74c99e41, type: 3}
       propertyPath: m_SizeDelta.y
@@ -3098,7 +3104,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5720708004239323907, guid: f65e8645de626f94093a018406c2ac94, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
