@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a509dd1ec54f984780fe646fe7970dc, type: 3}
-  m_Name: ItemColor_Blue
+  m_Name: ItemColor_Orange
   m_EditorClassIdentifier: 
-  id: 0
-  icon: {fileID: 21300000, guid: 0c4315c1f8669d44f9beb38cb0028b1c, type: 3}
+  id: 8
+  icon: {fileID: 21300000, guid: 32822ef4d880a6a418334782b0fab4ec, type: 3}
   price: 100
-  color: {r: 0.06666667, g: 0.24313727, b: 0.62352943, a: 1}
+  color: {r: 0.75294125, g: 0.32156864, b: 0.09411766, a: 1}

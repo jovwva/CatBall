@@ -10,6 +10,7 @@ public class SaveSystem : MonoBehaviour
     [SerializeField] private ShopAssortment  shapeAssortment;
 
     private int levelCount = 18;
+    private int itemCount = 13;
     private int colorId = 0;
     private int shapeId = 3;
 
@@ -43,7 +44,21 @@ public class SaveSystem : MonoBehaviour
             SaveProgress();
         }
 
-        Debug.Log("Save System Start!");
+        if (YandexGame.savesData.itemDataArray.Length != itemCount) {
+
+            ItemData[] newItemDataArray = new ItemData[itemCount];
+            int oldLenght = YandexGame.savesData.itemDataArray.Length;
+
+            for (int i = 0; i < itemCount; i++) {
+                if (i < oldLenght) {
+                    newItemDataArray[i] = YandexGame.savesData.itemDataArray[i];
+                } else {
+                    newItemDataArray[i] = new ItemData(i, ProductStatus.CanBuy);
+                }
+            }
+            YandexGame.savesData.itemDataArray = newItemDataArray;
+            SaveProgress();
+        }
 
         colorId = YandexGame.savesData.colorId;
         shapeId = YandexGame.savesData.shapeId;

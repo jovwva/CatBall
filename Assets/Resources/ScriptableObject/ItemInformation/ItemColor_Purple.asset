@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a509dd1ec54f984780fe646fe7970dc, type: 3}
-  m_Name: ItemColor_Blue
+  m_Name: ItemColor_Purple
   m_EditorClassIdentifier: 
-  id: 0
-  icon: {fileID: 21300000, guid: 0c4315c1f8669d44f9beb38cb0028b1c, type: 3}
+  id: 7
+  icon: {fileID: 21300000, guid: 628f3d28d12236c43adc3acebc7e1497, type: 3}
   price: 100
-  color: {r: 0.06666667, g: 0.24313727, b: 0.62352943, a: 1}
+  color: {r: 0.5921569, g: 0.08627451, b: 0.6509804, a: 1}
