@@ -11,7 +11,8 @@ public class LevelButton : MonoBehaviour
     [Header("Объекты")]
     [SerializeField] private GameObject      lockedRoot;
     [SerializeField] private GameObject      unlockedRoot;
-    [SerializeField] private GameObject[]    starObjectArray = new GameObject[3]; 
+    [SerializeField] private Image[]    starObjectArray = new Image[3]; 
+    [SerializeField] private Sprite          starOnSprite;
 
     private LevelPanel LevelPanel;
     private int levelID;
@@ -27,16 +28,10 @@ public class LevelButton : MonoBehaviour
         } else {
             button.onClick.AddListener(LoadLevel);
             unlockedRoot.SetActive(true);
-            
-            // int i = 0;
-            // while (i < levelData.starCount) {
-            //     starObjectArray[i].SetActive(true);
-            //     i++;
-            // }
 
-            if (levelData.starCount > 0) {
-                for (int i = 0; i < levelData.starCount; i++) {
-                    starObjectArray[i].SetActive(true);
+            if (levelData.starCount > 1) {
+                for (int i = 1; i < levelData.starCount; i++) {
+                    starObjectArray[i].sprite = starOnSprite;
                 }
             }
             
