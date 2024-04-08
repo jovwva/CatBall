@@ -56,9 +56,9 @@ public class YandexPlugin : MonoBehaviour
 #region Lang
     public void SetString() {
         if (YandexGame.EnvironmentData.language == "ru") {
-            Debug.Log("я русский");
+            Debug.Log("ru");
         } else { 
-            Debug.Log("i'm Dolboeb");
+            Debug.Log("eng");
         }
     }
 #endregion

@@ -29,8 +29,8 @@ public class LevelButton : MonoBehaviour
             button.onClick.AddListener(LoadLevel);
             unlockedRoot.SetActive(true);
 
-            if (levelData.starCount > 1) {
-                for (int i = 1; i < levelData.starCount; i++) {
+            if (levelData.starCount > 0) {
+                for (int i = 0; i < levelData.starCount; i++) {
                     starObjectArray[i].sprite = starOnSprite;
                 }
             }
