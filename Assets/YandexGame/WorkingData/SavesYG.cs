@@ -43,7 +43,7 @@ namespace YG
             };
         public int moneyValue = 100;
         public int colorId = 0;
-        public int shapeId = 3;
+        public int shapeId = 6;
 
         // Вы можете выполнить какие то действия при загрузке сохранений
         // public SavesYG()

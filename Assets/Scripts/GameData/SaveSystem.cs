@@ -28,6 +28,7 @@ public class SaveSystem : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
     private void Start() {
+        bool IsSaveReq = false;
         if (YandexGame.savesData.levelsDataArray.Length != levelCount) {
 
             LevelData[] newLevelsDataArray = new LevelData[levelCount];
@@ -41,7 +42,7 @@ public class SaveSystem : MonoBehaviour
                 }
             }
             YandexGame.savesData.levelsDataArray = newLevelsDataArray;
-            SaveProgress();
+            IsSaveReq = true;
         }
 
         if (YandexGame.savesData.itemDataArray.Length != itemCount) {
@@ -57,11 +58,22 @@ public class SaveSystem : MonoBehaviour
                 }
             }
             YandexGame.savesData.itemDataArray = newItemDataArray;
-            SaveProgress();
+            IsSaveReq = true;
         }
 
         colorId = YandexGame.savesData.colorId;
         shapeId = YandexGame.savesData.shapeId;
+
+        if (shapeId < 6)
+        {
+            SetBackShape(6);
+            IsSaveReq = true;
+        }
+
+        if (IsSaveReq)
+        {
+            SaveProgress();
+        }
     }
     
 #endregion
