@@ -14,7 +14,7 @@ namespace YG
 
         // Ваши сохранения
         public LevelData[] levelsDataArray = 
-            new LevelData[9]{
+            new LevelData[18]{
                 new LevelData(1, 0, true),
                 new LevelData(2, 0, false),
                 new LevelData(3, 0, false),
@@ -24,6 +24,15 @@ namespace YG
                 new LevelData(7, 0, false),
                 new LevelData(8, 0, false),
                 new LevelData(9, 0, false),
+                new LevelData(10, 0, false),
+                new LevelData(11, 0, false),
+                new LevelData(12, 0, false),
+                new LevelData(13, 0, false),
+                new LevelData(14, 0, false),
+                new LevelData(15, 0, false),
+                new LevelData(16, 0, false),
+                new LevelData(17, 0, false),
+                new LevelData(18, 0, false),
             };
         public ItemData[] itemDataArray =
             new ItemData[12]{
