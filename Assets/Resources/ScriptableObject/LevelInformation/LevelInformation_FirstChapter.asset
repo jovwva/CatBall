@@ -14,24 +14,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelInfoList:
   - id: 1
-    ballsStock: 75
-    oneStarReqValue: 25
-    twoStarReqValue: 45
-    threeStarReqValue: 60
+    ballsStock: 30
+    oneStarReqValue: 5
+    twoStarReqValue: 10
+    threeStarReqValue: 20
     toolSOArray:
     - name: Blue_Right
       data: {fileID: 11400000, guid: 217d091bdfed0e343bcf9017460f97ff, type: 2}
       count: 1
-  - id: 2
-    ballsStock: 75
-    oneStarReqValue: 25
-    twoStarReqValue: 45
-    threeStarReqValue: 60
+  - id: 11
+    ballsStock: 30
+    oneStarReqValue: 10
+    twoStarReqValue: 20
+    threeStarReqValue: 25
     toolSOArray:
     - name: Blue_Right
       data: {fileID: 11400000, guid: 217d091bdfed0e343bcf9017460f97ff, type: 2}
       count: 1
   - id: 3
+    ballsStock: 55
+    oneStarReqValue: 25
+    twoStarReqValue: 35
+    threeStarReqValue: 45
+    toolSOArray:
+    - name: Blue_Left
+      data: {fileID: 11400000, guid: 467433578f0cf7b47a74b8cc466aae67, type: 2}
+      count: 1
+  - id: 4
+    ballsStock: 55
+    oneStarReqValue: 25
+    twoStarReqValue: 35
+    threeStarReqValue: 45
+    toolSOArray:
+    - name: Blue_Right
+      data: {fileID: 11400000, guid: 217d091bdfed0e343bcf9017460f97ff, type: 2}
+      count: 1
+  - id: 2
+    ballsStock: 50
+    oneStarReqValue: 20
+    twoStarReqValue: 30
+    threeStarReqValue: 40
+    toolSOArray:
+    - name: Blue_V
+      data: {fileID: 11400000, guid: a29f43f10b7505040b6a3a06b57a8b7b, type: 2}
+      count: 1
+  - id: 5
     ballsStock: 75
     oneStarReqValue: 25
     twoStarReqValue: 45
@@ -40,23 +67,8 @@ MonoBehaviour:
     - name: Blue_Left
       data: {fileID: 11400000, guid: 467433578f0cf7b47a74b8cc466aae67, type: 2}
       count: 1
-  - id: 4
-    ballsStock: 75
-    oneStarReqValue: 25
-    twoStarReqValue: 45
-    threeStarReqValue: 60
-    toolSOArray:
     - name: Blue_Right
       data: {fileID: 11400000, guid: 217d091bdfed0e343bcf9017460f97ff, type: 2}
-      count: 1
-  - id: 5
-    ballsStock: 75
-    oneStarReqValue: 25
-    twoStarReqValue: 45
-    threeStarReqValue: 60
-    toolSOArray:
-    - name: Blue_V
-      data: {fileID: 11400000, guid: a29f43f10b7505040b6a3a06b57a8b7b, type: 2}
       count: 1
   - id: 6
     ballsStock: 75
@@ -66,20 +78,8 @@ MonoBehaviour:
     toolSOArray:
     - name: Blue_Left
       data: {fileID: 11400000, guid: 467433578f0cf7b47a74b8cc466aae67, type: 2}
-      count: 1
-    - name: Blue_Right
-      data: {fileID: 11400000, guid: 217d091bdfed0e343bcf9017460f97ff, type: 2}
-      count: 1
-  - id: 7
-    ballsStock: 75
-    oneStarReqValue: 25
-    twoStarReqValue: 45
-    threeStarReqValue: 60
-    toolSOArray:
-    - name: Blue_Left
-      data: {fileID: 11400000, guid: 467433578f0cf7b47a74b8cc466aae67, type: 2}
       count: 2
-  - id: 8
+  - id: 7
     ballsStock: 100
     oneStarReqValue: 50
     twoStarReqValue: 65
@@ -91,7 +91,7 @@ MonoBehaviour:
     - name: Blue_Right
       data: {fileID: 11400000, guid: 217d091bdfed0e343bcf9017460f97ff, type: 2}
       count: 1
-  - id: 9
+  - id: 8
     ballsStock: 100
     oneStarReqValue: 40
     twoStarReqValue: 60
@@ -103,7 +103,7 @@ MonoBehaviour:
     - name: Blue_Right
       data: {fileID: 11400000, guid: 217d091bdfed0e343bcf9017460f97ff, type: 2}
       count: 1
-  - id: 10
+  - id: 9
     ballsStock: 100
     oneStarReqValue: 25
     twoStarReqValue: 50
@@ -115,7 +115,7 @@ MonoBehaviour:
     - name: Blue_Right
       data: {fileID: 11400000, guid: 217d091bdfed0e343bcf9017460f97ff, type: 2}
       count: 1
-  - id: 11
+  - id: 10
     ballsStock: 150
     oneStarReqValue: 50
     twoStarReqValue: 80

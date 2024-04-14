@@ -95,6 +95,7 @@ public class ShopBroker : MonoBehaviour
 
         for (int i = 0; i < dataList.Count; i++)
         {
+            Debug.Log(dataList[i].id);
             ProductStatus status = SaveSystem.Instance.GetItemData(dataList[i].id).itemState;
 
             Tuple<Sprite, int, ProductStatus, int> value = new Tuple<Sprite, int, ProductStatus, int>

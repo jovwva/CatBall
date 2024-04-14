@@ -6,7 +6,14 @@ class DragTransform : MonoBehaviour
     public PlatformDrag platformDrag;
     private Vector3 mousePosition;
     private bool isDraging = true;
+
+    private BoundsCheck boundsCheck;
     
+    private void Awake()
+    {
+        boundsCheck = new BoundsCheck(transform);
+    }
+
     private void Start() {
         OnMouseDown();
         if (YandexGame.EnvironmentData.deviceType != "desktop") {
@@ -37,5 +44,11 @@ class DragTransform : MonoBehaviour
         if (!isDraging) return;
 
         transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition - mousePosition);
+    }
+    private void LateUpdate()
+    {
+        if (!isDraging) return;
+
+        boundsCheck.CheckBound();
     }
 }

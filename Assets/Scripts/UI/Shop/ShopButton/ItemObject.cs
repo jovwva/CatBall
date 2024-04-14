@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 
 public enum ProductStatus
 {
@@ -57,12 +58,13 @@ public class ItemObject : MonoBehaviour
 #region ButtonLogic
     public void InitielizeButton(ShopBroker broker)
     {
+        bool isRu = YandexGame.EnvironmentData.language == "ru";
         statusInfo = new Dictionary<ProductStatus, ButtonStateInfo>
         {
-            { ProductStatus.CanBuy,     new ButtonStateInfo("Купить", new CanBuyState(id)) },
-            { ProductStatus.Bought,     new ButtonStateInfo("Выбрать", new BoughtState(id)) },
-            { ProductStatus.Selected,   new ButtonStateInfo("Выбрано", new SelectedState(id)) },
-            { ProductStatus.Error,      new ButtonStateInfo("Недоступно", new ErrorState(id)) },
+            { ProductStatus.CanBuy,     new ButtonStateInfo(isRu ? "Купить" : "Buy", new CanBuyState(id)) },
+            { ProductStatus.Bought,     new ButtonStateInfo(isRu ? "Выбрать" : "Select", new BoughtState(id)) },
+            { ProductStatus.Selected,   new ButtonStateInfo(isRu ? "Выбрано" : "Selected", new SelectedState(id)) },
+            { ProductStatus.Error,      new ButtonStateInfo(isRu ? "Недоступно" : "Locked", new ErrorState(id)) },
         };
 
         foreach (var kvp in statusInfo)

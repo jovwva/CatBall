@@ -1,5 +1,5 @@
 {
-  "idSave": 34,
+  "idSave": 70,
   "isFirstSession": false,
   "language": "ru",
   "promptDone": false,
@@ -98,7 +98,7 @@
   "itemDataArray": [
     {
       "id": 0,
-      "itemState": 1
+      "itemState": 2
     },
     {
       "id": 1,
@@ -106,11 +106,11 @@
     },
     {
       "id": 2,
-      "itemState": 2
+      "itemState": 1
     },
     {
       "id": 3,
-      "itemState": 2
+      "itemState": 1
     },
     {
       "id": 4,
@@ -119,9 +119,33 @@
     {
       "id": 5,
       "itemState": 1
+    },
+    {
+      "id": 6,
+      "itemState": 2
+    },
+    {
+      "id": 7,
+      "itemState": 1
+    },
+    {
+      "id": 8,
+      "itemState": 1
+    },
+    {
+      "id": 9,
+      "itemState": 1
+    },
+    {
+      "id": 10,
+      "itemState": 1
+    },
+    {
+      "id": 11,
+      "itemState": 1
     }
   ],
-  "moneyValue": 9800,
-  "colorId": 2,
-  "shapeId": 3
+  "moneyValue": 8125,
+  "colorId": 0,
+  "shapeId": 6
 }
