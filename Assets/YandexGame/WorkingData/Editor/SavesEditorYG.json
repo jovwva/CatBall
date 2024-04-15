@@ -98,7 +98,7 @@
   "itemDataArray": [
     {
       "id": 0,
-      "itemState": 1
+      "itemState": 2
     },
     {
       "id": 1,
@@ -110,7 +110,7 @@
     },
     {
       "id": 3,
-      "itemState": 2
+      "itemState": 1
     },
     {
       "id": 4,
