@@ -1012,6 +1012,7 @@ MonoBehaviour:
   blockZone: {fileID: 0}
   ulimatePanel: {fileID: 1075380933370252668}
   rewardPanel: {fileID: 2600132794028829198}
+  winPanel: {fileID: 4422056307627228632}
 --- !u!1 &3503557535745695562
 GameObject:
   m_ObjectHideFlags: 0
@@ -2844,6 +2845,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5592524831682860646}
     m_Modifications:
+    - target: {fileID: 1813285223628259793, guid: 2e1402ed2b209b843bfc335253dd2d73, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 490
+      objectReference: {fileID: 0}
     - target: {fileID: 3748411249386731075, guid: 2e1402ed2b209b843bfc335253dd2d73, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2937,6 +2942,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e1402ed2b209b843bfc335253dd2d73, type: 3}
+--- !u!1 &4422056307627228632 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8376230165668734367, guid: 2e1402ed2b209b843bfc335253dd2d73, type: 3}
+  m_PrefabInstance: {fileID: 5287248213642696775}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &9035659114155077124 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3748411249386731075, guid: 2e1402ed2b209b843bfc335253dd2d73, type: 3}

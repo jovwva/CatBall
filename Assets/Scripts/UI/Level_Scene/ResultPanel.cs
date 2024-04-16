@@ -17,6 +17,7 @@ public class ResultPanel : MonoBehaviour
 
     public UlimatePanel ulimatePanel;
     [SerializeField] private RewardPanel rewardPanel;
+    [SerializeField] private GameObject  winPanel;
 
     private int levelID;
 
@@ -49,6 +50,7 @@ public class ResultPanel : MonoBehaviour
             }
 
             rewardPanel.InirRewardPanel(levelData.starCount);
+            winPanel.SetActive(true);
             for(int i=0; i < levelData.starCount; i++) {
                 starArray[i].ShowStar();
             }
