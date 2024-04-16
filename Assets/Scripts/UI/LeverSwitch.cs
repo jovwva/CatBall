@@ -6,6 +6,8 @@ public class LeverSwitch : MonoBehaviour
     [SerializeField] private SpriteRenderer _spriteHandle;
     [SerializeField] private BallFactory _ballFactory;
     private bool _isLeverOpen = false;
+
+    
     private void Start(){
         _spriteHandle.color = Color.red;
     }

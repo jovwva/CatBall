@@ -10,25 +10,27 @@ public class BallFactory : MonoBehaviour
 {
     [SerializeField] private BallPool       _ballPool;
 
-    public int          ballSpawned = 0;
     public int          ballLimit   = 20;
     public float        spawnDelay  = .4f;
     public Transform    spawnPosition;
 
-    public Color[] ballColorArray;
-    private int colorArrayLength = 0;
+    public Color[]      ballColorArray;
+    private int         colorArrayLength = 0;
+
+    private float       timer = 0;
+    private int         ballSpawned = 0;
     
-    private bool         _factoryState = true;
-    private bool        _isLeverOpen = false;
+    private bool        factoryState = true;
+    private bool        isLeverOpen = false;
    
-    public bool FactoryState {
-        get { return _factoryState; }
+    public bool IsFactoryActive {
+        get { return factoryState; }
         private set {
-            if (!value && _factoryState)
+            if (!value && factoryState)
             {
                 EventBusHolder.Instance.EventBus.Raise(new PipeEmptiedEvent(gameObject));
             }
-            _factoryState = value;
+            factoryState = value;
         }   
     }
 
@@ -36,16 +38,16 @@ public class BallFactory : MonoBehaviour
     {
         colorArrayLength = ballColorArray.Length;
     }
-    private float timer = 0;
+    
 
     private void Update()
     {
-        if (!FactoryState) {
+        if (!IsFactoryActive) {
             return;
         }
         timer += Time.deltaTime; 
         
-        if (timer >= spawnDelay && _isLeverOpen) {
+        if (timer >= spawnDelay && isLeverOpen) {
             timer = 0f;
             
             Ball ball = _ballPool.Pool.Get();
@@ -54,21 +56,14 @@ public class BallFactory : MonoBehaviour
             ballSpawned++;
         }
         if (ballSpawned >= ballLimit) {
-            FactoryState = false;
+            IsFactoryActive = false;
         }
     }
 
-    // public bool SwitchLever(bool _isSwitchLever)
-    // {
-    //     _isSwitchLever = !_isSwitchLever;
-    //     _isLeverOpen = _isSwitchLever;
-    //     return(_isSwitchLever);
-    // }
-
     public void ChangeState(bool isLeverOpen)
     {
-        if (_isLeverOpen == isLeverOpen)
+        if (this.isLeverOpen == isLeverOpen)
             return;
-        _isLeverOpen = isLeverOpen;
+        this.isLeverOpen = isLeverOpen;
     }
 }
