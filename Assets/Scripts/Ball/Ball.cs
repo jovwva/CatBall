@@ -6,9 +6,13 @@ public class Ball : MonoBehaviour {
     private IObjectPool<Ball> pool;
     private bool isActive = false;
 
+    private SpriteRenderer spriteRenderer;
+
     public void Init(IObjectPool<Ball> pool, BallType ballType) {
         this.pool = pool;
         this.BallType = ballType;
+
+        spriteRenderer = transform.GetComponentInChildren<SpriteRenderer>();
     }
 
     public void ReleaseBall() {
@@ -18,8 +22,10 @@ public class Ball : MonoBehaviour {
         pool.Release(this);
     } 
 
-    public void SetPosition(Vector3 newPosition) {
+    public void SetPosition(Vector3 newPosition, Color newColor) {
         isActive = true;
         transform.position = newPosition;
+
+        spriteRenderer.color = newColor;
     }
 } 

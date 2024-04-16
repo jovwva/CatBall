@@ -196,11 +196,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5827754443667402903, guid: 6845b9bbd7c89cf4a85e2c8184e9ed0e, type: 3}
       propertyPath: m_Points.Array.data[0].x
-      value: -0.40005505
+      value: -0.39997944
       objectReference: {fileID: 0}
     - target: {fileID: 5827754443667402903, guid: 6845b9bbd7c89cf4a85e2c8184e9ed0e, type: 3}
       propertyPath: m_Points.Array.data[0].y
-      value: 2.0037599
+      value: 1.9959476
       objectReference: {fileID: 0}
     - target: {fileID: 5827754443667402903, guid: 6845b9bbd7c89cf4a85e2c8184e9ed0e, type: 3}
       propertyPath: m_Points.Array.data[1].y
@@ -216,7 +216,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8074862256779917305, guid: 6845b9bbd7c89cf4a85e2c8184e9ed0e, type: 3}
       propertyPath: m_LocalAABB.m_Extent.y
-      value: 2.0074959
+      value: 2.0035899
       objectReference: {fileID: 0}
     - target: {fileID: 8643043774633423827, guid: 6845b9bbd7c89cf4a85e2c8184e9ed0e, type: 3}
       propertyPath: m_Creator
@@ -371,7 +371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4673882021603400407, guid: 3d949fb6bfdd55840accf0963d9f8557, type: 3}
       propertyPath: m_LocalAABB.m_Extent.y
-      value: 2.0074959
+      value: 2.0035899
       objectReference: {fileID: 0}
     - target: {fileID: 4743030724106824056, guid: 3d949fb6bfdd55840accf0963d9f8557, type: 3}
       propertyPath: m_Creator
@@ -423,11 +423,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8820941697283571141, guid: 3d949fb6bfdd55840accf0963d9f8557, type: 3}
       propertyPath: m_Points.Array.data[0].x
-      value: -0.40005505
+      value: -0.39997944
       objectReference: {fileID: 0}
     - target: {fileID: 8820941697283571141, guid: 3d949fb6bfdd55840accf0963d9f8557, type: 3}
       propertyPath: m_Points.Array.data[0].y
-      value: 2.0037599
+      value: 1.9959476
       objectReference: {fileID: 0}
     - target: {fileID: 8820941697283571141, guid: 3d949fb6bfdd55840accf0963d9f8557, type: 3}
       propertyPath: m_Points.Array.data[1].y
