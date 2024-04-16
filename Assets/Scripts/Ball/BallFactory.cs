@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public enum BallType {
@@ -9,6 +10,7 @@ public enum BallType {
 public class BallFactory : MonoBehaviour
 {
     [SerializeField] private BallPool       _ballPool;
+    [SerializeField] private TextMeshProUGUI ballCounter;
 
     public int          ballLimit   = 20;
     public float        spawnDelay  = .4f;
@@ -37,8 +39,8 @@ public class BallFactory : MonoBehaviour
     private void Awake()
     {
         colorArrayLength = ballColorArray.Length;
+        ballCounter.text = ballLimit.ToString();
     }
-    
 
     private void Update()
     {
@@ -54,6 +56,7 @@ public class BallFactory : MonoBehaviour
             ball.SetPosition(spawnPosition.position, ballColorArray[Random.Range(0, colorArrayLength)]);
 
             ballSpawned++;
+            ballCounter.text = (ballLimit - ballSpawned).ToString();
         }
         if (ballSpawned >= ballLimit) {
             IsFactoryActive = false;
