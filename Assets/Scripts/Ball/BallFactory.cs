@@ -14,6 +14,9 @@ public class BallFactory : MonoBehaviour
     public int          ballLimit   = 20;
     public float        spawnDelay  = .4f;
     public Transform    spawnPosition;
+
+    public Color[] ballColorArray;
+    private int colorArrayLength = 0;
     
     private bool         _factoryState = true;
     private bool        _isLeverOpen = false;
@@ -29,6 +32,10 @@ public class BallFactory : MonoBehaviour
         }   
     }
 
+    private void Awake()
+    {
+        colorArrayLength = ballColorArray.Length;
+    }
     private float timer = 0;
 
     private void Update()
@@ -42,7 +49,7 @@ public class BallFactory : MonoBehaviour
             timer = 0f;
             
             Ball ball = _ballPool.Pool.Get();
-            ball.SetPosition(spawnPosition.position);
+            ball.SetPosition(spawnPosition.position, ballColorArray[Random.Range(0, colorArrayLength)]);
 
             ballSpawned++;
         }

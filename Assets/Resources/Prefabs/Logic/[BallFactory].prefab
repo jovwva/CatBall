@@ -46,6 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolType: 0
   ballType: 1
-  ballPref: {fileID: 1395096662099878944, guid: f78f10426fc69a442be7895894151ffb, type: 3}
+  ballPref: {fileID: 2699981600845333535, guid: 6d0bf8d0cb8c5524b820817851d8f6e6, type: 3}
   collectionChecks: 1
   maxPoolSize: 10
