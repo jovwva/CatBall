@@ -10,7 +10,6 @@ public class MainMenuBroker : MonoBehaviour
     [Header("UI компоненты")]
     [SerializeField] private Button playButton;
     [SerializeField] private Button mapButton;
-    // [SerializeField] private Button settingButton;
     [SerializeField] private Button shopButton;
     [SerializeField] private Button closeShopButton;
     [SerializeField] private TextMeshProUGUI playButtonText;
@@ -18,8 +17,9 @@ public class MainMenuBroker : MonoBehaviour
     [Header("Панели")]
     [SerializeField] private GameObject shopPanel;
     [SerializeField] private GameObject mainPanel;
-    [Space]
-    [SerializeField] private int lastLevelID = 0;
+
+    private SoundBroker soundBroker;
+    private int lastLevelID = 0;
 
     private void Awake()
     {
@@ -35,17 +35,27 @@ public class MainMenuBroker : MonoBehaviour
         } else { 
             playButtonText.text = $"Level №{lastLevelID}";;
         }
+        soundBroker = SoundBroker.Instance;
 
         playButton.onClick.AddListener(LoadLastLevel);
         mapButton.onClick.AddListener(LoadMapLevel);
-        // settingButton.onClick.AddListener(LoadMapLevel);
+
         shopButton.onClick.AddListener(OpenShopPanel);
+        shopButton.onClick.AddListener( ()=>  soundBroker.PlaySound(SoundBroker.SoundType.PanelOpen) );
+
         closeShopButton.onClick.AddListener(OpenMenuPanel);
+        closeShopButton.onClick.AddListener( ()=>  soundBroker.PlaySound(SoundBroker.SoundType.PanelClose) );
     }
 
-    private void LoadLastLevel()    => SceneManager.LoadSceneAsync($"Level_{lastLevelID}");
-    private void LoadMapLevel()     => SceneManager.LoadSceneAsync("LevelsMap");
+    private void LoadLastLevel()    => LoadScene($"Level_{lastLevelID}");
+    private void LoadMapLevel()     => LoadScene("LevelsMap");
     
+    private void LoadScene(string sceneName)
+    {
+        soundBroker.PlaySound(SoundBroker.SoundType.ButtonClick);
+        SceneManager.LoadSceneAsync(sceneName);
+    }
+
     private void OpenShopPanel()
     {
         shopPanel.SetActive(true);

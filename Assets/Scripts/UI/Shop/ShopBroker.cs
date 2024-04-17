@@ -25,6 +25,7 @@ public class ShopBroker : MonoBehaviour
     [Space]
     [SerializeField] private AssortmentBroker assortmentBroker; 
 
+    private SoundBroker soundBroker;
     private ShopState shopState = ShopState.Empty;
     private Dictionary<ShopState, ShopAssortment> statusMessages;
 #endregion
@@ -44,6 +45,7 @@ public class ShopBroker : MonoBehaviour
     }
     private void Start()
     {
+        soundBroker = SoundBroker.Instance;
         foreach(ItemObject item in itemList)
             item.InitielizeButton(this);
 
@@ -57,6 +59,7 @@ public class ShopBroker : MonoBehaviour
     {
         if (this.shopState == shopState) return;
         
+        soundBroker.PlaySound(SoundBroker.SoundType.ButtonClick);
         ResetAssortment();
 
         if (isTestRun)
@@ -127,6 +130,7 @@ public class ShopBroker : MonoBehaviour
             assortmentBroker.SelectShape(id);
         }
 
+        soundBroker.PlaySound(SoundBroker.SoundType.ButtonClick);
         assortmentBroker.DeselectItem(oldId);
         UpdateButtonState(oldId, ProductStatus.Bought);
         UpdateButtonState(id, ProductStatus.Selected);
@@ -140,6 +144,7 @@ public class ShopBroker : MonoBehaviour
 
         if (item != null && assortmentBroker.TryBuyItem(item))
         {
+            soundBroker.PlaySound(SoundBroker.SoundType.CoinTransfer);
             UpdateButtonState(id, ProductStatus.Bought);
         }
     }
