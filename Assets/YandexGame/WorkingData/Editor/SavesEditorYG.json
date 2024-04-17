@@ -1,5 +1,5 @@
 {
-  "idSave": 71,
+  "idSave": 104,
   "isFirstSession": false,
   "language": "ru",
   "promptDone": false,
@@ -114,11 +114,11 @@
     },
     {
       "id": 4,
-      "itemState": 1
+      "itemState": 0
     },
     {
       "id": 5,
-      "itemState": 1
+      "itemState": 2
     },
     {
       "id": 6,
@@ -145,7 +145,7 @@
       "itemState": 1
     }
   ],
-  "moneyValue": 8500,
-  "colorId": 3,
+  "moneyValue": 8825,
+  "colorId": 5,
   "shapeId": 6
 }

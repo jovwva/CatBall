@@ -25,6 +25,7 @@ public class PageSwiper : MonoBehaviour
 
     private void SwipePage(int delta)
     {
+        EventBusHolder.Instance.EventBus.Raise(new ButtonClick( ButtonType.ActionButton ));
         if(swiperType == SwiperType.Loop)
         {
             if(_currentPageNumber == 0 && delta < 0)

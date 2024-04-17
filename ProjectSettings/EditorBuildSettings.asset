@@ -16,7 +16,7 @@ EditorBuildSettings:
     guid: 249ea18ffbb3d69448ec2d143955fd9e
   - enabled: 1
     path: Assets/Scenes/Levels/1-9/Level_2.unity
-    guid: 19046bb6faee4a74b829a347e483e86a
+    guid: 8cb14ae5176ccd044816a2c5fa9078cd
   - enabled: 1
     path: Assets/Scenes/Levels/1-9/Level_3.unity
     guid: 204c9a757ba2e2449a6e06f5db81ebfc
@@ -25,13 +25,13 @@ EditorBuildSettings:
     guid: 972b949ca9ad30a4b89e48dba29e91fd
   - enabled: 1
     path: Assets/Scenes/Levels/1-9/Level_5.unity
-    guid: 70645e44f1183a3499e212fbd6440cc6
+    guid: 19046bb6faee4a74b829a347e483e86a
   - enabled: 1
     path: Assets/Scenes/Levels/1-9/Level_6.unity
-    guid: 1f30a290fac952446aad45d0c9692eaf
+    guid: 70645e44f1183a3499e212fbd6440cc6
   - enabled: 1
     path: Assets/Scenes/Levels/1-9/Level_7.unity
-    guid: c563c72b81a5c444290b0fac2398409f
+    guid: 1f30a290fac952446aad45d0c9692eaf
   - enabled: 1
     path: Assets/Scenes/Levels/1-9/Level_8.unity
     guid: 94c4dd3c9691fd74c99ac1ca98deb65b
@@ -43,7 +43,7 @@ EditorBuildSettings:
     guid: b18c94e1a5c37fc449d8b5fb76fd1125
   - enabled: 1
     path: Assets/Scenes/Levels/10-18/Level_11.unity
-    guid: 8cb14ae5176ccd044816a2c5fa9078cd
+    guid: 5381edc9ceb3e604bacbd9a4028341a1
   - enabled: 1
     path: Assets/Scenes/Levels/10-18/Level_12.unity
     guid: e21257fddc56bdb4aa8e7495c4117c96

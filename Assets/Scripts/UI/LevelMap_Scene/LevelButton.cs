@@ -41,6 +41,7 @@ public class LevelButton : MonoBehaviour
     }
 
     private void LoadLevel() {
+        EventBusHolder.Instance.EventBus.Raise(new ButtonClick( ButtonType.ActionButton ));
         LevelPanel.LoadLevel(levelID);
     }
     private void ShowBlockAnim()

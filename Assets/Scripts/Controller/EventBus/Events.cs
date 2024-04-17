@@ -31,10 +31,26 @@ public readonly struct ToolDrag : IEvent {
     }
 }
 
+public readonly struct ButtonClick : IEvent {
+    public readonly ButtonType buttonState;
+
+    public ButtonClick(ButtonType buttonState) {
+        this.buttonState = buttonState;
+    }
+}
+
 [System.Serializable]
 public enum GameState {
     Normal,
     Slow,
     Pause,
+}
+[System.Serializable]
+public enum ButtonType
+{
+    CloseButton,
+    OpenButton,
+    ActionButton,
+    CoinTransferButton,
 }
 

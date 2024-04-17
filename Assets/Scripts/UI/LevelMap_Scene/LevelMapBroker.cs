@@ -12,7 +12,9 @@ public class LevelMapBroker : MonoBehaviour
         mainMenuButton.onClick.AddListener(LoadMainMenu);
     }
 
-    private void Start() => YandexGame.FullscreenShow();
-
-    private void LoadMainMenu()    => SceneManager.LoadSceneAsync("MainMenu");
+    private void LoadMainMenu()
+    {
+        EventBusHolder.Instance.EventBus.Raise(new ButtonClick( ButtonType.ActionButton ));
+        SceneManager.LoadSceneAsync("MainMenu");
+    } 
 }

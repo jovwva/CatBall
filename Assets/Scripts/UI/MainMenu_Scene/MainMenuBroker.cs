@@ -10,7 +10,6 @@ public class MainMenuBroker : MonoBehaviour
     [Header("UI компоненты")]
     [SerializeField] private Button playButton;
     [SerializeField] private Button mapButton;
-    // [SerializeField] private Button settingButton;
     [SerializeField] private Button shopButton;
     [SerializeField] private Button closeShopButton;
     [SerializeField] private TextMeshProUGUI playButtonText;
@@ -18,8 +17,8 @@ public class MainMenuBroker : MonoBehaviour
     [Header("Панели")]
     [SerializeField] private GameObject shopPanel;
     [SerializeField] private GameObject mainPanel;
-    [Space]
-    [SerializeField] private int lastLevelID = 0;
+
+    private int lastLevelID = 0;
 
     private void Awake()
     {
@@ -38,14 +37,23 @@ public class MainMenuBroker : MonoBehaviour
 
         playButton.onClick.AddListener(LoadLastLevel);
         mapButton.onClick.AddListener(LoadMapLevel);
-        // settingButton.onClick.AddListener(LoadMapLevel);
+
         shopButton.onClick.AddListener(OpenShopPanel);
+        shopButton.onClick.AddListener( ()=>  EventBusHolder.Instance.EventBus.Raise(new ButtonClick( ButtonType.OpenButton )) );
+
         closeShopButton.onClick.AddListener(OpenMenuPanel);
+        closeShopButton.onClick.AddListener( ()=>  EventBusHolder.Instance.EventBus.Raise(new ButtonClick( ButtonType.CloseButton )) );
     }
 
-    private void LoadLastLevel()    => SceneManager.LoadSceneAsync($"Level_{lastLevelID}");
-    private void LoadMapLevel()     => SceneManager.LoadSceneAsync("LevelsMap");
+    private void LoadLastLevel()    => LoadScene($"Level_{lastLevelID}");
+    private void LoadMapLevel()     => LoadScene("LevelsMap");
     
+    private void LoadScene(string sceneName)
+    {
+        EventBusHolder.Instance.EventBus.Raise(new ButtonClick( ButtonType.ActionButton ));
+        SceneManager.LoadSceneAsync(sceneName);
+    }
+
     private void OpenShopPanel()
     {
         shopPanel.SetActive(true);

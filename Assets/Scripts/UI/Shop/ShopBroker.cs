@@ -57,6 +57,7 @@ public class ShopBroker : MonoBehaviour
     {
         if (this.shopState == shopState) return;
         
+        EventBusHolder.Instance.EventBus.Raise(new ButtonClick( ButtonType.ActionButton ));
         ResetAssortment();
 
         if (isTestRun)
@@ -127,6 +128,7 @@ public class ShopBroker : MonoBehaviour
             assortmentBroker.SelectShape(id);
         }
 
+        EventBusHolder.Instance.EventBus.Raise(new ButtonClick( ButtonType.ActionButton ));
         assortmentBroker.DeselectItem(oldId);
         UpdateButtonState(oldId, ProductStatus.Bought);
         UpdateButtonState(id, ProductStatus.Selected);
@@ -140,6 +142,7 @@ public class ShopBroker : MonoBehaviour
 
         if (item != null && assortmentBroker.TryBuyItem(item))
         {
+            EventBusHolder.Instance.EventBus.Raise(new ButtonClick( ButtonType.CoinTransferButton ));
             UpdateButtonState(id, ProductStatus.Bought);
         }
     }
