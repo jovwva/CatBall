@@ -3,6 +3,7 @@ using UnityEngine;
 public class RegistrationApprove : BallRegistration
 {
     [SerializeField] private BallType requiredBallType = BallType.AnyBall;
+    
     protected override void RegisterBall(Ball ball)
     {
         if (requiredBallType == ball.BallType) {

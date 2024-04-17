@@ -24,6 +24,7 @@ public class BallFactory : MonoBehaviour
     
     private bool        factoryState = true;
     private bool        isLeverOpen = false;
+    private SoundBroker soundBroker;
    
     public bool IsFactoryActive {
         get { return factoryState; }
@@ -41,6 +42,10 @@ public class BallFactory : MonoBehaviour
         colorArrayLength = ballColorArray.Length;
         ballCounter.text = ballLimit.ToString();
     }
+    private void Start()
+    {
+        soundBroker = SoundBroker.Instance;
+    }
 
     private void Update()
     {
@@ -54,6 +59,7 @@ public class BallFactory : MonoBehaviour
             
             Ball ball = _ballPool.Pool.Get();
             ball.SetPosition(spawnPosition.position, ballColorArray[Random.Range(0, colorArrayLength)]);
+            soundBroker.PlaySound(SoundBroker.SoundType.BallSpawn);
 
             ballSpawned++;
             ballCounter.text = (ballLimit - ballSpawned).ToString();

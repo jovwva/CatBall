@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundBroker : MonoBehaviour
+public class SoundBroker : MonoBehaviour, IEventReceiver<BallApprovedEvent>, IEventReceiver<BallDestroyedEvent>
 {
     public static SoundBroker Instance { get; private set; }
     [SerializeField] private AudioSource audioSource;
@@ -47,20 +47,32 @@ public class SoundBroker : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
+    
+
+#region IEventReceiver
     private void Start()
     {
-        // DeliveryManager.Instance.OnRecipeSucces += DeliveryManager_OnRecipeSucces;
-        // DeliveryManager.Instance.OnRecipeFailed += DeliveryManager_OnRecipeFailed;
-        // CuttingCounter.OnAnyCut += CuttingCounter_OnAnyCut;
-        // BaseCounter.OnAnyObjectPlaceHere += BaseCounter_OnAnyObjectPlaceHere;
-        // TrashCounter.OnAnyObjectTrashed += TrashCounter_OnAnyObjectTrash;
+        EventBusHolder.Instance.EventBus.Register(this as IEventReceiver<BallApprovedEvent>);
+        EventBusHolder.Instance.EventBus.Register(this as IEventReceiver<BallDestroyedEvent>);
+    }
+    private void OnDestroy()
+    {
+        EventBusHolder.Instance.EventBus.Unregister(this as IEventReceiver<BallApprovedEvent>);
+        EventBusHolder.Instance.EventBus.Unregister(this as IEventReceiver<BallDestroyedEvent>);
     }
 
-    // private void TrashCounter_OnAnyObjectTrash(object sender, EventArgs e)
-    // {
-    //     TrashCounter trashCounter = sender as TrashCounter;
-    //     PlaySound(audioClipRefSO.trash, trashCounter.transform.position);
-    // }
+    public UniqueId Id { get; } = new UniqueId();
+    public void OnEvent(BallDestroyedEvent @event)
+    {
+        Debug.Log("SoundBroker BallDestroyedEvent!");
+        PlaySound(SoundType.BallWarning);
+    }
+    public void OnEvent(BallApprovedEvent @event)
+    {
+        Debug.Log("SoundBroker BallApprovedEvent!");
+        PlaySound(SoundType.BallAprove);
+    } 
+#endregion
 
     public void PlaySound(SoundType soundType)
     {
