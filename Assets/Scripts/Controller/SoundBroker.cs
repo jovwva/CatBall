@@ -1,13 +1,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundBroker : MonoBehaviour, IEventReceiver<BallApprovedEvent>, IEventReceiver<BallDestroyedEvent>
+public class SoundBroker : MonoBehaviour, IEventReceiver<BallApprovedEvent>, IEventReceiver<BallDestroyedEvent>, IEventReceiver<ButtonClick>
 {
     public static SoundBroker Instance { get; private set; }
-    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource commonSource;
+    [SerializeField] private AudioSource warningSource;
+    [SerializeField] private AudioSource aproveSource;
+
     [SerializeField] private AudioClip[] audioClipArray;
 
     // private float volume = 1f;
+    public enum SourceType
+    {
+        Common,
+        Warning,
+        Aprove,
+    }
     public enum SoundType
     {
         PanelOpen,
@@ -54,32 +63,64 @@ public class SoundBroker : MonoBehaviour, IEventReceiver<BallApprovedEvent>, IEv
     {
         EventBusHolder.Instance.EventBus.Register(this as IEventReceiver<BallApprovedEvent>);
         EventBusHolder.Instance.EventBus.Register(this as IEventReceiver<BallDestroyedEvent>);
+        EventBusHolder.Instance.EventBus.Register(this as IEventReceiver<ButtonClick>);
     }
     private void OnDestroy()
     {
         EventBusHolder.Instance.EventBus.Unregister(this as IEventReceiver<BallApprovedEvent>);
         EventBusHolder.Instance.EventBus.Unregister(this as IEventReceiver<BallDestroyedEvent>);
+        EventBusHolder.Instance.EventBus.Unregister(this as IEventReceiver<ButtonClick>);
     }
 
     public UniqueId Id { get; } = new UniqueId();
+    
     public void OnEvent(BallDestroyedEvent @event)
     {
-        Debug.Log("SoundBroker BallDestroyedEvent!");
-        PlaySound(SoundType.BallWarning);
+        PlaySound(SoundType.BallWarning, SourceType.Warning);
     }
     public void OnEvent(BallApprovedEvent @event)
     {
-        Debug.Log("SoundBroker BallApprovedEvent!");
-        PlaySound(SoundType.BallAprove);
+        PlaySound(SoundType.BallAprove, SourceType.Aprove);
+    } 
+    public void OnEvent(ButtonClick @event)
+    {
+        switch (@event.buttonState ) 
+        {
+            case ButtonType.CloseButton:
+                PlaySound(SoundType.PanelClose);
+                break;
+            case ButtonType.OpenButton:
+                PlaySound(SoundType.PanelOpen);
+                break;
+            case ButtonType.CoinTransferButton:
+                PlaySound(SoundType.CoinTransfer);
+                break;
+            default:
+                PlaySound(SoundType.ButtonClick);
+                break;
+        }
     } 
 #endregion
 
-    public void PlaySound(SoundType soundType)
+    public void PlaySound(SoundType soundType, SourceType sourceType = SourceType.Common)
     {
         if (soundDictionary.ContainsKey(soundType))
         {
-            audioSource.clip = soundDictionary[soundType];
-            audioSource.Play();
+            AudioSource source;
+            switch (sourceType)
+            {
+                case SourceType.Warning:
+                    source = warningSource;
+                    break;
+                case SourceType.Aprove:
+                    source = aproveSource;
+                    break;
+                default:
+                    source = commonSource;
+                    break;
+            }
+            source.clip = soundDictionary[soundType];
+            source.Play();
         }
     }
 }

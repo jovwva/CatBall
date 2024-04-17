@@ -29,10 +29,6 @@ public class PausePanel : MonoBehaviour
         pauseButton.onClick.AddListener(ShowPanel);
     }
 
-    private void Start() {
-        HidePanel();
-    }
-
     public void Init(int id) {
         levelID = id;
         if (YandexGame.EnvironmentData.language == "ru") {
@@ -43,11 +39,13 @@ public class PausePanel : MonoBehaviour
     }
 
     private void ShowPanel() {
+        EventBusHolder.Instance.EventBus.Raise(new ButtonClick( ButtonType.OpenButton ));
         Time.timeScale = 0;
         blockZone.SetActive(true);
         pauseHolder.SetActive(true);
     } 
     private void HidePanel() {
+        EventBusHolder.Instance.EventBus.Raise(new ButtonClick( ButtonType.CloseButton ));
         Time.timeScale = 1;
         blockZone.SetActive(false);
         pauseHolder.SetActive(false);

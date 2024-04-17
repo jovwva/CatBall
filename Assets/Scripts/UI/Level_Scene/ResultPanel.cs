@@ -42,7 +42,10 @@ public class ResultPanel : MonoBehaviour
             }
 
             nextLevelButton.interactable = false;
-        } else {
+            SoundBroker.Instance.PlaySound(SoundBroker.SoundType.LevelFail);
+        } 
+        else 
+        {
             if (YandexGame.EnvironmentData.language == "ru") {
                 resultText.text = "Вы победили!";
             } else { 
@@ -51,6 +54,7 @@ public class ResultPanel : MonoBehaviour
 
             rewardPanel.InirRewardPanel(levelData.starCount);
             winPanel.SetActive(true);
+            SoundBroker.Instance.PlaySound(SoundBroker.SoundType.LevelWin);
             for(int i=0; i < levelData.starCount; i++) {
                 starArray[i].ShowStar();
             }

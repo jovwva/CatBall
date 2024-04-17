@@ -61,16 +61,22 @@ public class UlimatePanel : MonoBehaviour
         }
     }
 
-    private void LoadMainMenu()    => SceneManager.LoadSceneAsync("MainMenu");
-    private void RestartLevel()    => SceneManager.LoadSceneAsync($"Level_{levelID}");
+    private void LoadMainMenu()    => LoadScene("MainMenu");
+    private void RestartLevel()    => LoadScene($"Level_{levelID}");
     private void LoadNextLevel() {
         if (SaveSystem.Instance.TryFindLevel(levelID + 1)) {
-            SceneManager.LoadSceneAsync($"Level_{levelID + 1}");
+            LoadScene($"Level_{levelID + 1}");
         } else {
-            // LoadMainMenu();
-            SceneManager.LoadSceneAsync($"Level_{Random.Range(5,14)}");
+            LoadScene($"Level_{Random.Range(5,14)}");
         }
     } 
+
+    private void LoadScene(string sceneName)
+    {
+        Time.timeScale = 1;
+        EventBusHolder.Instance.EventBus.Raise(new ButtonClick( ButtonType.ActionButton ));
+        SceneManager.LoadSceneAsync(sceneName);
+    }
 }
 
 public enum ButtonVoid {

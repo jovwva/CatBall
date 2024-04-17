@@ -18,7 +18,6 @@ public class MainMenuBroker : MonoBehaviour
     [SerializeField] private GameObject shopPanel;
     [SerializeField] private GameObject mainPanel;
 
-    private SoundBroker soundBroker;
     private int lastLevelID = 0;
 
     private void Awake()
@@ -35,16 +34,15 @@ public class MainMenuBroker : MonoBehaviour
         } else { 
             playButtonText.text = $"Level №{lastLevelID}";;
         }
-        soundBroker = SoundBroker.Instance;
 
         playButton.onClick.AddListener(LoadLastLevel);
         mapButton.onClick.AddListener(LoadMapLevel);
 
         shopButton.onClick.AddListener(OpenShopPanel);
-        shopButton.onClick.AddListener( ()=>  soundBroker.PlaySound(SoundBroker.SoundType.PanelOpen) );
+        shopButton.onClick.AddListener( ()=>  EventBusHolder.Instance.EventBus.Raise(new ButtonClick( ButtonType.OpenButton )) );
 
         closeShopButton.onClick.AddListener(OpenMenuPanel);
-        closeShopButton.onClick.AddListener( ()=>  soundBroker.PlaySound(SoundBroker.SoundType.PanelClose) );
+        closeShopButton.onClick.AddListener( ()=>  EventBusHolder.Instance.EventBus.Raise(new ButtonClick( ButtonType.CloseButton )) );
     }
 
     private void LoadLastLevel()    => LoadScene($"Level_{lastLevelID}");
@@ -52,7 +50,7 @@ public class MainMenuBroker : MonoBehaviour
     
     private void LoadScene(string sceneName)
     {
-        soundBroker.PlaySound(SoundBroker.SoundType.ButtonClick);
+        EventBusHolder.Instance.EventBus.Raise(new ButtonClick( ButtonType.ActionButton ));
         SceneManager.LoadSceneAsync(sceneName);
     }
 
