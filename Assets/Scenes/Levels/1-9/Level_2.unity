@@ -204,7 +204,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5827754443667402903, guid: 6845b9bbd7c89cf4a85e2c8184e9ed0e, type: 3}
       propertyPath: m_Points.Array.data[1].y
-      value: -2.001691
+      value: -2.0016913
       objectReference: {fileID: 0}
     - target: {fileID: 7874851778761675529, guid: 6845b9bbd7c89cf4a85e2c8184e9ed0e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -212,7 +212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8074862256779917305, guid: 6845b9bbd7c89cf4a85e2c8184e9ed0e, type: 3}
       propertyPath: m_LocalAABB.m_Center.y
-      value: 0.0053818226
+      value: 0.0014755726
       objectReference: {fileID: 0}
     - target: {fileID: 8074862256779917305, guid: 6845b9bbd7c89cf4a85e2c8184e9ed0e, type: 3}
       propertyPath: m_LocalAABB.m_Extent.y
@@ -367,7 +367,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4673882021603400407, guid: 3d949fb6bfdd55840accf0963d9f8557, type: 3}
       propertyPath: m_LocalAABB.m_Center.y
-      value: 0.0053818226
+      value: 0.0014755726
       objectReference: {fileID: 0}
     - target: {fileID: 4673882021603400407, guid: 3d949fb6bfdd55840accf0963d9f8557, type: 3}
       propertyPath: m_LocalAABB.m_Extent.y
@@ -431,7 +431,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8820941697283571141, guid: 3d949fb6bfdd55840accf0963d9f8557, type: 3}
       propertyPath: m_Points.Array.data[1].y
-      value: -2.001691
+      value: -2.0016913
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1157,7 +1157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3686981529420762426, guid: 1e8c0b7295220b740ac63719e2fa1323, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4359698775786716514, guid: 1e8c0b7295220b740ac63719e2fa1323, type: 3}
       propertyPath: canvasGroup

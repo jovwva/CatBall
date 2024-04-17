@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 714370613215484693}
   - component: {fileID: 5271265311676949528}
   - component: {fileID: 635410528330272717}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ColorBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 466064948118460523}
   - component: {fileID: 3427101397279395812}
   - component: {fileID: 758400500615327687}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BallFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -314,7 +314,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5056197583513026172}
   - component: {fileID: 5876254660079811949}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BallBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
