@@ -144,6 +144,9 @@ public class SaveSystem : MonoBehaviour
 
     public int GetBackColorId() => colorId;
     public int GetBackShapeId() => shapeId;
+
+    public float GetSoundValue() => YandexGame.savesData.SoundValue;
+    public float GetMusicValue() => YandexGame.savesData.MusicValue;
 #endregion
 
 #region TrySaveData

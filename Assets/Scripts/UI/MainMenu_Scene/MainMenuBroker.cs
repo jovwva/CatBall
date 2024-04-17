@@ -11,12 +11,15 @@ public class MainMenuBroker : MonoBehaviour
     [SerializeField] private Button playButton;
     [SerializeField] private Button mapButton;
     [SerializeField] private Button shopButton;
-    [SerializeField] private Button closeShopButton;
+    [SerializeField] private Button settingButton;
+
+    [SerializeField] private Button[] closeShopButtonArray;
     [SerializeField] private TextMeshProUGUI playButtonText;
     [Space]
     [Header("Панели")]
     [SerializeField] private GameObject shopPanel;
     [SerializeField] private GameObject mainPanel;
+    [SerializeField] private GameObject settingPanel;
 
     private int lastLevelID = 0;
 
@@ -39,10 +42,11 @@ public class MainMenuBroker : MonoBehaviour
         mapButton.onClick.AddListener(LoadMapLevel);
 
         shopButton.onClick.AddListener(OpenShopPanel);
-        shopButton.onClick.AddListener( ()=>  EventBusHolder.Instance.EventBus.Raise(new ButtonClick( ButtonType.OpenButton )) );
-
-        closeShopButton.onClick.AddListener(OpenMenuPanel);
-        closeShopButton.onClick.AddListener( ()=>  EventBusHolder.Instance.EventBus.Raise(new ButtonClick( ButtonType.CloseButton )) );
+        settingButton.onClick.AddListener(OpenSettingPanel);
+        foreach(Button closeShopButton in closeShopButtonArray)
+        {
+            closeShopButton.onClick.AddListener(OpenMenuPanel);
+        }
     }
 
     private void LoadLastLevel()    => LoadScene($"Level_{lastLevelID}");
@@ -54,13 +58,22 @@ public class MainMenuBroker : MonoBehaviour
         SceneManager.LoadSceneAsync(sceneName);
     }
 
+    private void OpenSettingPanel()
+    {
+        EventBusHolder.Instance.EventBus.Raise(new ButtonClick( ButtonType.OpenButton ));
+        settingPanel.SetActive(true);
+        mainPanel.SetActive(false);
+    }
     private void OpenShopPanel()
     {
+        EventBusHolder.Instance.EventBus.Raise(new ButtonClick( ButtonType.OpenButton ));
         shopPanel.SetActive(true);
         mainPanel.SetActive(false);
     }
     private void OpenMenuPanel()
     {
+        EventBusHolder.Instance.EventBus.Raise(new ButtonClick( ButtonType.CloseButton ));
+        settingPanel.SetActive(false);
         mainPanel.SetActive(true);
         shopPanel.SetActive(false);
     }

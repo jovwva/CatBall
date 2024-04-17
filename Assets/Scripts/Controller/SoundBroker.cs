@@ -10,7 +10,7 @@ public class SoundBroker : MonoBehaviour, IEventReceiver<BallApprovedEvent>, IEv
 
     [SerializeField] private AudioClip[] audioClipArray;
 
-    // private float volume = 1f;
+    private float volume = 1f;
     public enum SourceType
     {
         Common,
@@ -55,8 +55,7 @@ public class SoundBroker : MonoBehaviour, IEventReceiver<BallApprovedEvent>, IEv
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
-    }
-    
+    }    
 
 #region IEventReceiver
     private void Start()
@@ -64,6 +63,8 @@ public class SoundBroker : MonoBehaviour, IEventReceiver<BallApprovedEvent>, IEv
         EventBusHolder.Instance.EventBus.Register(this as IEventReceiver<BallApprovedEvent>);
         EventBusHolder.Instance.EventBus.Register(this as IEventReceiver<BallDestroyedEvent>);
         EventBusHolder.Instance.EventBus.Register(this as IEventReceiver<ButtonClick>);
+    
+        volume = SaveSystem.Instance.GetSoundValue();
     }
     private void OnDestroy()
     {
@@ -120,7 +121,13 @@ public class SoundBroker : MonoBehaviour, IEventReceiver<BallApprovedEvent>, IEv
                     break;
             }
             source.clip = soundDictionary[soundType];
+            source.volume = volume;
             source.Play();
         }
+    }
+
+    public void ChangeVolume(float newVolume)
+    {
+        volume = newVolume;
     }
 }
