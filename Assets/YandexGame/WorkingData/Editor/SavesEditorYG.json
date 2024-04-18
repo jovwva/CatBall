@@ -1,5 +1,5 @@
 {
-  "idSave": 158,
+  "idSave": 165,
   "isFirstSession": false,
   "language": "ru",
   "promptDone": false,
@@ -52,11 +52,11 @@
     {
       "id": 10,
       "access": true,
-      "starCount": 0
+      "starCount": 3
     },
     {
       "id": 11,
-      "access": false,
+      "access": true,
       "starCount": 0
     },
     {
@@ -145,7 +145,7 @@
       "itemState": 1
     }
   ],
-  "moneyValue": 10525,
+  "moneyValue": 10900,
   "colorId": 5,
   "shapeId": 6,
   "SoundValue": 0.425826937,
