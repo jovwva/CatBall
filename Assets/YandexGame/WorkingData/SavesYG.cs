@@ -54,6 +54,9 @@ namespace YG
         public int colorId = 0;
         public int shapeId = 6;
 
+        public float SoundValue = 1f;
+        public float MusicValue = 1f;
+
         // Вы можете выполнить какие то действия при загрузке сохранений
         // public SavesYG()
         // {

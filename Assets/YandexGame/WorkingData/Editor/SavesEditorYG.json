@@ -1,5 +1,5 @@
 {
-  "idSave": 104,
+  "idSave": 166,
   "isFirstSession": false,
   "language": "ru",
   "promptDone": false,
@@ -52,16 +52,16 @@
     {
       "id": 10,
       "access": true,
-      "starCount": 0
+      "starCount": 3
     },
     {
       "id": 11,
-      "access": false,
-      "starCount": 0
+      "access": true,
+      "starCount": 3
     },
     {
       "id": 12,
-      "access": false,
+      "access": true,
       "starCount": 0
     },
     {
@@ -145,7 +145,9 @@
       "itemState": 1
     }
   ],
-  "moneyValue": 8825,
+  "moneyValue": 11025,
   "colorId": 5,
-  "shapeId": 6
+  "shapeId": 6,
+  "SoundValue": 0.425826937,
+  "MusicValue": 1.0
 }

@@ -13,6 +13,8 @@ public class ResultPanel : MonoBehaviour
     public GameObject panelHolder;
     public StarInResult[] starArray = new StarInResult[3];
     public TextMeshProUGUI resultText;
+    [SerializeField] private Image titlePanel;
+    [SerializeField] private Sprite failedPanelSprite;
     public GameObject blockZone;
 
     public UlimatePanel ulimatePanel;
@@ -41,6 +43,7 @@ public class ResultPanel : MonoBehaviour
                 resultText.text = "You lose!";
             }
 
+            titlePanel.sprite = failedPanelSprite;
             nextLevelButton.interactable = false;
             SoundBroker.Instance.PlaySound(SoundBroker.SoundType.LevelFail);
         } 

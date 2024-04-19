@@ -199,7 +199,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ballPool: {fileID: 0}
   ballCounter: {fileID: 4060726811349889229}
-  ballSpawned: 0
   ballLimit: 50
   spawnDelay: 0.2
   spawnPosition: {fileID: 7874851778761675529}
@@ -674,9 +673,17 @@ PrefabInstance:
       value: BluePipeVisual
       objectReference: {fileID: 0}
     - target: {fileID: 1265924175842254931, guid: 0af3da3f3e83256478167aae961e227a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -621846323, guid: 3d8dbbb3f7bf251489cf3422735ba1d4, type: 3}
+    - target: {fileID: 1265924175842254931, guid: 0af3da3f3e83256478167aae961e227a, type: 3}
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3579377909488913502, guid: 0af3da3f3e83256478167aae961e227a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -396832480, guid: 3d8dbbb3f7bf251489cf3422735ba1d4, type: 3}
     - target: {fileID: 3579377909488913502, guid: 0af3da3f3e83256478167aae961e227a, type: 3}
       propertyPath: m_SortingOrder
       value: -2

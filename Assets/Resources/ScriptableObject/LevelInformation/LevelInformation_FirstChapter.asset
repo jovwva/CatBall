@@ -184,8 +184,8 @@ MonoBehaviour:
     - name: Blue_R
       data: {fileID: 11400000, guid: 217d091bdfed0e343bcf9017460f97ff, type: 2}
       count: 1
-    - name: Blue_V
-      data: {fileID: 11400000, guid: a29f43f10b7505040b6a3a06b57a8b7b, type: 2}
+    - name: Blue_L
+      data: {fileID: 11400000, guid: 467433578f0cf7b47a74b8cc466aae67, type: 2}
       count: 1
   - id: 17
     ballsStock: 100
@@ -195,7 +195,7 @@ MonoBehaviour:
     toolSOArray:
     - name: Blackhole
       data: {fileID: 11400000, guid: a460f3dfc3b089b4db49b46f04e37489, type: 2}
-      count: 2
+      count: 3
   - id: 18
     ballsStock: 150
     oneStarReqValue: 50
