@@ -1,5 +1,5 @@
 {
-  "idSave": 168,
+  "idSave": 176,
   "isFirstSession": false,
   "language": "en",
   "promptDone": false,
@@ -106,7 +106,7 @@
     },
     {
       "id": 2,
-      "itemState": 1
+      "itemState": 2
     },
     {
       "id": 3,
@@ -118,11 +118,11 @@
     },
     {
       "id": 5,
-      "itemState": 2
+      "itemState": 1
     },
     {
       "id": 6,
-      "itemState": 2
+      "itemState": 1
     },
     {
       "id": 7,
@@ -134,7 +134,7 @@
     },
     {
       "id": 9,
-      "itemState": 1
+      "itemState": 2
     },
     {
       "id": 10,
@@ -146,8 +146,8 @@
     }
   ],
   "moneyValue": 11025,
-  "colorId": 5,
-  "shapeId": 6,
-  "SoundValue": 0.425826937,
+  "colorId": 2,
+  "shapeId": 9,
+  "SoundValue": 0.3577896,
   "MusicValue": 1.0
 }

@@ -13,11 +13,11 @@ public class BackGroundHolder : MonoBehaviour
     
     private void Start()
     {
-        ChangeColor();
-        ChangeShape();
-
         AssortmentBroker.ColorChanged += ChangeColor;
         AssortmentBroker.ShapeChanged += ChangeShape;
+        AssortmentBroker.MoneyChnaged += UpdateData;
+
+        UpdateData();
     }
 
     private void Update()
@@ -29,10 +29,16 @@ public class BackGroundHolder : MonoBehaviour
     {
         AssortmentBroker.ColorChanged -= ChangeColor;
         AssortmentBroker.ShapeChanged -= ChangeShape;
+        AssortmentBroker.MoneyChnaged -= UpdateData;
     }
     
 #endregion
 
+    private void UpdateData()
+    {
+        ChangeColor();
+        ChangeShape();
+    }
     private void ChangeColor() => Camera.main.backgroundColor = SaveSystem.Instance.GetBackColor();
     private void ChangeShape() => ornamentRI.texture          = SaveSystem.Instance.GetBackShape();
 }

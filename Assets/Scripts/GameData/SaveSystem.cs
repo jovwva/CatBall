@@ -11,8 +11,6 @@ public class SaveSystem : MonoBehaviour
 
     private int levelCount = 18;
     private int itemCount = 12;
-    private int colorId = 0;
-    private int shapeId = 6;
 
 #region MonoBehaviour
     
@@ -61,10 +59,7 @@ public class SaveSystem : MonoBehaviour
             IsSaveReq = true;
         }
 
-        colorId = YandexGame.savesData.colorId;
-        shapeId = YandexGame.savesData.shapeId;
-
-        if (shapeId < 6)
+        if (GetBackShapeId() < 6)
         {
             SetBackShape(6);
             IsSaveReq = true;
@@ -104,12 +99,10 @@ public class SaveSystem : MonoBehaviour
     }
     public void  SetBackColor(int id) 
     {
-        colorId = id;
         YandexGame.savesData.colorId = id;
     } 
     public void  SetBackShape(int id)
     {
-        shapeId = id;
         YandexGame.savesData.shapeId = id;
     } 
 
@@ -133,17 +126,17 @@ public class SaveSystem : MonoBehaviour
 
     public Color    GetBackColor()
     {
-        ItemColorSO itemColor = (ItemColorSO)colorAssortment.itemList.Where( d => d.id == colorId).FirstOrDefault();
+        ItemColorSO itemColor = (ItemColorSO)colorAssortment.itemList.Where( d => d.id == GetBackColorId()).FirstOrDefault();
         return itemColor.color;
     } 
     public Texture  GetBackShape() 
     {
-        ItemShapeSO itemShape = (ItemShapeSO)shapeAssortment.itemList.Where( d => d.id == shapeId).FirstOrDefault();
+        ItemShapeSO itemShape = (ItemShapeSO)shapeAssortment.itemList.Where( d => d.id == GetBackShapeId()).FirstOrDefault();
         return itemShape.shapeTexture;
     }
 
-    public int GetBackColorId() => colorId;
-    public int GetBackShapeId() => shapeId;
+    public int GetBackColorId() => YandexGame.savesData.colorId;
+    public int GetBackShapeId() => YandexGame.savesData.shapeId;
 
     public float GetSoundValue() => YandexGame.savesData.SoundValue;
     public float GetMusicValue() => YandexGame.savesData.MusicValue;
