@@ -2288,9 +2288,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1689612748222027881, guid: 3d949fb6bfdd55840accf0963d9f8557, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2313552673389426327, guid: 3d949fb6bfdd55840accf0963d9f8557, type: 3}
       propertyPath: spawnPosition
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090075843235141313, guid: 3d949fb6bfdd55840accf0963d9f8557, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4673882021603400407, guid: 3d949fb6bfdd55840accf0963d9f8557, type: 3}
       propertyPath: m_LocalAABB.m_Center.y
@@ -2489,6 +2497,14 @@ PrefabInstance:
     - target: {fileID: 3635490545115157123, guid: 6845b9bbd7c89cf4a85e2c8184e9ed0e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3654290550181522673, guid: 6845b9bbd7c89cf4a85e2c8184e9ed0e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4530341327829993131, guid: 6845b9bbd7c89cf4a85e2c8184e9ed0e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5827754443667402903, guid: 6845b9bbd7c89cf4a85e2c8184e9ed0e, type: 3}
       propertyPath: m_Points.Array.data[0].x

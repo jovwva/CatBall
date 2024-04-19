@@ -139,7 +139,6 @@ GameObject:
   - component: {fileID: 920791379864944620}
   - component: {fileID: 5710712564804224093}
   - component: {fileID: 1832801035274487899}
-  - component: {fileID: 450918718611725614}
   m_Layer: 0
   m_Name: '[SoundBar]'
   m_TagString: Untagged
@@ -204,14 +203,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commonSource: {fileID: 5813791468149103459}
---- !u!81 &450918718611725614
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3691597974772543304}
-  m_Enabled: 1
 --- !u!1 &4018810708368544099
 GameObject:
   m_ObjectHideFlags: 0

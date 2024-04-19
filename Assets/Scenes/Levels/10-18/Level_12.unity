@@ -154,7 +154,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &441136957
 Transform:
@@ -247,6 +247,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 178984267059303103, guid: 0af3da3f3e83256478167aae961e227a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 729822074886632716, guid: 0af3da3f3e83256478167aae961e227a, type: 3}
       propertyPath: m_Name
       value: BluePipeVisual
@@ -258,6 +262,10 @@ PrefabInstance:
     - target: {fileID: 1013949512676473061, guid: 0af3da3f3e83256478167aae961e227a, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1013949512676473061, guid: 0af3da3f3e83256478167aae961e227a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1265924175842254931, guid: 0af3da3f3e83256478167aae961e227a, type: 3}
       propertyPath: m_Size.x
@@ -2669,7 +2677,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2041297678
 Transform:
