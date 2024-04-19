@@ -491,7 +491,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1558246561, guid: c4439c1c65068ea48a7c7a10ec6d1d49, type: 3}
+  m_Sprite: {fileID: 1641613267, guid: 7c0758a79f048794ebd83b73acdfbbf4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1052,7 +1052,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1956473066, guid: c4439c1c65068ea48a7c7a10ec6d1d49, type: 3}
+  m_Sprite: {fileID: 787720421, guid: 7c0758a79f048794ebd83b73acdfbbf4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1785,7 +1785,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -425144424, guid: c4439c1c65068ea48a7c7a10ec6d1d49, type: 3}
+  m_Sprite: {fileID: -602637269, guid: 7c0758a79f048794ebd83b73acdfbbf4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2743,8 +2743,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textMPComponent: {fileID: 1898361847}
-  uniqueFontTMP: {fileID: 0}
   textLComponent: {fileID: 0}
   infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
   text: 
